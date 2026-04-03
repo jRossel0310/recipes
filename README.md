@@ -1,9 +1,3 @@
-# recipes
-Running evolution of all of the recipes I enjoy
-
-
-Here is the text used to generate consistent recipe's:
-
 Convert the following recipe into a clean **Markdown file suitable for a GitHub recipe repository**.
 
 Follow these rules strictly.
