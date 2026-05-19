@@ -1,7 +1,7 @@
 # Herb-Cured Roasted Salmon
 
 **Source:** personal recipe
-**Servings:** 2–4
+**Servings:** 2
 **Prep Time:** 10 minutes (plus 30–60 minutes curing)
 **Cook Time:** 10–14 minutes
 
