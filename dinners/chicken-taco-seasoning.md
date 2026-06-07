@@ -1,5 +1,3 @@
-Filename: chicken-taco-seasoning.md
-
 # Chicken Taco Seasoning
 
 **Source:** Adapted from large-batch house spice blend
