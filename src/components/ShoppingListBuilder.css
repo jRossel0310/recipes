@@ -1,0 +1,10 @@
+.slb { display: grid; gap: 1rem; }
+.slb .pick { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1rem; }
+.slb .row { display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0; }
+.slb .row label { flex: 1; }
+.slb .row input[type='number'] { width: 4rem; }
+.slb .out { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1rem; }
+.slb .out ul { list-style: none; padding: 0; margin: 0.5rem 0; }
+.slb .out li { padding: 0.25rem 0; border-bottom: 1px solid var(--border); }
+.slb .src { color: #897f6d; font-size: 0.85rem; }
+.slb h3.cat { text-transform: capitalize; margin: 0.75rem 0 0.25rem; }

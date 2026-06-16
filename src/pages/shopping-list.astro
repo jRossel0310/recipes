@@ -1,0 +1,17 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ShoppingListBuilder, { type RecipeChoice } from '../components/ShoppingListBuilder';
+
+const entries = await getCollection('recipes');
+const recipes: RecipeChoice[] = entries.map((e) => ({
+  slug: e.id.replace(/\.md$/, ''),
+  title: e.data.title,
+  category: e.id.split('/')[0],
+  data: { title: e.data.title, servings: e.data.servings, ingredients: e.data.ingredients },
+}));
+---
+<BaseLayout title="Shopping list">
+  <h1>Shopping list builder</h1>
+  <ShoppingListBuilder client:load recipes={recipes} />
+</BaseLayout>
