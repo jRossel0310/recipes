@@ -1,0 +1,42 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import RecipeScaler from '../../components/RecipeScaler';
+
+export async function getStaticPaths() {
+  const recipes = await getCollection('recipes');
+  return recipes.map((entry) => ({
+    params: { slug: entry.id.replace(/\.md$/, '') },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+const d = entry.data;
+---
+<BaseLayout title={d.title}>
+  <h1>{d.title}</h1>
+  <p>
+    {d.source && (d.source.startsWith('http')
+      ? <a href={d.source}>Source</a>
+      : <span>{d.source}</span>)}
+    {d.prepTime && <span> · Prep {d.prepTime}</span>}
+    {d.cookTime && <span> · Cook {d.cookTime}</span>}
+  </p>
+  {d.nutrition && (
+    <p>
+      Per serving:
+      {d.nutrition.calories && <span> {d.nutrition.calories} cal</span>}
+      {d.nutrition.protein && <span> · {d.nutrition.protein} g protein</span>}
+      {d.nutrition.carbs && <span> · {d.nutrition.carbs} g carbs</span>}
+      {d.nutrition.fat && <span> · {d.nutrition.fat} g fat</span>}
+    </p>
+  )}
+
+  <RecipeScaler client:load baseServings={d.servings} ingredients={d.ingredients} />
+
+  <article>
+    <Content />
+  </article>
+</BaseLayout>
