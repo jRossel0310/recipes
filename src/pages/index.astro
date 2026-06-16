@@ -1,0 +1,30 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const recipes = await getCollection('recipes');
+const byCategory = new Map<string, typeof recipes>();
+for (const r of recipes) {
+  const category = r.id.split('/')[0];
+  if (!byCategory.has(category)) byCategory.set(category, []);
+  byCategory.get(category)!.push(r);
+}
+const categories = [...byCategory.keys()].sort();
+---
+<BaseLayout title="Recipes">
+  <h1>Recipes</h1>
+  {categories.map((category) => (
+    <section>
+      <h2 class="category">{category}</h2>
+      <div class="grid">
+        {byCategory.get(category)!
+          .sort((a, b) => a.data.title.localeCompare(b.data.title))
+          .map((r) => (
+            <a class="card" href={`/recipes/${r.id.replace(/\.md$/, '')}`}>
+              {r.data.title}
+            </a>
+          ))}
+      </div>
+    </section>
+  ))}
+</BaseLayout>
