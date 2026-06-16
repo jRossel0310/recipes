@@ -10,6 +10,7 @@ export interface ShoppingItem {
   item: string;
   unit?: string;
   qty?: number;
+  qtyMax?: number;
   grams?: number;
   ml?: number;
   sources: string[];
@@ -53,14 +54,19 @@ export function consolidate(selections: RecipeSelection[]): ShoppingList {
       const key = `${normalize(ing.item)}|${ing.unit ?? ''}`;
       let entry = quantified.get(key);
       if (!entry) {
-        entry = { item: ing.item, unit: ing.unit, qty: 0, sources: [], notes: [] };
+        entry = { item: ing.item, unit: ing.unit, qty: 0, qtyMax: 0, sources: [], notes: [] };
         quantified.set(key, entry);
       }
       entry.qty = (entry.qty ?? 0) + ing.qty;
+      entry.qtyMax = (entry.qtyMax ?? 0) + (ing.qtyMax ?? ing.qty);
       if (ing.grams !== undefined) entry.grams = (entry.grams ?? 0) + ing.grams;
       if (ing.ml !== undefined) entry.ml = (entry.ml ?? 0) + ing.ml;
       addSource(entry, recipe.title, ing.note);
     }
+  }
+
+  for (const it of quantified.values()) {
+    if (it.qtyMax === it.qty) it.qtyMax = undefined;
   }
 
   const byName = (a: ShoppingItem, b: ShoppingItem) => a.item.localeCompare(b.item);

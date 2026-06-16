@@ -75,3 +75,10 @@ export function formatQuantity(ing: Ingredient): string {
   const num = ing.qtyMax === undefined ? lo : `${lo}–${formatNumber(ing.qtyMax, ing.unit)}`;
   return ing.unit ? `${num} ${ing.unit}` : num;
 }
+
+export function formatMetric(ing: Ingredient): string {
+  const parts: string[] = [];
+  if (ing.grams !== undefined) parts.push(`≈${formatNumber(ing.grams, 'g')} g`);
+  if (ing.ml !== undefined) parts.push(`≈${formatNumber(ing.ml, 'ml')} mL`);
+  return parts.join(', ');
+}

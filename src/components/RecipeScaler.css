@@ -7,5 +7,6 @@
 .ingredients li { padding: 0.35rem 0; border-bottom: 1px solid var(--border); }
 .ingredients .qty { font-weight: 600; }
 .ingredients .note { color: #897f6d; }
+.ingredients .metric { color: #897f6d; }
 .ingredients h3 { margin: 1rem 0 0.25rem; font-size: 0.95rem; }
 .ingredients .optional::after { content: ' (optional)'; color: #897f6d; font-style: italic; }

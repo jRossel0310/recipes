@@ -18,7 +18,9 @@ interface Selected { servings: number }
 function itemLine(item: ShoppingItem): string {
   const parts: string[] = [];
   if (item.qty !== undefined) {
-    parts.push(item.unit ? `${formatNumber(item.qty, item.unit)} ${item.unit}` : formatNumber(item.qty));
+    const lo = formatNumber(item.qty, item.unit);
+    const num = item.qtyMax !== undefined ? `${lo}–${formatNumber(item.qtyMax, item.unit)}` : lo;
+    parts.push(item.unit ? `${num} ${item.unit}` : num);
   }
   let line = `${parts.join(' ')} ${item.item}`.trim();
   if (item.grams !== undefined && item.unit !== 'g') line += ` (~${Math.round(item.grams)} g)`;

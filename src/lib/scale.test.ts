@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { scaleFactor, scaleIngredient, formatNumber, formatQuantity } from './scale';
+import { scaleFactor, scaleIngredient, formatNumber, formatQuantity, formatMetric } from './scale';
 import type { Ingredient } from './types';
 
 describe('scaleFactor', () => {
@@ -75,5 +75,20 @@ describe('formatQuantity', () => {
 
   it('renders grams with unit', () => {
     expect(formatQuantity({ item: 'flour', qty: 339, unit: 'g' })).toBe('339 g');
+  });
+});
+
+describe('formatMetric', () => {
+  it('formats a grams annotation', () => {
+    expect(formatMetric({ item: 'pasta', qty: 0.75, unit: 'lb', grams: 339 })).toBe('≈339 g');
+  });
+  it('formats an ml annotation', () => {
+    expect(formatMetric({ item: 'milk', qty: 0.75, unit: 'cup', ml: 180 })).toBe('≈180 mL');
+  });
+  it('formats both grams and ml', () => {
+    expect(formatMetric({ item: 'x', qty: 1, grams: 100, ml: 50 })).toBe('≈100 g, ≈50 mL');
+  });
+  it('returns empty string when there is no metric annotation', () => {
+    expect(formatMetric({ item: 'eggs', qty: 2 })).toBe('');
   });
 });

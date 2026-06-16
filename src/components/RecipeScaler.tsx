@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import type { Ingredient } from '../lib/types';
-import { scaleFactor, scaleIngredient, formatQuantity } from '../lib/scale';
+import { scaleFactor, scaleIngredient, formatQuantity, formatMetric } from '../lib/scale';
 import './RecipeScaler.css';
 
 interface Props {
@@ -19,10 +19,12 @@ export default function RecipeScaler({ baseServings, ingredients }: Props) {
     const showGroup = ing.group && ing.group !== lastGroup;
     if (ing.group) lastGroup = ing.group;
     const qty = formatQuantity(ing);
+    const metric = formatMetric(ing);
     return (
       <li key={i} className={ing.optional ? 'optional' : undefined}>
         {showGroup && <h3>{ing.group}</h3>}
         {qty && <span className="qty">{qty}</span>} {ing.item}
+        {metric && <span className="metric"> ({metric})</span>}
         {ing.note && <span className="note"> — {ing.note}</span>}
       </li>
     );

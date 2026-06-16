@@ -40,11 +40,8 @@ ingredients:
     item: Cucumber
     note: as much as you want, sliced or diced
   - group: Vegetables
-    qty: 0
-    qtyMax: 50
-    unit: g
     item: avocado
-    note: sliced or cubed; skip on higher-calorie days
+    note: up to 50 g; sliced or cubed; skip on higher-calorie days
     optional: true
   - group: Vegetables
     item: seaweed salad

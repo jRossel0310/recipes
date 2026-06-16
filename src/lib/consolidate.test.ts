@@ -89,4 +89,39 @@ describe('consolidate', () => {
     expect(flour?.qty).toBe(2);
     expect(flour?.grams).toBe(120);
   });
+
+  it('carries a range upper bound through the shopping list', () => {
+    const r: RecipeData = {
+      title: 'Shawarma',
+      servings: 6,
+      ingredients: [{ item: 'chicken breasts', qty: 6, qtyMax: 8 }],
+    };
+    const list = consolidate([{ recipe: r, targetServings: 6 }]);
+    const chicken = list.items.find((i) => i.item.toLowerCase() === 'chicken breasts');
+    expect(chicken?.qty).toBe(6);
+    expect(chicken?.qtyMax).toBe(8);
+  });
+
+  it('leaves qtyMax undefined for non-range items', () => {
+    const r: RecipeData = {
+      title: 'X',
+      servings: 1,
+      ingredients: [{ item: 'garlic', qty: 2, unit: 'cloves' }],
+    };
+    const list = consolidate([{ recipe: r, targetServings: 1 }]);
+    const g = list.items.find((i) => i.item.toLowerCase() === 'garlic');
+    expect(g?.qtyMax).toBeUndefined();
+  });
+
+  it('sums a range across a ranged and a non-ranged source', () => {
+    const a: RecipeData = { title: 'A', servings: 1, ingredients: [{ item: 'rice', qty: 200, qtyMax: 275, unit: 'g' }] };
+    const b: RecipeData = { title: 'B', servings: 1, ingredients: [{ item: 'rice', qty: 100, unit: 'g' }] };
+    const list = consolidate([
+      { recipe: a, targetServings: 1 },
+      { recipe: b, targetServings: 1 },
+    ]);
+    const rice = list.items.find((i) => i.item.toLowerCase() === 'rice');
+    expect(rice?.qty).toBe(300);
+    expect(rice?.qtyMax).toBe(375);
+  });
 });
