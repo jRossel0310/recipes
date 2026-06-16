@@ -1,79 +1,69 @@
-Convert the following recipe into a clean **Markdown file suitable for a GitHub recipe repository**.
+# Recipes
 
-Follow these rules strictly.
+A scalable recipe website built with Astro. Recipes live in
+`src/content/recipes/<category>/<name>.md` as markdown with structured frontmatter.
 
-FORMAT
+## Local development
 
-* Use Markdown headings and bullet points.
-* The recipe should render cleanly on GitHub.
-* Do not include commentary or explanations outside the Markdown.
-* If the recipe comes from a link, extract only the relevant recipe content (ignore ads or story text).
+```bash
+npm install
+npm run dev      # http://localhost:4321
+npm run build    # production build (also validates every recipe)
+npm test         # unit tests for scaling + shopping-list logic
+```
 
-IMPORTANT
+Deploys automatically to Vercel on every commit.
 
-* If you **cannot access or read the recipe from the provided website link**, **do NOT guess or fabricate the recipe**.
-* Instead respond with:
-  "I cannot access the recipe from this link. Please provide the recipe text."
-* Only generate the Markdown recipe once the full recipe information is available.
+## Recipe file format
 
-FILE NAME
-Provide a filename suggestion at the top using kebab-case.
+Frontmatter holds the metadata and ingredients; the markdown body holds instructions and notes.
 
-Example:
-Filename: lemon-herb-roasted-chicken.md
+| Field | Required | Notes |
+|-------|----------|-------|
+| `title` | yes | Display name |
+| `source` | no | URL or free text |
+| `servings` | yes | Base serving count the quantities are written for |
+| `prepTime` / `cookTime` | no | Free text |
+| `nutrition` | no | Per serving: `calories`, `protein`, `carbs`, `fat` |
+| `tags` | no | String list |
+| `ingredients` | yes | List of ingredient objects (below) |
 
-STRUCTURE
-Use the following section order exactly.
+Ingredient fields: `item` (required), `qty`, `qtyMax` (range upper bound), `unit`, `grams`,
+`ml`, `note`, `group` (subsection label), `optional`. **Omit `qty` for "to taste" items** —
+they display verbatim and never scale. Always write `qty` as a plain number (`0.5`, not `½`).
 
-# Recipe Name
+## Adding a recipe with an LLM
 
-**Source:** (website or "personal recipe")
-**Servings:**
-**Prep Time:**
-**Cook Time:**
+Paste the prompt below into an LLM along with a recipe (text or link). It produces a ready-to-save file.
 
-## Nutrition (Estimated per serving)
+---
 
-* Calories:
-* Protein:
-* Carbohydrates:
-* Fat:
-
-If exact data is unavailable, estimate using typical ingredient values.
-
-## Ingredients
-
-List ingredients with the **original units first**, then provide **metric conversions in grams in parentheses when applicable**.
-
-Example:
-
-* 2 tbsp olive oil (≈27 g)
-* 1 cup flour (≈120 g)
-* 1 lb chicken breast (≈454 g)
-
-If the ingredient is already in grams, keep it unchanged.
-
-## Instructions
-
-1. step
-2. step
-3. step
-
-## Notes
-
-* cooking tips
-* scaling considerations
-* storage advice
-
-## Tags
-
-Add 3–6 tags describing the dish (example: chicken, pasta, vegetarian, sauce, dessert, meal-prep).
+Convert the following recipe into a Markdown file for my Astro recipe site.
 
 OUTPUT RULES
+- Output only the file contents, nothing else.
+- Suggest a kebab-case filename on the first line as a comment: `<!-- fajitas.md -->`.
 
-* Output **only the Markdown file contents**.
-* No explanations.
-* No extra formatting outside Markdown.
+FRONTMATTER (YAML)
+- `title`, `source` (URL or "personal recipe"), `servings` (number), `prepTime`, `cookTime`.
+- `nutrition` (per serving): `calories`, `protein`, `carbs`, `fat` — estimate if not given.
+- `tags`: 3–6 short tags.
+- `ingredients`: a YAML list. Each item:
+  - `item` (required, the ingredient name)
+  - `qty` (number; convert fractions to decimals: ½ → 0.5, 1½ → 1.5, 3/4 → 0.75)
+  - `qtyMax` (only for ranges like "6 to 8" → qty: 6, qtyMax: 8)
+  - `unit` (cup, tbsp, tsp, lb, oz, g, kg, ml, clove, head, can, pinch… or omit for plain counts)
+  - `grams` / `ml` (metric conversion when applicable; use the low end of a range)
+  - `note` (prep or qualifier, e.g. "cut into florets", "to taste", "plus more to taste")
+  - `group` (only if the recipe has sections, e.g. "For the tzatziki sauce")
+  - `optional: true` (only for optional ingredients)
+  - For "to taste"/"for greasing" items with no amount, omit `qty` and put the phrase in `note`.
+
+BODY (markdown, after the frontmatter)
+- `## Instructions` as a numbered list.
+- `## Notes` as bullets (tips, storage, scaling).
+
+If you cannot read the recipe from a link, reply only: "I cannot access the recipe from this link. Please provide the recipe text."
 
 Here is the recipe to convert:
 
