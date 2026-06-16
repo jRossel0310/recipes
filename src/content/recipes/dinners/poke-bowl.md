@@ -1,42 +1,64 @@
-# Poke Bowl
-
-**Source:** personal recipe
-**Servings:** 1
-**Prep Time:** 10 minutes (plus rice and salmon if not already cooked)
-**Cook Time:** 0 minutes (assuming pre-cooked or canned protein)
-
-## Nutrition (Estimated per serving, mid-range build)
-
-* Calories: ~650
-* Protein: ~45 g
-* Carbohydrates: ~70 g
-* Fat: ~22 g
-
-*Range with full build: ~550–800 kcal depending on portions chosen below.*
-
-## Ingredients
-
-**Base:**
-
-* 200–275 g cooked white or brown rice (sushi rice, jasmine, or short-grain white all work)
-
-**Protein — pick one:**
-
-* 170–225 g cooked salmon (flaked, leftover, or store-bought)
-* 1–2 cans/packets tuna (≈75–150 g drained)
-
-**Vegetables:**
-
-* 75–125 g shelled edamame (frozen, thawed or briefly steamed)
-* Cucumber — as much as you want, sliced or diced (no need to measure)
-* 0–50 g avocado, sliced or cubed (skip on higher-calorie days)
-* Optional: seaweed salad — only include if you weigh and log it; many store versions are heavy on sugar and oil
-
-**Sauce and toppings:**
-
-* 10–20 g Kewpie mayo (about 1–1.5 tsp)
-* Soy sauce or tamari, to taste
-* Optional: sriracha, rice vinegar, sesame seeds, sliced green onion, pickled ginger, furikake, nori strips
+---
+title: Poke Bowl
+source: personal recipe
+servings: 1
+prepTime: 10 minutes (plus rice and salmon if not already cooked)
+cookTime: 0 minutes (assuming pre-cooked or canned protein)
+nutrition:
+  calories: 650
+  protein: 45
+  carbs: 70
+  fat: 22
+tags: [salmon, tuna, rice, bowl, meal-prep, high-protein]
+ingredients:
+  - group: Base
+    qty: 200
+    qtyMax: 275
+    item: cooked white or brown rice
+    note: sushi rice, jasmine, or short-grain white all work; measured in grams
+  - group: Protein — pick one
+    qty: 170
+    qtyMax: 225
+    item: cooked salmon
+    note: flaked, leftover, or store-bought; measured in grams
+  - group: Protein — pick one
+    qty: 1
+    qtyMax: 2
+    unit: cans
+    item: tuna
+    note: ≈75–150 g drained; alternative to salmon
+    optional: true
+  - group: Vegetables
+    qty: 75
+    qtyMax: 125
+    item: shelled edamame
+    note: frozen, thawed or briefly steamed; measured in grams
+  - group: Vegetables
+    item: Cucumber
+    note: as much as you want, sliced or diced
+  - group: Vegetables
+    qty: 0
+    qtyMax: 50
+    item: avocado
+    note: sliced or cubed; skip on higher-calorie days; measured in grams
+    optional: true
+  - group: Vegetables
+    item: seaweed salad
+    note: optional — only include if you weigh and log it; many store versions are heavy on sugar and oil
+    optional: true
+  - group: Sauce and toppings
+    qty: 10
+    qtyMax: 20
+    item: Kewpie mayo
+    note: about 1–1.5 tsp; measured in grams
+  - group: Sauce and toppings
+    item: Soy sauce or tamari
+    note: to taste
+  - group: Sauce and toppings
+    item: sriracha, rice vinegar, sesame seeds, sliced green onion, pickled ginger, furikake, nori strips
+    note: optional toppings
+    optional: true
+---
 
 ## Instructions
 
@@ -59,7 +81,3 @@
 * Meal prep: rice and edamame keep well in the fridge for 3–4 days. Slice cucumber and avocado fresh; assemble bowls just before eating to keep texture right.
 * Cooked salmon stores up to 3 days refrigerated. Canned tuna is the easiest meal-prep protein since it skips the cooking step entirely.
 * Use sushi-grade raw fish only if you're sourcing it from a fishmonger you trust and using it the same day.
-
-## Tags
-
-salmon, tuna, rice, bowl, meal-prep, high-protein

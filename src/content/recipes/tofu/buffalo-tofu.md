@@ -1,46 +1,79 @@
-Filename: crispy-baked-buffalo-tofu-wings.md
-
-# Crispy Baked Buffalo Tofu Wings
-
-**Source:** [The Curious Chickpea](https://www.thecuriouschickpea.com/crispy-baked-buffalo-tofu-wings/)
-**Servings:** 6 (3 wings per serving)
-**Prep Time:** 10 minutes
-**Cook Time:** 40 minutes
-
-## Nutrition (Estimated per serving)
-
-* Calories: 329
-* Protein: 13 g
-* Carbohydrates: 36 g
-* Fat: 17 g
-
-## Ingredients
-
-### Tofu
-
-* 1 lb extra firm or super firm tofu (≈454 g)
-* 6 tbsp cornstarch, arrowroot, or tapioca starch (≈48 g)
-* ¼ cup plant milk (≈60 ml)
-
-### Bread Crumb Mixture
-
-* 1 cup panko style bread crumbs (≈60 g)
-* 2 tbsp olive oil (≈27 g)
-* ½ tsp paprika (≈1 g)
-* ½ tsp salt
-* Freshly ground black pepper, to taste
-* 1 tbsp fresh minced parsley
-
-### Buffalo Sauce
-
-* 6 tbsp red cayenne pepper hot sauce (90 g) — Frank's RedHot recommended
-* 3 tbsp vegan butter (35 g)
-* ⅛ tsp granulated garlic
-* ⅛ tsp salt
-
-### To Serve
-
-* Vegan bleu cheese or ranch style dressing
+---
+title: Crispy Baked Buffalo Tofu Wings
+source: https://www.thecuriouschickpea.com/crispy-baked-buffalo-tofu-wings/
+servings: 6
+prepTime: 10 minutes
+cookTime: 40 minutes
+nutrition:
+  calories: 329
+  protein: 13
+  carbs: 36
+  fat: 17
+tags: [tofu, vegan, buffalo, baked, appetizer, spicy]
+ingredients:
+  - group: Tofu
+    qty: 1
+    unit: lb
+    item: extra firm or super firm tofu
+    grams: 454
+  - group: Tofu
+    qty: 6
+    unit: tbsp
+    item: cornstarch, arrowroot, or tapioca starch
+    grams: 48
+  - group: Tofu
+    qty: 0.25
+    unit: cup
+    item: plant milk
+    ml: 60
+  - group: Bread Crumb Mixture
+    qty: 1
+    unit: cup
+    item: panko style bread crumbs
+    grams: 60
+  - group: Bread Crumb Mixture
+    qty: 2
+    unit: tbsp
+    item: olive oil
+    grams: 27
+  - group: Bread Crumb Mixture
+    qty: 0.5
+    unit: tsp
+    item: paprika
+    grams: 1
+  - group: Bread Crumb Mixture
+    qty: 0.5
+    unit: tsp
+    item: salt
+  - group: Bread Crumb Mixture
+    item: Freshly ground black pepper
+    note: to taste
+  - group: Bread Crumb Mixture
+    qty: 1
+    unit: tbsp
+    item: fresh minced parsley
+  - group: Buffalo Sauce
+    qty: 6
+    unit: tbsp
+    item: red cayenne pepper hot sauce
+    grams: 90
+    note: Frank's RedHot recommended
+  - group: Buffalo Sauce
+    qty: 3
+    unit: tbsp
+    item: vegan butter
+    grams: 35
+  - group: Buffalo Sauce
+    qty: 0.125
+    unit: tsp
+    item: granulated garlic
+  - group: Buffalo Sauce
+    qty: 0.125
+    unit: tsp
+    item: salt
+  - group: To Serve
+    item: Vegan bleu cheese or ranch style dressing
+---
 
 ## Instructions
 
@@ -61,7 +94,3 @@ Filename: crispy-baked-buffalo-tofu-wings.md
 * Leftover wings can be re-crisped in the oven before serving.
 * For a milder sauce, increase the butter; for spicier, increase the hot sauce or reduce the butter.
 * To make gluten free, substitute gluten-free panko breadcrumbs or crushed corn/puffed rice cereal.
-
-## Tags
-
-tofu, vegan, buffalo, baked, appetizer, spicy

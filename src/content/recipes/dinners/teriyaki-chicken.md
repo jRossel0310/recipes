@@ -1,46 +1,100 @@
-# Teriyaki Chicken Stir Fry
-
-**Source:** https://www.saltandlavender.com/teriyaki-chicken-stir-fry/
-**Servings:** 4
-**Prep Time:** 15 minutes
-**Cook Time:** 20 minutes
-
-## Nutrition (Estimated per serving, including rice)
-
-* Calories: ~650
-* Protein: ~45 g
-* Carbohydrates: ~90 g
-* Fat: ~11 g
-
-## Ingredients
-
-**For the chicken and stir fry:**
-
-* 3 boneless skinless chicken breasts (≈510 g) — bumped up from 2 for better protein per serving
-* 1/2 tsp garlic powder (≈1.5 g)
-* Black pepper, to taste
-* 3 tbsp cornstarch (≈24 g)
-* 2 tbsp olive oil, divided (≈27 g)
-* 1/2 medium onion, chopped (≈75 g)
-* 2 cups broccoli florets (≈175 g)
-* 1/2 red bell pepper, chopped (≈75 g)
-
-*OR* substitute the onion, broccoli, and bell pepper with one ~12 oz bag frozen stir-fry vegetables (≈340 g) — see notes.
-
-**For the sauce:**
-
-* 1/2 cup chicken broth (≈120 g)
-* 3 tbsp mirin (≈45 g)
-* 2 tbsp soy sauce (≈30 g)
-* 1 tsp rice vinegar or apple cider vinegar (≈5 g)
-* 1/4 cup packed brown sugar (≈55 g)
-* 1 tbsp cornstarch (≈8 g)
-* 1 tsp grated fresh ginger (≈2 g)
-* 2 cloves garlic, minced (≈6 g)
-
-**To serve:**
-
-* Cooked white or jasmine rice — 200–275 g cooked per serving (≈1.5 cups dry / ≈280 g raw for 4 servings)
+---
+title: Teriyaki Chicken Stir Fry
+source: https://www.saltandlavender.com/teriyaki-chicken-stir-fry/
+servings: 4
+prepTime: 15 minutes
+cookTime: 20 minutes
+nutrition:
+  calories: 650
+  protein: 45
+  carbs: 90
+  fat: 11
+tags: [chicken, stir-fry, asian, teriyaki, weeknight, meal-prep]
+ingredients:
+  - group: For the chicken and stir fry
+    qty: 3
+    item: boneless skinless chicken breasts
+    grams: 510
+    note: bumped up from 2 for better protein per serving
+  - group: For the chicken and stir fry
+    qty: 0.5
+    unit: tsp
+    item: garlic powder
+    grams: 1.5
+  - group: For the chicken and stir fry
+    item: Black pepper
+    note: to taste
+  - group: For the chicken and stir fry
+    qty: 3
+    unit: tbsp
+    item: cornstarch
+    grams: 24
+  - group: For the chicken and stir fry
+    qty: 2
+    unit: tbsp
+    item: olive oil
+    grams: 27
+    note: divided
+  - group: For the chicken and stir fry
+    qty: 0.5
+    item: medium onion
+    grams: 75
+    note: chopped
+  - group: For the chicken and stir fry
+    qty: 2
+    unit: cups
+    item: broccoli florets
+    grams: 175
+  - group: For the chicken and stir fry
+    qty: 0.5
+    item: red bell pepper
+    grams: 75
+    note: chopped; OR substitute the onion, broccoli, and bell pepper with one ~12 oz bag frozen stir-fry vegetables (≈340 g)
+  - group: For the sauce
+    qty: 0.5
+    unit: cup
+    item: chicken broth
+    grams: 120
+  - group: For the sauce
+    qty: 3
+    unit: tbsp
+    item: mirin
+    grams: 45
+  - group: For the sauce
+    qty: 2
+    unit: tbsp
+    item: soy sauce
+    grams: 30
+  - group: For the sauce
+    qty: 1
+    unit: tsp
+    item: rice vinegar or apple cider vinegar
+    grams: 5
+  - group: For the sauce
+    qty: 0.25
+    unit: cup
+    item: packed brown sugar
+    grams: 55
+  - group: For the sauce
+    qty: 1
+    unit: tbsp
+    item: cornstarch
+    grams: 8
+  - group: For the sauce
+    qty: 1
+    unit: tsp
+    item: grated fresh ginger
+    grams: 2
+  - group: For the sauce
+    qty: 2
+    unit: cloves
+    item: garlic
+    grams: 6
+    note: minced
+  - group: To serve
+    item: Cooked white or jasmine rice
+    note: 200–275 g cooked per serving (≈1.5 cups dry / ≈280 g raw for 4 servings)
+---
 
 ## Instructions
 
@@ -65,7 +119,3 @@
 * Reader favorites: add cashews or water chestnuts at the end for crunch.
 * Storage: refrigerate in a covered container for 3–4 days. Reheat gently over low heat. Freezing works but vegetable texture will soften.
 * Top with sesame seeds, sliced green onion, or fresh bean sprouts for extra crunch.
-
-## Tags
-
-chicken, stir-fry, asian, teriyaki, weeknight, meal-prep

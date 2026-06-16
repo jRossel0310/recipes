@@ -1,31 +1,60 @@
-Filename: chipotle-fajita-veggies.md
-
-# Chipotle Fajita Veggies
-
-**Source:** [Evolving Table](https://www.evolvingtable.com/fajita-veggies/)
-**Servings:** 6
-**Prep Time:** 10 minutes
-**Cook Time:** 10 minutes
-
-## Nutrition (Estimated per serving)
-
-* Calories: 73 kcal
-* Protein: 1 g
-* Carbohydrates: 7 g
-* Fat: 5 g
-
-## Ingredients
-
-* 3 bell peppers (red, yellow, and green), thinly sliced (≈450 g total)
-* 1 red onion, thinly sliced (≈150 g)
-* 2 tbsp avocado oil (≈27 g)
-* 2 garlic cloves, finely minced (≈6 g)
-* ½ tsp chili powder (≈1.5 g)
-* ½ tsp paprika (≈1.5 g)
-* ½ tsp cumin (≈1.5 g)
-* ¼ tsp oregano (≈0.5 g)
-* 1 tsp salt, to taste (≈6 g)
-* ¼ tsp pepper, to taste (≈0.5 g)
+---
+title: Chipotle Fajita Veggies
+source: https://www.evolvingtable.com/fajita-veggies/
+servings: 6
+prepTime: 10 minutes
+cookTime: 10 minutes
+nutrition:
+  calories: 73
+  protein: 1
+  carbs: 7
+  fat: 5
+tags: [vegetarian, vegan, tex-mex, fajita, vegetables, chipotle-copycat]
+ingredients:
+  - qty: 3
+    item: bell peppers
+    grams: 450
+    note: red, yellow, and green, thinly sliced
+  - qty: 1
+    item: red onion
+    grams: 150
+    note: thinly sliced
+  - qty: 2
+    unit: tbsp
+    item: avocado oil
+    grams: 27
+  - qty: 2
+    unit: cloves
+    item: garlic
+    grams: 6
+    note: finely minced
+  - qty: 0.5
+    unit: tsp
+    item: chili powder
+    grams: 1.5
+  - qty: 0.5
+    unit: tsp
+    item: paprika
+    grams: 1.5
+  - qty: 0.5
+    unit: tsp
+    item: cumin
+    grams: 1.5
+  - qty: 0.25
+    unit: tsp
+    item: oregano
+    grams: 0.5
+  - qty: 1
+    unit: tsp
+    item: salt
+    grams: 6
+    note: to taste
+  - qty: 0.25
+    unit: tsp
+    item: pepper
+    grams: 0.5
+    note: to taste
+---
 
 ## Instructions
 
@@ -43,7 +72,3 @@ Filename: chipotle-fajita-veggies.md
 * **Prep ahead:** Slice the vegetables and store them in separate airtight containers in the fridge up to 3 days in advance.
 * **Storage:** Refrigerate cooked fajita veggies in an airtight container for up to 5 days, or freeze in a zip-top bag with air removed for up to 4 months.
 * **Serving ideas:** Serve on tacos, in burrito bowls, alongside cilantro lime rice, or as a side for any Tex-Mex meal.
-
-## Tags
-
-vegetarian, vegan, Tex-Mex, fajita, vegetables, Chipotle-copycat

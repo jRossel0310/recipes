@@ -1,29 +1,52 @@
-Filename: the-best-dinner-rolls.md
-
-# The Best Dinner Rolls
-
-**Source:** [Mom On Timeout](https://www.momontimeout.com/the-best-dinner-rolls-recipe/)
-**Servings:** 24 rolls
-**Prep Time:** 10 minutes
-**Cook Time:** 12–15 minutes
-
-## Nutrition (Estimated per serving)
-
-* Calories: 74
-* Protein: 1 g
-* Carbohydrates: 7 g
-* Fat: 4 g
-
-## Ingredients
-
-* 4–5 cups all-purpose flour (≈480–600 g)
-* 2 tbsp rapid rise / instant yeast (≈18 g)
-* ⅓ cup granulated sugar (≈67 g)
-* 1 tsp salt (≈6 g)
-* 1½ cups warm milk, 110°F / 43°C (≈355 ml)
-* 5 tbsp butter, softened (≈71 g)
-* 1 egg, room temperature
-* 2 tbsp melted butter for brushing (≈28 g)
+---
+title: The Best Dinner Rolls
+source: https://www.momontimeout.com/the-best-dinner-rolls-recipe/
+servings: 24
+prepTime: 10 minutes
+cookTime: 12–15 minutes
+nutrition:
+  calories: 74
+  protein: 1
+  carbs: 7
+  fat: 4
+tags: [bread, rolls, baked, side-dish, holiday, yeast]
+ingredients:
+  - qty: 4
+    qtyMax: 5
+    unit: cups
+    item: all-purpose flour
+    grams: 480
+  - qty: 2
+    unit: tbsp
+    item: rapid rise / instant yeast
+    grams: 18
+  - qty: 0.333
+    unit: cup
+    item: granulated sugar
+    grams: 67
+  - qty: 1
+    unit: tsp
+    item: salt
+    grams: 6
+  - qty: 1.5
+    unit: cups
+    item: warm milk
+    ml: 355
+    note: 110°F / 43°C
+  - qty: 5
+    unit: tbsp
+    item: butter
+    grams: 71
+    note: softened
+  - qty: 1
+    item: egg
+    note: room temperature
+  - qty: 2
+    unit: tbsp
+    item: melted butter
+    grams: 28
+    note: for brushing
+---
 
 ## Instructions
 
@@ -48,7 +71,3 @@ Filename: the-best-dinner-rolls.md
 * **Make ahead:** Prepare through shaping, cover, and refrigerate overnight. Remove 1 hour before baking and let come to room temperature, then bake as directed.
 * **Storage:** Airtight container at room temperature for up to 4 days. Freeze for up to 3 months — wrap tightly in plastic wrap and foil, or use a freezer-safe bag.
 * Check a center roll for doneness; tent with foil if the outer rolls are browning before the centers are baked through.
-
-## Tags
-
-bread, rolls, baked, side-dish, holiday, yeast

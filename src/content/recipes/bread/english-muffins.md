@@ -1,34 +1,67 @@
-Filename: english-muffins.md
-
-# English Muffins
-
-**Servings:** 6 medium 3½" muffins
-**Prep Time:** 45 minutes (plus ~3 hours rest/ferment)
-**Cook Time:** 20 to 30 minutes
-
-## Nutrition (Estimated per serving)
-
-* Calories: ~245
-* Protein: ~7 g
-* Carbohydrates: ~45 g
-* Fat: ~4 g
-
-## Ingredients
-
-### Preferment
-
-* 1 1/2 cups plus 4 teaspoons Unbleached All-Purpose Flour (≈190 g)
-* 3/4 teaspoon instant yeast (≈2 g)
-* 1/2 cup plus 3 tablespoons lukewarm milk, whole preferred, 90°F (≈152 g)
-* 1/4 cup plus 3 tablespoons lukewarm water, 90°F (≈102 g)
-
-### Dough
-
-* 1 cup Unbleached All-Purpose Flour (≈120 g)
-* 1 teaspoon table salt (≈6 g)
-* 1 teaspoon granulated sugar (≈4 g)
-* 1 tablespoon plus 1 teaspoon unsalted butter, melted (≈18 g)
-* 2 to 3 tablespoons yellow cornmeal, for dusting (≈20–30 g)
+---
+title: English Muffins
+servings: 6
+prepTime: 45 minutes (plus ~3 hours rest/ferment)
+cookTime: 20 to 30 minutes
+nutrition:
+  calories: 245
+  protein: 7
+  carbs: 45
+  fat: 4
+tags: [bread, breakfast, yeast, english-muffins, stovetop, vegetarian]
+ingredients:
+  - group: Preferment
+    qty: 1.5
+    unit: cups
+    item: Unbleached All-Purpose Flour
+    grams: 190
+    note: plus 4 teaspoons
+  - group: Preferment
+    qty: 0.75
+    unit: tsp
+    item: instant yeast
+    grams: 2
+  - group: Preferment
+    qty: 0.5
+    unit: cup
+    item: lukewarm milk
+    grams: 152
+    note: whole preferred, 90°F; plus 3 tablespoons
+  - group: Preferment
+    qty: 0.25
+    unit: cup
+    item: lukewarm water
+    grams: 102
+    note: 90°F; plus 3 tablespoons
+  - group: Dough
+    qty: 1
+    unit: cup
+    item: Unbleached All-Purpose Flour
+    grams: 120
+  - group: Dough
+    qty: 1
+    unit: tsp
+    item: table salt
+    grams: 6
+  - group: Dough
+    qty: 1
+    unit: tsp
+    item: granulated sugar
+    grams: 4
+  - group: Dough
+    qty: 1
+    unit: tbsp
+    item: unsalted butter
+    grams: 18
+    note: melted; plus 1 teaspoon
+  - group: Dough
+    qty: 2
+    qtyMax: 3
+    unit: tbsp
+    item: yellow cornmeal
+    grams: 20
+    note: for dusting
+---
 
 ## Instructions
 
@@ -53,7 +86,3 @@ Filename: english-muffins.md
 * Prefer square muffins with zero scraps? Skip the cutter and divide the dough with a knife or bench scraper.
 * Keep heat at medium-low — too hot and the outsides brown before the centers cook through.
 * **Storage:** Store at room temperature in an airtight container for up to 3 days, or freeze for longer storage.
-
-## Tags
-
-bread, breakfast, yeast, english-muffins, stovetop, vegetarian

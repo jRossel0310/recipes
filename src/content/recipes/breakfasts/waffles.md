@@ -1,33 +1,52 @@
-# Bisquick-Style Waffles
-
-**Source:** Personal recipe
-**Servings:** 4
-**Prep Time:** 10 minutes
-**Cook Time:** 20 minutes
-
 ---
-
-## Nutrition (Estimated per serving)
-
-* Calories: 390
-* Protein: 9 g
-* Carbohydrates: 52 g
-* Fat: 16 g
-
----
-
-## Ingredients
-
-* 2 cups all-purpose flour (≈240 g)
-* 2 tbsp baking powder (≈28 g)
-* 1 tsp salt (≈6 g)
-* 2 tbsp sugar (≈25 g)
-* ¼ cup cold butter, grated or finely cubed (≈57 g)
-* 1⅓ cups milk (≈315 mL)
-* 1 egg
-* 2 tbsp melted butter or oil (≈27 g)
-* ½ tsp baking soda *(optional)* (≈3 g)
-
+title: Bisquick-Style Waffles
+source: Personal recipe
+servings: 4
+prepTime: 10 minutes
+cookTime: 20 minutes
+nutrition:
+  calories: 390
+  protein: 9
+  carbs: 52
+  fat: 16
+tags: [breakfast, waffles, quick, family-friendly, freezer-friendly]
+ingredients:
+  - qty: 2
+    unit: cups
+    item: all-purpose flour
+    grams: 240
+  - qty: 2
+    unit: tbsp
+    item: baking powder
+    grams: 28
+  - qty: 1
+    unit: tsp
+    item: salt
+    grams: 6
+  - qty: 2
+    unit: tbsp
+    item: sugar
+    grams: 25
+  - qty: 0.25
+    unit: cup
+    item: cold butter
+    grams: 57
+    note: grated or finely cubed
+  - qty: 1.333
+    unit: cups
+    item: milk
+    ml: 315
+  - qty: 1
+    item: egg
+  - qty: 2
+    unit: tbsp
+    item: melted butter or oil
+    grams: 27
+  - qty: 0.5
+    unit: tsp
+    item: baking soda
+    grams: 3
+    optional: true
 ---
 
 ## Instructions
@@ -39,8 +58,6 @@
 5. Preheat your waffle iron and grease lightly if needed. Pour in enough batter to fill your waffle iron according to its size. Cook until golden brown and crisp, typically 3–5 minutes per waffle.
 6. Serve immediately with your desired toppings.
 
----
-
 ## Notes
 
 * Cutting cold butter into the dry mix is what gives these waffles their fluffy, tender interior — don't skip this step.
@@ -50,9 +67,3 @@
 * **Buttermilk variation:** Substitute the milk 1:1 with buttermilk and include the baking soda for a tangy, extra-fluffy result.
 * Store leftover waffles in an airtight container in the refrigerator for up to 3 days, or freeze for up to 2 months. Reheat in a toaster or oven at 350°F (175°C) to restore crispness.
 * To scale: this recipe doubles easily; mix dry and wet ingredients in separate larger bowls before combining.
-
----
-
-## Tags
-
-`breakfast`, `waffles`, `quick`, `family-friendly`, `freezer-friendly`

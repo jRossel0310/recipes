@@ -1,36 +1,90 @@
-# The BEST Turkey Chili
-
-**Source:** https://kristineskitchenblog.com/healthy-turkey-chili-recipe-stovetop-slow-cooker-or-instant-pot/
-**Servings:** 6 (≈1.5 cups each)
-**Prep Time:** 25 minutes
-**Cook Time:** 1 hour
-
-## Nutrition (Estimated per serving)
-
-* Calories: 459
-* Protein: 38 g
-* Carbohydrates: 49 g
-* Fat: 13 g
-
-## Ingredients
-
-* 1 tbsp olive oil (≈14 g)
-* 1 cup chopped yellow onion (≈160 g)
-* 1 lb ground turkey (≈454 g)
-* 4 cloves garlic, minced (≈12 g)
-* 1 tbsp brown sugar (≈13 g)
-* 2 tbsp chili powder (≈16 g) — use 1 tbsp for less spice
-* 1 tbsp ground cumin (≈6 g)
-* 1 tsp dried oregano (≈1 g)
-* ½ tsp salt (≈3 g)
-* ¼ tsp black pepper (≈0.5 g)
-* 3 tbsp tomato paste (≈48 g)
-* 1¾ cups low-sodium chicken broth (≈415 g)
-* 28 oz can fire-roasted crushed tomatoes (≈794 g) — diced fire-roasted tomatoes also work
-* 15 oz can kidney beans, rinsed and drained (≈425 g)
-* 15 oz can black beans, rinsed and drained (≈425 g)
-* 15 oz can pinto beans, rinsed and drained (≈425 g)
-* For topping: shredded cheese, sour cream or plain Greek yogurt, cilantro, chopped onions, etc., as desired
+---
+title: The BEST Turkey Chili
+source: https://kristineskitchenblog.com/healthy-turkey-chili-recipe-stovetop-slow-cooker-or-instant-pot/
+servings: 6
+prepTime: 25 minutes
+cookTime: 1 hour
+nutrition:
+  calories: 459
+  protein: 38
+  carbs: 49
+  fat: 13
+tags: [turkey, chili, soup, beans, instant-pot, slow-cooker]
+ingredients:
+  - qty: 1
+    unit: tbsp
+    item: olive oil
+    grams: 14
+  - qty: 1
+    unit: cup
+    item: chopped yellow onion
+    grams: 160
+  - qty: 1
+    unit: lb
+    item: ground turkey
+    grams: 454
+  - qty: 4
+    unit: cloves
+    item: garlic
+    grams: 12
+    note: minced
+  - qty: 1
+    unit: tbsp
+    item: brown sugar
+    grams: 13
+  - qty: 2
+    unit: tbsp
+    item: chili powder
+    grams: 16
+    note: use 1 tbsp for less spice
+  - qty: 1
+    unit: tbsp
+    item: ground cumin
+    grams: 6
+  - qty: 1
+    unit: tsp
+    item: dried oregano
+    grams: 1
+  - qty: 0.5
+    unit: tsp
+    item: salt
+    grams: 3
+  - qty: 0.25
+    unit: tsp
+    item: black pepper
+    grams: 0.5
+  - qty: 3
+    unit: tbsp
+    item: tomato paste
+    grams: 48
+  - qty: 1.75
+    unit: cups
+    item: low-sodium chicken broth
+    grams: 415
+  - qty: 28
+    unit: oz
+    item: can fire-roasted crushed tomatoes
+    grams: 794
+    note: diced fire-roasted tomatoes also work
+  - qty: 15
+    unit: oz
+    item: can kidney beans
+    grams: 425
+    note: rinsed and drained
+  - qty: 15
+    unit: oz
+    item: can black beans
+    grams: 425
+    note: rinsed and drained
+  - qty: 15
+    unit: oz
+    item: can pinto beans
+    grams: 425
+    note: rinsed and drained
+  - item: shredded cheese, sour cream or plain Greek yogurt, cilantro, chopped onions
+    note: for topping, as desired
+    optional: true
+---
 
 ## Instructions
 
@@ -70,7 +124,3 @@
 * Storage: refrigerate in an airtight container for 3–4 days, or freeze for up to 3 months. Thaw overnight in the refrigerator before reheating.
 * Reheat in a covered pot over medium-low heat, stirring occasionally, or microwave until steaming hot.
 * Leftover chili turns into great chili mac — stir in cooked pasta and shredded cheddar.
-
-## Tags
-
-turkey, chili, soup, beans, instant-pot, slow-cooker

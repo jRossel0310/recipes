@@ -1,32 +1,49 @@
-# Chimichurri Sauce
-
-**Source:** [loveandlemons.com](https://www.loveandlemons.com/chimichurri-sauce/)
-**Servings:** 4–6
-**Prep Time:** 10 minutes
-**Cook Time:** 0 minutes
-
 ---
-
-## Nutrition (Estimated per serving)
-
-* Calories: 115
-* Protein: 0 g
-* Carbohydrates: 1 g
-* Fat: 12 g
-
----
-
-## Ingredients
-
-* ⅓ cup extra-virgin olive oil (≈73 g)
-* 2 tbsp white wine vinegar (≈30 mL)
-* 1 garlic clove, minced
-* ½ tsp sea salt (≈3 g)
-* ¼ tsp dried oregano (≈0.5 g)
-* ¼ tsp red pepper flakes (≈0.5 g)
-* ¼ tsp smoked paprika (≈0.5 g)
-* ½ cup finely chopped fresh flat-leaf parsley (≈30 g), coarse stems removed (from about 1 bunch)
-
+title: Chimichurri Sauce
+source: https://www.loveandlemons.com/chimichurri-sauce/
+servings: 4
+prepTime: 10 minutes
+cookTime: 0 minutes
+nutrition:
+  calories: 115
+  protein: 0
+  carbs: 1
+  fat: 12
+tags: [sauce, vegan, vegetarian, argentinian, gluten-free, quick]
+ingredients:
+  - qty: 0.333
+    unit: cup
+    item: extra-virgin olive oil
+    grams: 73
+  - qty: 2
+    unit: tbsp
+    item: white wine vinegar
+    ml: 30
+  - qty: 1
+    unit: clove
+    item: garlic
+    note: minced
+  - qty: 0.5
+    unit: tsp
+    item: sea salt
+    grams: 3
+  - qty: 0.25
+    unit: tsp
+    item: dried oregano
+    grams: 0.5
+  - qty: 0.25
+    unit: tsp
+    item: red pepper flakes
+    grams: 0.5
+  - qty: 0.25
+    unit: tsp
+    item: smoked paprika
+    grams: 0.5
+  - qty: 0.5
+    unit: cup
+    item: finely chopped fresh flat-leaf parsley
+    grams: 30
+    note: coarse stems removed (from about 1 bunch)
 ---
 
 ## Instructions
@@ -35,8 +52,6 @@
 2. Stir in the finely chopped parsley.
 3. Taste and adjust seasoning as needed — add more salt, vinegar, or red pepper flakes to your preference.
 4. Serve immediately or let sit for 10–15 minutes to allow the flavors to meld before using.
-
----
 
 ## Notes
 
@@ -48,9 +63,3 @@
 * **Storage:** Keep in an airtight container in the refrigerator for up to 4 days.
 * **Freezing:** Freeze in ice cube trays for easy portioning. Frozen cubes keep for up to 3 months. Thaw at room temperature or overnight in the fridge.
 * **Scaling:** Doubles easily with no technique changes.
-
----
-
-## Tags
-
-`sauce`, `vegan`, `vegetarian`, `argentinian`, `gluten-free`, `quick`

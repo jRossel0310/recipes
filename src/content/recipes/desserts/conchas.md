@@ -1,43 +1,82 @@
-# Conchas (Mexican Sweet Bread)
-
-**Source:** Personal recipe
-**Servings:** 8 conchas
-**Prep Time:** 30 minutes (plus 2 hrs 30 min–2 hrs 45 min rising/resting)
-**Cook Time:** 18–20 minutes
-
 ---
-
-## Nutrition (Estimated per serving)
-
-* Calories: 620
-* Protein: 10 g
-* Carbohydrates: 85 g
-* Fat: 27 g
-
----
-
-## Ingredients
-
-### Dough
-
-* 4 cups all-purpose flour, sifted (≈480 g)
-* ½ cup sugar (≈100 g)
-* 1 cinnamon stick
-* ¼ tsp salt (≈1.5 g)
-* 6 tbsp butter (≈85 g)
-* 1 tbsp instant yeast (≈9 g)
-* 1 tbsp vanilla extract (≈13 g)
-* 3 eggs
-* ¾ cup warm milk, about 110°F / 43°C (≈180 mL)
-* Butter for shaping, as needed
-
-### Vanilla Topping
-
-* 1½ cups all-purpose flour (≈180 g)
-* 1½ cups sugar (≈300 g)
-* 1 cup butter or shortening (≈227 g)
-* 1 tbsp vanilla extract (≈13 g)
-
+title: Conchas (Mexican Sweet Bread)
+source: Personal recipe
+servings: 8
+prepTime: 30 minutes (plus 2 hrs 30 min–2 hrs 45 min rising/resting)
+cookTime: 18–20 minutes
+nutrition:
+  calories: 620
+  protein: 10
+  carbs: 85
+  fat: 27
+tags: [bread, mexican, baking, sweet-bread, breakfast, pan-dulce]
+ingredients:
+  - group: Dough
+    qty: 4
+    unit: cups
+    item: all-purpose flour
+    grams: 480
+    note: sifted
+  - group: Dough
+    qty: 0.5
+    unit: cup
+    item: sugar
+    grams: 100
+  - group: Dough
+    qty: 1
+    item: cinnamon stick
+  - group: Dough
+    qty: 0.25
+    unit: tsp
+    item: salt
+    grams: 1.5
+  - group: Dough
+    qty: 6
+    unit: tbsp
+    item: butter
+    grams: 85
+  - group: Dough
+    qty: 1
+    unit: tbsp
+    item: instant yeast
+    grams: 9
+  - group: Dough
+    qty: 1
+    unit: tbsp
+    item: vanilla extract
+    grams: 13
+  - group: Dough
+    qty: 3
+    item: eggs
+  - group: Dough
+    qty: 0.75
+    unit: cup
+    item: warm milk
+    ml: 180
+    note: about 110°F / 43°C
+  - group: Dough
+    item: Butter for shaping
+    note: as needed
+  - group: Vanilla Topping
+    qty: 1.5
+    unit: cups
+    item: all-purpose flour
+    grams: 180
+  - group: Vanilla Topping
+    qty: 1.5
+    unit: cups
+    item: sugar
+    grams: 300
+  - group: Vanilla Topping
+    qty: 1
+    unit: cup
+    item: butter or shortening
+    grams: 227
+  - group: Vanilla Topping
+    qty: 1
+    unit: tbsp
+    item: vanilla extract
+    grams: 13
 ---
 
 ## Instructions
@@ -54,8 +93,6 @@
 10. Preheat the oven to 350°F (175°C). Place a small oven-safe bowl of water on the bottom rack to create steam. Bake the conchas for 18–20 minutes, until the tops are set and the bottoms are lightly golden. Do not overbake or the topping will crack excessively.
 11. Remove from the oven and allow to cool on the pan for 10 minutes before serving.
 
----
-
 ## Notes
 
 * The cinnamon stick is used to infuse flavor into the dry mixture — remove it before adding the eggs and milk.
@@ -68,9 +105,3 @@
 * **Storage:** Store conchas in an airtight container or wrapped individually at room temperature for up to 2 days. Reheat briefly in the microwave for 10–15 seconds to restore softness.
 * **Freezing:** Baked conchas freeze well for up to 1 month. Thaw at room temperature and warm in the oven at 300°F (150°C) for 5 minutes.
 * **Scaling:** Recipe doubles well. Divide dough by weight for consistent sizing when scaling up.
-
----
-
-## Tags
-
-`bread`, `mexican`, `baking`, `sweet-bread`, `breakfast`, `pan-dulce`

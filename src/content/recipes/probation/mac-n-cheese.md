@@ -1,34 +1,70 @@
-Filename: baked-creamy-mac-cheese.md
-
-# Baked Creamy Mac & Cheese
-
-**Source:** [Catherine's Plates](https://catherinesplates.com/baked-creamy-mac-cheese/)
-**Servings:** 8
-**Prep Time:** 15 minutes
-**Cook Time:** 25 minutes
-
-## Nutrition (Estimated per serving)
-
-* Calories: 650
-* Protein: 28 g
-* Carbohydrates: 42 g
-* Fat: 40 g
-
-## Ingredients
-
-* 16 oz uncooked large elbow pasta (≈454 g)
-* ½ tbsp salt (≈9 g)
-* 4 tbsp butter (≈57 g)
-* 3 tbsp flour (≈24 g)
-* 1 can evaporated milk (12 oz / ≈354 ml)
-* 1½ cups heavy whipping cream (≈355 ml)
-* 1 tsp dijon mustard (optional)
-* ½ tsp garlic powder (≈2 g)
-* ½ tsp onion powder (≈2 g)
-* ¼ tsp black pepper
-* ¼ tsp salt, to taste
-* ½ tsp smoked paprika (≈1 g)
-* 32 oz shredded cheese, divided (≈907 g) — 8 oz sharp cheddar, 8 oz medium cheddar, 16 oz monterey jack
+---
+title: Baked Creamy Mac & Cheese
+source: https://catherinesplates.com/baked-creamy-mac-cheese/
+servings: 8
+prepTime: 15 minutes
+cookTime: 25 minutes
+nutrition:
+  calories: 650
+  protein: 28
+  carbs: 42
+  fat: 40
+tags: [cheese, pasta, baked, side-dish, comfort-food, american]
+ingredients:
+  - qty: 16
+    unit: oz
+    item: uncooked large elbow pasta
+    grams: 454
+  - qty: 0.5
+    unit: tbsp
+    item: salt
+    grams: 9
+  - qty: 4
+    unit: tbsp
+    item: butter
+    grams: 57
+  - qty: 3
+    unit: tbsp
+    item: flour
+    grams: 24
+  - qty: 1
+    unit: can
+    item: evaporated milk
+    ml: 354
+    note: 12 oz
+  - qty: 1.5
+    unit: cups
+    item: heavy whipping cream
+    ml: 355
+  - qty: 1
+    unit: tsp
+    item: dijon mustard
+    optional: true
+  - qty: 0.5
+    unit: tsp
+    item: garlic powder
+    grams: 2
+  - qty: 0.5
+    unit: tsp
+    item: onion powder
+    grams: 2
+  - qty: 0.25
+    unit: tsp
+    item: black pepper
+  - qty: 0.25
+    unit: tsp
+    item: salt
+    note: to taste
+  - qty: 0.5
+    unit: tsp
+    item: smoked paprika
+    grams: 1
+  - qty: 32
+    unit: oz
+    item: shredded cheese
+    grams: 907
+    note: divided; 8 oz sharp cheddar, 8 oz medium cheddar, 16 oz monterey jack
+---
 
 ## Instructions
 
@@ -47,7 +83,3 @@ Filename: baked-creamy-mac-cheese.md
 * Cook pasta just to al dente since it will continue to soften in the oven.
 * Leftovers can be stored in the refrigerator for up to 3 days. Reheat with a splash of milk to restore creaminess.
 * Recipe scales well — use a deeper dish or two 9×13 pans for a double batch.
-
-## Tags
-
-cheese, pasta, baked, side-dish, comfort-food, American

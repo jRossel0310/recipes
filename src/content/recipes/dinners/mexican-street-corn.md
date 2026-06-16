@@ -1,32 +1,45 @@
-# Mexican Street Corn (Esquites)
-
-**Source:** [lilluna.com](https://lilluna.com/mexican-street-corn/)
-**Servings:** 6
-**Prep Time:** 5 minutes
-**Cook Time:** 8 minutes
-
 ---
-
-## Nutrition (Estimated per serving)
-
-* Calories: 291
-* Protein: 7 g
-* Carbohydrates: 46 g
-* Fat: 12 g
-
----
-
-## Ingredients
-
-* 3 cans (15.25 oz each) corn, drained (≈1,290 g total)
-* 2 tbsp butter (≈28 g)
-* Kosher salt, to taste
-* 3 tbsp mayonnaise (≈42 g)
-* 1–2 tbsp lime juice (≈15–30 mL)
-* 2 tsp chili powder, divided (≈5 g)
-* Cotija cheese, crumbled, to taste
-* Fresh cilantro, roughly chopped, to taste
-
+title: Mexican Street Corn (Esquites)
+source: https://lilluna.com/mexican-street-corn/
+servings: 6
+prepTime: 5 minutes
+cookTime: 8 minutes
+nutrition:
+  calories: 291
+  protein: 7
+  carbs: 46
+  fat: 12
+tags: [side-dish, mexican-inspired, corn, vegetarian, quick, summer]
+ingredients:
+  - qty: 3
+    unit: cans
+    item: corn
+    grams: 1290
+    note: 15.25 oz each, drained
+  - qty: 2
+    unit: tbsp
+    item: butter
+    grams: 28
+  - item: Kosher salt
+    note: to taste
+  - qty: 3
+    unit: tbsp
+    item: mayonnaise
+    grams: 42
+  - qty: 1
+    qtyMax: 2
+    unit: tbsp
+    item: lime juice
+    ml: 15
+  - qty: 2
+    unit: tsp
+    item: chili powder
+    grams: 5
+    note: divided
+  - item: Cotija cheese
+    note: crumbled, to taste
+  - item: Fresh cilantro
+    note: roughly chopped, to taste
 ---
 
 ## Instructions
@@ -36,8 +49,6 @@
 3. Transfer the corn to a bowl. Stir in the mayonnaise, lime juice, and 1 teaspoon of chili powder. Mix well until fully combined.
 4. Sprinkle the corn with crumbled cotija cheese, the remaining 1 teaspoon of chili powder, and the chopped cilantro.
 5. Serve immediately and enjoy.
-
----
 
 ## Notes
 
@@ -52,9 +63,3 @@
 * **Reheating:** Warm gently in a covered dish in the oven, or microwave stirring halfway through. Add a small splash of lime juice to refresh the flavor.
 * **Storage:** Store leftovers in an airtight container in the refrigerator for up to 3 days.
 * **Scaling:** Doubles easily with no technique changes; use a larger skillet or cook the corn in batches to ensure proper charring.
-
----
-
-## Tags
-
-`side-dish`, `mexican-inspired`, `corn`, `vegetarian`, `quick`, `summer`

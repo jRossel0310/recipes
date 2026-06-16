@@ -1,28 +1,58 @@
-# Chipotle Cilantro Lime Rice (Copycat)
-
-**Source:** https://www.pathculture.com/food-recipes/chipotle-cilantro-lime-rice-copycat-recipe/
-**Servings:** 6 (≈1 cup cooked each)
-**Prep Time:** 5 minutes
-**Cook Time:** 20–25 minutes
-
-## Nutrition (Estimated per serving)
-
-* Calories: ~240
-* Protein: ~4 g
-* Carbohydrates: ~48 g
-* Fat: ~2.5 g
-
-## Ingredients
-
-* 2 cups long-grain white rice — Basmati or Jasmine preferred (≈370 g)
-* 1 bay leaf
-* 1 tbsp olive oil or rice bran oil (≈14 g)
-* 1 tsp kosher salt (≈6 g), plus more to taste
-* 2–3 tbsp fresh lime juice (≈30–45 g)
-* 1 tbsp fresh lemon juice (≈15 g), optional, for extra brightness
-* 1/2 cup finely chopped fresh cilantro (≈8 g)
-* 2 cups water or low-sodium broth (≈473 g)
-* 1 clove garlic, minced (≈3 g), optional
+---
+title: Chipotle Cilantro Lime Rice (Copycat)
+source: https://www.pathculture.com/food-recipes/chipotle-cilantro-lime-rice-copycat-recipe/
+servings: 6
+prepTime: 5 minutes
+cookTime: 20–25 minutes
+nutrition:
+  calories: 240
+  protein: 4
+  carbs: 48
+  fat: 2.5
+tags: [rice, side-dish, mexican, copycat, vegan, meal-prep]
+ingredients:
+  - qty: 2
+    unit: cups
+    item: long-grain white rice
+    grams: 370
+    note: Basmati or Jasmine preferred
+  - qty: 1
+    item: bay leaf
+  - qty: 1
+    unit: tbsp
+    item: olive oil or rice bran oil
+    grams: 14
+  - qty: 1
+    unit: tsp
+    item: kosher salt
+    grams: 6
+    note: plus more to taste
+  - qty: 2
+    qtyMax: 3
+    unit: tbsp
+    item: fresh lime juice
+    grams: 30
+  - qty: 1
+    unit: tbsp
+    item: fresh lemon juice
+    grams: 15
+    note: optional, for extra brightness
+    optional: true
+  - qty: 0.5
+    unit: cup
+    item: finely chopped fresh cilantro
+    grams: 8
+  - qty: 2
+    unit: cups
+    item: water or low-sodium broth
+    grams: 473
+  - qty: 1
+    unit: clove
+    item: garlic
+    grams: 3
+    note: minced; optional
+    optional: true
+---
 
 ## Instructions
 
@@ -56,7 +86,3 @@
 * Scaling: this recipe halves and doubles cleanly. Keep the 1:1 rice-to-water ratio for the simmer method.
 * Storage: refrigerate in an airtight container for up to 4 days, or freeze in flat freezer bags for up to 3 months.
 * Reheating: warm gently in the microwave or stovetop with a splash of water. Refresh with a squeeze of lime and fresh cilantro after reheating.
-
-## Tags
-
-rice, side-dish, mexican, copycat, vegan, meal-prep

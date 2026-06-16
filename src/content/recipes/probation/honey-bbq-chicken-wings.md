@@ -1,42 +1,77 @@
-Filename: honey-bbq-chicken-wings.md
-
-# Honey BBQ Chicken Wings
-
-**Source:** [Queenslee Appétit](https://www.queensleeappetit.com/honey-bbq-chicken-wings/)
-**Servings:** 30 chicken wings
-**Prep Time:** 5 minutes
-**Cook Time:** 1 hour 4 minutes
-
-## Nutrition (Estimated per serving)
-
-* Calories: 149
-* Protein: 5 g
-* Carbohydrates: 12 g
-* Fat: 9 g
-
-## Ingredients
-
-### To Wash Wings
-
-* 3½–4 lbs chicken wings, tips removed, drums and flats separated (≈1590–1815 g)
-* Cold water
-* Vinegar
-* 1 lemon
-
-### Seasoning Blend
-
-* 1½ tsp salt (≈9 g)
-* 1½ tsp freshly ground black pepper (≈4 g)
-* 1½ tsp hot chilli powder (≈4 g)
-* 1½ tsp smoked paprika (≈4 g)
-* 1½ tsp garlic powder (≈5 g)
-
-### Honey BBQ Sauce
-
-* ¼ cup unsalted butter (≈57 g)
-* 1 cup BBQ sauce (≈280 g) — Sweet Baby Ray's recommended
-* ½ cup honey (≈170 g)
-* 2 tbsp ketchup (≈30 g)
+---
+title: Honey BBQ Chicken Wings
+source: https://www.queensleeappetit.com/honey-bbq-chicken-wings/
+servings: 30
+prepTime: 5 minutes
+cookTime: 1 hour 4 minutes
+nutrition:
+  calories: 149
+  protein: 5
+  carbs: 12
+  fat: 9
+tags: [chicken, wings, bbq, honey, baked, game-day]
+ingredients:
+  - group: To Wash Wings
+    qty: 3.5
+    qtyMax: 4
+    unit: lbs
+    item: chicken wings
+    grams: 1590
+    note: tips removed, drums and flats separated
+  - group: To Wash Wings
+    item: Cold water
+  - group: To Wash Wings
+    item: Vinegar
+  - group: To Wash Wings
+    qty: 1
+    item: lemon
+  - group: Seasoning Blend
+    qty: 1.5
+    unit: tsp
+    item: salt
+    grams: 9
+  - group: Seasoning Blend
+    qty: 1.5
+    unit: tsp
+    item: freshly ground black pepper
+    grams: 4
+  - group: Seasoning Blend
+    qty: 1.5
+    unit: tsp
+    item: hot chilli powder
+    grams: 4
+  - group: Seasoning Blend
+    qty: 1.5
+    unit: tsp
+    item: smoked paprika
+    grams: 4
+  - group: Seasoning Blend
+    qty: 1.5
+    unit: tsp
+    item: garlic powder
+    grams: 5
+  - group: Honey BBQ Sauce
+    qty: 0.25
+    unit: cup
+    item: unsalted butter
+    grams: 57
+  - group: Honey BBQ Sauce
+    qty: 1
+    unit: cup
+    item: BBQ sauce
+    grams: 280
+    note: Sweet Baby Ray's recommended
+  - group: Honey BBQ Sauce
+    qty: 0.5
+    unit: cup
+    item: honey
+    grams: 170
+  - group: Honey BBQ Sauce
+    qty: 2
+    unit: tbsp
+    item: ketchup
+    grams: 30
+---
 
 ## Instructions
 
@@ -60,7 +95,3 @@ Filename: honey-bbq-chicken-wings.md
 * Leftover sauce can be stored in a freezer-safe bag. It stays pourable even from frozen — just reheat in a saucepan before using.
 * For extra crispiness, use a wire rack on the baking sheet while baking to allow air circulation.
 * You can optionally refrigerate the seasoned wings overnight before baking for deeper flavour.
-
-## Tags
-
-chicken, wings, BBQ, honey, baked, game-day

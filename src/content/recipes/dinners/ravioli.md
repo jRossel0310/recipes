@@ -1,36 +1,54 @@
-Filename: fresh-homemade-ravioli.md
-
-# Fresh Homemade Ravioli with Cheese Filling
-
-**Source:** [The Clever Carrot](https://www.theclevercarrot.com/2022/10/beginners-guide-to-fresh-homemade-ravioli/)
-**Servings:** 4
-**Prep Time:** 1 hour 30 minutes
-**Cook Time:** 5 minutes (+ 1 hour dough rest)
-
-## Nutrition (Estimated per serving)
-
-* Calories: ~420
-* Protein: ~18 g
-* Carbohydrates: ~48 g
-* Fat: ~16 g
-
-## Ingredients
-
-### Pasta Dough
-
-* 300 g Tipo 00 flour (≈2 ⅓ cups) — Molino Grassi or Caputo recommended
-* 3 large eggs + 1 large egg yolk (total cracked weight ≈185 g)
-* Olive oil, as needed to make up the difference if eggs are small
-* Semolina flour, for dusting
-
-### Cheese Filling
-
-* 100 g whole milk ricotta (≈½ cup), drained overnight
-* 100 g mascarpone cheese (≈½ cup)
-* 30 g Parmesan cheese, grated (≈⅓ cup)
-* 10 g fresh basil leaves, chopped (≈¼ cup loosely packed)
-* 1 egg
-* Salt and pepper, to taste
+---
+title: Fresh Homemade Ravioli with Cheese Filling
+source: https://www.theclevercarrot.com/2022/10/beginners-guide-to-fresh-homemade-ravioli/
+servings: 4
+prepTime: 1 hour 30 minutes
+cookTime: 5 minutes (+ 1 hour dough rest)
+nutrition:
+  calories: 420
+  protein: 18
+  carbs: 48
+  fat: 16
+tags: [ravioli, pasta, cheese, italian, homemade, from-scratch]
+ingredients:
+  - group: Pasta Dough
+    qty: 300
+    item: Tipo 00 flour
+    note: ≈2⅓ cups; Molino Grassi or Caputo recommended; measured in grams
+  - group: Pasta Dough
+    qty: 3
+    item: large eggs
+    note: plus 1 large egg yolk; total cracked weight ≈185 g
+  - group: Pasta Dough
+    item: Olive oil
+    note: as needed to make up the difference if eggs are small
+    optional: true
+  - group: Pasta Dough
+    item: Semolina flour
+    note: for dusting
+  - group: Cheese Filling
+    qty: 100
+    item: whole milk ricotta
+    note: ≈½ cup, drained overnight; measured in grams
+  - group: Cheese Filling
+    qty: 100
+    item: mascarpone cheese
+    note: ≈½ cup; measured in grams
+  - group: Cheese Filling
+    qty: 30
+    item: Parmesan cheese
+    note: ≈⅓ cup, grated; measured in grams
+  - group: Cheese Filling
+    qty: 10
+    item: fresh basil leaves
+    note: ≈¼ cup loosely packed, chopped; measured in grams
+  - group: Cheese Filling
+    qty: 1
+    item: egg
+  - group: Cheese Filling
+    item: Salt and pepper
+    note: to taste
+---
 
 ## Instructions
 
@@ -78,7 +96,3 @@ Filename: fresh-homemade-ravioli.md
 * **Refrigerate (up to 4 hrs):** Arrange as above and chill. Do not refrigerate overnight — the pasta will oxidize and the filling will make the ravioli soggy.
 * **Freeze (up to 1 month):** Freeze ravioli uncovered on a sheet pan until solid. Transfer to an airtight container or bag.
 * **Scraps:** Dry leftover pasta scraps for 2 days, store in an airtight container, and cook later in soup or with ragù.
-
-## Tags
-
-ravioli, pasta, cheese, Italian, homemade, from-scratch
