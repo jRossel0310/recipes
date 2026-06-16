@@ -48,6 +48,7 @@ describe('consolidate', () => {
     const salt = list.toTaste.find((i) => i.item.toLowerCase() === 'salt');
     expect(salt).toBeTruthy();
     expect(list.items.find((i) => i.item.toLowerCase() === 'salt')).toBeUndefined();
+    expect(list.toTaste.filter((i) => i.item.toLowerCase() === 'salt')).toHaveLength(1);
   });
 
   it('keeps same item with different units separate', () => {
@@ -67,5 +68,25 @@ describe('consolidate', () => {
     ]);
     const milks = list.items.filter((i) => i.item.toLowerCase() === 'milk');
     expect(milks).toHaveLength(2);
+  });
+
+  it('rolls up grams only from sources that provide it', () => {
+    const withGrams: RecipeData = {
+      title: 'With Grams',
+      servings: 1,
+      ingredients: [{ item: 'flour', qty: 1, unit: 'cup', grams: 120 }],
+    };
+    const withoutGrams: RecipeData = {
+      title: 'Without Grams',
+      servings: 1,
+      ingredients: [{ item: 'flour', qty: 1, unit: 'cup' }],
+    };
+    const list = consolidate([
+      { recipe: withGrams, targetServings: 1 },
+      { recipe: withoutGrams, targetServings: 1 },
+    ]);
+    const flour = list.items.find((i) => i.item.toLowerCase() === 'flour');
+    expect(flour?.qty).toBe(2);
+    expect(flour?.grams).toBe(120);
   });
 });
