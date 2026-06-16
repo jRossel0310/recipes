@@ -45,7 +45,8 @@ describe('formatNumber', () => {
     expect(formatNumber(120.4, 'ml')).toBe('120');
   });
 
-  it('rounds kg, lb, oz to one decimal', () => {
+  it('rounds kg, l, lb, oz to one decimal', () => {
+    expect(formatNumber(1.5, 'l')).toBe('1.5');
     expect(formatNumber(1.25, 'lb')).toBe('1.3');
     expect(formatNumber(2.0, 'kg')).toBe('2');
   });
@@ -58,6 +59,10 @@ describe('formatQuantity', () => {
 
   it('renders a range', () => {
     expect(formatQuantity({ item: 'chicken', qty: 6, qtyMax: 8 })).toBe('6–8');
+  });
+
+  it('renders a range with a unit', () => {
+    expect(formatQuantity({ item: 'water', qty: 0.5, qtyMax: 1, unit: 'cup' })).toBe('½–1 cup');
   });
 
   it('renders a unitless count', () => {
