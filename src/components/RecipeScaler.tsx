@@ -17,7 +17,7 @@ export default function RecipeScaler({ baseServings, ingredients }: Props) {
   let lastGroup: string | undefined;
   const rows = scaled.map((ing, i) => {
     const showGroup = ing.group && ing.group !== lastGroup;
-    lastGroup = ing.group;
+    if (ing.group) lastGroup = ing.group;
     const qty = formatQuantity(ing);
     return (
       <li key={i} className={ing.optional ? 'optional' : undefined}>
