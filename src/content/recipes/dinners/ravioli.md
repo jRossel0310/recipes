@@ -13,8 +13,9 @@ tags: [ravioli, pasta, cheese, italian, homemade, from-scratch]
 ingredients:
   - group: Pasta Dough
     qty: 300
+    unit: g
     item: Tipo 00 flour
-    note: ≈2⅓ cups; Molino Grassi or Caputo recommended; measured in grams
+    note: ≈2⅓ cups; Molino Grassi or Caputo recommended
   - group: Pasta Dough
     qty: 3
     item: large eggs
@@ -28,20 +29,24 @@ ingredients:
     note: for dusting
   - group: Cheese Filling
     qty: 100
+    unit: g
     item: whole milk ricotta
-    note: ≈½ cup, drained overnight; measured in grams
+    note: ≈½ cup, drained overnight
   - group: Cheese Filling
     qty: 100
+    unit: g
     item: mascarpone cheese
-    note: ≈½ cup; measured in grams
+    note: ≈½ cup
   - group: Cheese Filling
     qty: 30
+    unit: g
     item: Parmesan cheese
-    note: ≈⅓ cup, grated; measured in grams
+    note: ≈⅓ cup, grated
   - group: Cheese Filling
     qty: 10
+    unit: g
     item: fresh basil leaves
-    note: ≈¼ cup loosely packed, chopped; measured in grams
+    note: ≈¼ cup loosely packed, chopped
   - group: Cheese Filling
     qty: 1
     item: egg

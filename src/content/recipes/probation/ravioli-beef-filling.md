@@ -31,11 +31,13 @@ ingredients:
     grams: 0.5
     note: freshly grated if possible
   - qty: 100
+    unit: g
     item: whole milk ricotta
-    note: drained; measured in grams
+    note: drained
   - qty: 30
+    unit: g
     item: Parmesan cheese
-    note: grated; measured in grams
+    note: grated
   - qty: 1
     item: egg
     grams: 50

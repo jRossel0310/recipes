@@ -48,8 +48,9 @@ ingredients:
     note: optional, for heat
     optional: true
   - qty: 350
+    unit: g
     item: extra-firm tofu
-    note: 1 block, drained — no need to press; measured in grams
+    note: 1 block, drained — no need to press
   - qty: 0.75
     qtyMax: 1.25
     unit: cups

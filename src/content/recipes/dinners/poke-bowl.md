@@ -14,13 +14,15 @@ ingredients:
   - group: Base
     qty: 200
     qtyMax: 275
+    unit: g
     item: cooked white or brown rice
-    note: sushi rice, jasmine, or short-grain white all work; measured in grams
+    note: sushi rice, jasmine, or short-grain white all work
   - group: Protein — pick one
     qty: 170
     qtyMax: 225
+    unit: g
     item: cooked salmon
-    note: flaked, leftover, or store-bought; measured in grams
+    note: flaked, leftover, or store-bought
   - group: Protein — pick one
     qty: 1
     qtyMax: 2
@@ -31,16 +33,18 @@ ingredients:
   - group: Vegetables
     qty: 75
     qtyMax: 125
+    unit: g
     item: shelled edamame
-    note: frozen, thawed or briefly steamed; measured in grams
+    note: frozen, thawed or briefly steamed
   - group: Vegetables
     item: Cucumber
     note: as much as you want, sliced or diced
   - group: Vegetables
     qty: 0
     qtyMax: 50
+    unit: g
     item: avocado
-    note: sliced or cubed; skip on higher-calorie days; measured in grams
+    note: sliced or cubed; skip on higher-calorie days
     optional: true
   - group: Vegetables
     item: seaweed salad
@@ -49,8 +53,9 @@ ingredients:
   - group: Sauce and toppings
     qty: 10
     qtyMax: 20
+    unit: g
     item: Kewpie mayo
-    note: about 1–1.5 tsp; measured in grams
+    note: about 1–1.5 tsp
   - group: Sauce and toppings
     item: Soy sauce or tamari
     note: to taste
