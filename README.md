@@ -68,3 +68,49 @@ If you cannot read the recipe from a link, reply only: "I cannot access the reci
 Here is the recipe to convert:
 
 [PASTE RECIPE TEXT OR LINK HERE]
+
+## Dinner nights (head-cook pages)
+
+A **dinner** assembles existing recipes into one cook-along page, each dish scaled to a co-op
+serving count and shown in big-batch units, with your shift notes and progress checkboxes.
+Dinners live in `src/content/dinners/<slug>.md` and reference recipes by their slug (the path
+under `src/content/recipes/` without `.md`).
+
+```markdown
+---
+title: Baked Night
+date: 2026-06-20            # optional
+dishes:
+  - recipe: tofu/buffalo-tofu      # must be an existing recipe slug
+    servings: 84
+    notes:
+      - 8-10 large rimmed sheet pans
+  - recipe: probation/mac-n-cheese
+    servings: 120
+---
+
+Overall shift notes go here (start order, timing, reminders).
+```
+
+- Each dish needs a `recipe` (existing recipe slug), a `servings` target, and optional `notes`.
+- The build fails if a `recipe` slug doesn't exist, so typos are caught before deploy.
+- Quantities scale automatically from the recipe's base servings - no hand math.
+- View at `/dinners/<slug>`; reuse next week by copying the file and adjusting servings/notes.
+- If a dish isn't a recipe yet, add it to `src/content/recipes/` first (see the recipe format above), then reference it.
+
+### Adding a dinner with an LLM
+
+Paste the prompt below into an LLM along with your menu (dish names + how many servings each).
+
+---
+
+Create an Astro dinner file for my recipe site. Output only the file contents.
+
+- Frontmatter: `title`, optional `date` (YYYY-MM-DD), and `dishes`.
+- Each dish: `recipe` (a recipe slug like `tofu/buffalo-tofu` - ask me if unsure which slug), `servings` (a number), and optional `notes` (a YAML list of short head-cook reminders: pan counts, batching, timing).
+- After the frontmatter, write the overall shift notes as a short markdown paragraph.
+- Do not invent recipe slugs; use only ones I provide.
+
+Here is the menu:
+
+[PASTE MENU HERE]
