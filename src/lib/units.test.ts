@@ -35,6 +35,12 @@ describe('rollUp', () => {
   it('stays in the smallest unit when below all thresholds', () => {
     expect(rollUp(0.5, 'tsp')).toEqual({ value: 0.5, unit: 'tsp' });
   });
+  it('normalizes plural/long-form units before rolling', () => {
+    expect(rollUp(2, 'lbs')).toEqual({ value: 2, unit: 'lb' });
+    const r = rollUp(48, 'tablespoons'); // 48 tbsp = 3 cups
+    expect(r.unit).toBe('cup');
+    expect(r.value).toBeCloseTo(3);
+  });
 });
 
 describe('formatBatchQuantity', () => {
@@ -61,6 +67,12 @@ describe('formatBatchQuantity', () => {
   });
   it('returns empty string when there is no qty', () => {
     expect(formatBatchQuantity({ item: 'salt', note: 'to taste' })).toBe('');
+  });
+  it('rolls up an aliased volume unit', () => {
+    expect(formatBatchQuantity({ item: 'flour', qty: 48, unit: 'tablespoons' })).toBe('3 cups');
+  });
+  it('normalizes a plural weight unit in a range', () => {
+    expect(formatBatchQuantity({ item: 'cheese', qty: 14, qtyMax: 16, unit: 'lbs' })).toBe('14–16 lb');
   });
 });
 

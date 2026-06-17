@@ -10,6 +10,23 @@ const LADDERS: Array<Array<[string, number]>> = [
   [['oz', 1], ['lb', 16]], // imperial weight (base: oz)
 ];
 
+// Common plural/long-form unit spellings normalized to the canonical units used in LADDERS.
+const UNIT_ALIASES: Record<string, string> = {
+  lbs: 'lb', pound: 'lb', pounds: 'lb',
+  cups: 'cup',
+  tbsps: 'tbsp', tablespoon: 'tbsp', tablespoons: 'tbsp',
+  tsps: 'tsp', teaspoon: 'tsp', teaspoons: 'tsp',
+  gram: 'g', grams: 'g',
+  kilogram: 'kg', kilograms: 'kg',
+  ounce: 'oz', ounces: 'oz',
+  milliliter: 'ml', milliliters: 'ml', millilitre: 'ml', millilitres: 'ml',
+  liter: 'l', liters: 'l', litre: 'l', litres: 'l',
+};
+
+function canonicalUnit(unit: string): string {
+  return UNIT_ALIASES[unit] ?? unit;
+}
+
 function findLadder(unit: string): Array<[string, number]> | undefined {
   return LADDERS.find((ladder) => ladder.some(([u]) => u === unit));
 }
@@ -20,7 +37,7 @@ function factorOf(ladder: Array<[string, number]>, unit: string): number {
 
 export function rollUp(value: number, unit?: string): { value: number; unit?: string } {
   if (!unit) return { value, unit };
-  const u = unit.toLowerCase();
+  const u = canonicalUnit(unit.toLowerCase());
   const ladder = findLadder(u);
   if (!ladder) return { value, unit }; // count/descriptive unit — leave as-is
   const base = value * factorOf(ladder, u);
@@ -43,9 +60,9 @@ function prettyUnit(unit: string | undefined, value: number): string | undefined
 
 function convert(value: number, fromUnit: string | undefined, toUnit: string | undefined): number {
   if (!fromUnit || !toUnit || fromUnit === toUnit) return value;
-  const ladder = findLadder(fromUnit.toLowerCase());
+  const ladder = findLadder(canonicalUnit(fromUnit.toLowerCase()));
   if (!ladder || !ladder.some(([u]) => u === toUnit)) return value;
-  return (value * factorOf(ladder, fromUnit.toLowerCase())) / factorOf(ladder, toUnit);
+  return (value * factorOf(ladder, canonicalUnit(fromUnit.toLowerCase()))) / factorOf(ladder, toUnit);
 }
 
 export function formatBatchQuantity(ing: Ingredient): string {
