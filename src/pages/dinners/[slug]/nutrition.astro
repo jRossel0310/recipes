@@ -26,10 +26,10 @@ for (const dish of d.dishes) {
       {dish.nutrition ? (
         <p class="macros">
           Per serving:
-          {dish.nutrition.calories && <span> {dish.nutrition.calories} cal</span>}
-          {dish.nutrition.protein && <span> · {dish.nutrition.protein} g protein</span>}
-          {dish.nutrition.carbs && <span> · {dish.nutrition.carbs} g carbs</span>}
-          {dish.nutrition.fat && <span> · {dish.nutrition.fat} g fat</span>}
+          {dish.nutrition.calories != null && <span> {dish.nutrition.calories} cal</span>}
+          {dish.nutrition.protein != null && <span> · {dish.nutrition.protein} g protein</span>}
+          {dish.nutrition.carbs != null && <span> · {dish.nutrition.carbs} g carbs</span>}
+          {dish.nutrition.fat != null && <span> · {dish.nutrition.fat} g fat</span>}
         </p>
       ) : (
         <p class="macros">No nutrition data.</p>
