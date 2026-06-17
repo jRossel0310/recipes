@@ -9,6 +9,7 @@ nutrition:
   protein: 28
   carbs: 42
   fat: 40
+  servingGrams: 280  # estimate, verify/adjust
 tags: [cheese, pasta, baked, side-dish, comfort-food, american]
 ingredients:
   - qty: 16

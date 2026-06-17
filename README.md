@@ -24,7 +24,7 @@ Frontmatter holds the metadata and ingredients; the markdown body holds instruct
 | `source` | no | URL or free text |
 | `servings` | yes | Base serving count the quantities are written for |
 | `prepTime` / `cookTime` | no | Free text |
-| `nutrition` | no | Per serving: `calories`, `protein`, `carbs`, `fat` |
+| `nutrition` | no | Per serving: `calories`, `protein`, `carbs`, `fat`; optional `servingGrams` (one serving's weight in g, enables a per-100g calorie display) |
 | `tags` | no | String list |
 | `ingredients` | yes | List of ingredient objects (below) |
 
@@ -46,7 +46,7 @@ OUTPUT RULES
 
 FRONTMATTER (YAML)
 - `title`, `source` (URL or "personal recipe"), `servings` (number), `prepTime`, `cookTime`.
-- `nutrition` (per serving): `calories`, `protein`, `carbs`, `fat` - estimate if not given.
+- `nutrition` (per serving): `calories`, `protein`, `carbs`, `fat` - estimate if not given. Optionally `servingGrams` (estimated weight of one serving, in grams) to enable a calories-per-100g display.
 - `tags`: 3–6 short tags.
 - `ingredients`: a YAML list. Each item:
   - `item` (required, the ingredient name)

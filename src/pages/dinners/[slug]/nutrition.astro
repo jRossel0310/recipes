@@ -34,6 +34,9 @@ for (const dish of d.dishes) {
       ) : (
         <p class="macros">No nutrition data.</p>
       )}
+      {dish.nutrition && dish.nutrition.calories != null && dish.nutrition.servingGrams && (
+        <p class="macros per100">Per 100 g: ~{Math.round((dish.nutrition.calories / dish.nutrition.servingGrams) * 100)} cal</p>
+      )}
     </section>
   ))}
 
@@ -45,4 +48,5 @@ for (const dish of d.dishes) {
   .dish h2 { margin: 0 0 0.4rem; }
   .dish .servings { color: #897f6d; font-weight: 400; font-size: 1rem; }
   .macros { margin: 0; }
+  .per100 { margin: 0.2rem 0 0; color: #897f6d; }
 </style>
