@@ -109,7 +109,7 @@ export default function ShoppingListBuilder({ recipes }: Props) {
             {list.items.map((i, idx) => (
               <li key={idx}>
                 {itemLine(i)}
-                {i.sources.length > 1 && <span className="src"> — {i.sources.join(', ')}</span>}
+                {i.sources.length > 1 && <span className="src"> - {i.sources.join(', ')}</span>}
               </li>
             ))}
           </ul>

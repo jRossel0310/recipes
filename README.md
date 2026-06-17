@@ -29,7 +29,7 @@ Frontmatter holds the metadata and ingredients; the markdown body holds instruct
 | `ingredients` | yes | List of ingredient objects (below) |
 
 Ingredient fields: `item` (required), `qty`, `qtyMax` (range upper bound), `unit`, `grams`,
-`ml`, `note`, `group` (subsection label), `optional`. **Omit `qty` for "to taste" items** —
+`ml`, `note`, `group` (subsection label), `optional`. **Omit `qty` for "to taste" items** -
 they display verbatim and never scale. Always write `qty` as a plain number (`0.5`, not `½`).
 
 ## Adding a recipe with an LLM
@@ -46,7 +46,7 @@ OUTPUT RULES
 
 FRONTMATTER (YAML)
 - `title`, `source` (URL or "personal recipe"), `servings` (number), `prepTime`, `cookTime`.
-- `nutrition` (per serving): `calories`, `protein`, `carbs`, `fat` — estimate if not given.
+- `nutrition` (per serving): `calories`, `protein`, `carbs`, `fat` - estimate if not given.
 - `tags`: 3–6 short tags.
 - `ingredients`: a YAML list. Each item:
   - `item` (required, the ingredient name)

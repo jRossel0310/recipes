@@ -2,7 +2,7 @@ import type { Ingredient } from './types';
 import { formatNumber } from './scale';
 
 // Each ladder is ascending [unit, factor-in-base-unit]. Volume is capped at `cup`
-// (quart/gallon intentionally excluded — impractical for a co-op kitchen).
+// (quart/gallon intentionally excluded - impractical for a co-op kitchen).
 const LADDERS: Array<Array<[string, number]>> = [
   [['tsp', 1], ['tbsp', 3], ['cup', 48]], // volume (base: tsp)
   [['ml', 1], ['l', 1000]], // metric volume (base: mL)
@@ -39,7 +39,7 @@ export function rollUp(value: number, unit?: string): { value: number; unit?: st
   if (!unit) return { value, unit };
   const u = canonicalUnit(unit.toLowerCase());
   const ladder = findLadder(u);
-  if (!ladder) return { value, unit }; // count/descriptive unit — leave as-is
+  if (!ladder) return { value, unit }; // count/descriptive unit - leave as-is
   const base = value * factorOf(ladder, u);
   // Largest unit at which the converted value is >= 1 (ladder is ascending).
   let chosen = ladder[0];

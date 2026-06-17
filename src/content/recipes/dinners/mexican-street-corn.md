@@ -52,14 +52,14 @@ ingredients:
 
 ## Notes
 
-* A cast iron skillet is ideal for this recipe — the high, even heat helps char the corn kernels for authentic street corn flavor.
+* A cast iron skillet is ideal for this recipe - the high, even heat helps char the corn kernels for authentic street corn flavor.
 * **Fresh corn option:** Husk the cobs and grill them over high heat, turning every 2–3 minutes until slightly charred on all sides. Cut the kernels off the cob and proceed with the recipe.
 * **Frozen corn:** Thaw thoroughly before use and allow a few extra minutes in the skillet to heat through completely.
 * **Cheese substitutions:** Feta, queso fresco, or grated Parmesan all work in place of cotija.
 * **Mayo substitutions:** Mexican crema, Greek yogurt, avocado mayo, or olive oil can be used, though the flavor will vary slightly.
 * **Cilantro substitution:** Flat-leaf parsley works as a swap for those who dislike cilantro.
 * **Spice level:** Reduce chili powder for a milder dish, or increase it for more heat. A pinch of cayenne can also be added for extra kick.
-* This dish can be served warm or at room temperature — both work well.
+* This dish can be served warm or at room temperature - both work well.
 * **Reheating:** Warm gently in a covered dish in the oven, or microwave stirring halfway through. Add a small splash of lime juice to refresh the flavor.
 * **Storage:** Store leftovers in an airtight container in the refrigerator for up to 3 days.
 * **Scaling:** Doubles easily with no technique changes; use a larger skillet or cook the corn in batches to ensure proper charring.

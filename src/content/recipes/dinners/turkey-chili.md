@@ -115,7 +115,7 @@ ingredients:
 
 ## Notes
 
-* Stirring the spices and tomato paste into the meat mixture before adding any liquid deepens the flavor — don't skip this step.
+* Stirring the spices and tomato paste into the meat mixture before adding any liquid deepens the flavor - don't skip this step.
 * For a thicker chili, simmer uncovered (stovetop) or use the sauté function (Instant Pot) until it reduces to your liking.
 * Spice level: 2 tbsp chili powder gives moderate heat; use 1 tbsp for mild. Add a pinch of cayenne or red pepper flakes for more kick.
 * Variations: add chopped bell peppers, carrots, or celery with the onion; add chopped sweet potato with the garlic; stir in chopped spinach at the end.
@@ -123,4 +123,4 @@ ingredients:
 * For a meatier chili, double the turkey and reduce or omit one can of beans.
 * Storage: refrigerate in an airtight container for 3–4 days, or freeze for up to 3 months. Thaw overnight in the refrigerator before reheating.
 * Reheat in a covered pot over medium-low heat, stirring occasionally, or microwave until steaming hot.
-* Leftover chili turns into great chili mac — stir in cooked pasta and shredded cheddar.
+* Leftover chili turns into great chili mac - stir in cooked pasta and shredded cheddar.

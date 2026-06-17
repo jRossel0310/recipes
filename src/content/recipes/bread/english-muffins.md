@@ -84,5 +84,5 @@ ingredients:
 * For best results, measure ingredients by weight rather than volume.
 * The longer the preferment ferments (up to 4 hours), the more tangy and complex the flavor.
 * Prefer square muffins with zero scraps? Skip the cutter and divide the dough with a knife or bench scraper.
-* Keep heat at medium-low — too hot and the outsides brown before the centers cook through.
+* Keep heat at medium-low - too hot and the outsides brown before the centers cook through.
 * **Storage:** Store at room temperature in an airtight container for up to 3 days, or freeze for longer storage.

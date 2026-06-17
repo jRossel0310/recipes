@@ -62,6 +62,6 @@ ingredients:
 ## Notes
 
 * Feel free to season the chicken with spices beyond salt and pepper, but be mindful this may slightly alter the macro counts.
-* If you don't have a blender, a food processor, immersion blender, or potato masher all work for pureeing the sauce — though a blender yields the smoothest result.
+* If you don't have a blender, a food processor, immersion blender, or potato masher all work for pureeing the sauce - though a blender yields the smoothest result.
 * Save that pasta water! Adding it gradually is key to getting a glossy, well-emulsified sauce.
 * Store leftovers in an airtight container in the refrigerator for up to 3 days. Reheat gently on the stovetop with a splash of milk or water to loosen the sauce.

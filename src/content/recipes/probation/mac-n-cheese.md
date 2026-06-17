@@ -79,7 +79,7 @@ ingredients:
 
 ## Notes
 
-* Use a mix of cheeses for the best flavour — the combination of sharp cheddar, medium cheddar, and monterey jack gives a balance of tang and meltability.
+* Use a mix of cheeses for the best flavour - the combination of sharp cheddar, medium cheddar, and monterey jack gives a balance of tang and meltability.
 * Cook pasta just to al dente since it will continue to soften in the oven.
 * Leftovers can be stored in the refrigerator for up to 3 days. Reheat with a splash of milk to restore creaminess.
-* Recipe scales well — use a deeper dish or two 9×13 pans for a double batch.
+* Recipe scales well - use a deeper dish or two 9×13 pans for a double batch.

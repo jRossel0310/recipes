@@ -79,7 +79,7 @@ ingredients:
 
 1. Preheat the oven to 425°F (220°C) and lightly grease a large rimmed baking sheet.
 2. If using extra-firm tofu, press out extra water: slice the block into 6 width-wise slabs, wrap in a lint-free towel or paper towels, place a heavy weight on top, and let drain for 20–30 minutes. Skip this step for super firm tofu.
-3. Cut the tofu into 18 wing-shaped sticks — slice the block into 6 slabs width-wise, then cut each slab into 3 lengthwise strips.
+3. Cut the tofu into 18 wing-shaped sticks - slice the block into 6 slabs width-wise, then cut each slab into 3 lengthwise strips.
 4. Set up a breading station: cornstarch in one bowl, plant milk in a second bowl, and the bread crumb mixture (panko, olive oil, paprika, salt, pepper, parsley stirred together) in a third bowl. Pour some of the crumb mixture onto a plate.
 5. Dip each tofu piece into the starch, then the milk, then roll in the breadcrumbs. Place on the prepared baking sheet. Use one hand for dry ingredients and the other for wet to prevent clumping.
 6. Bake for 25 minutes, flip, then bake an additional 10–15 minutes until crispy.
@@ -89,7 +89,7 @@ ingredients:
 ## Notes
 
 * If using a convection oven, bake for 30–35 minutes total, flipping halfway through.
-* Pressing the tofu is essential for extra-firm varieties — super firm tofu can skip this step.
+* Pressing the tofu is essential for extra-firm varieties - super firm tofu can skip this step.
 * Serve immediately after saucing to keep the coating crispy. You can briefly return sauced wings to the oven to re-crisp, but they will absorb some sauce.
 * Leftover wings can be re-crisped in the oven before serving.
 * For a milder sauce, increase the butter; for spicier, increase the hot sauce or reduce the butter.

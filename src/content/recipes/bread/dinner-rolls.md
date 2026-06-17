@@ -65,9 +65,9 @@ ingredients:
 
 ## Notes
 
-* Milk temperature is critical — aim for 100–110°F (38–43°C) to activate the yeast without killing it.
+* Milk temperature is critical - aim for 100–110°F (38–43°C) to activate the yeast without killing it.
 * For uniform size, pat the dough into an 8×12 inch rectangle, cut into 4 strips, then cut each strip into 6 pieces.
 * Pull the seams of each dough ball to the bottom and give a twist for a smooth, rounded top.
 * **Make ahead:** Prepare through shaping, cover, and refrigerate overnight. Remove 1 hour before baking and let come to room temperature, then bake as directed.
-* **Storage:** Airtight container at room temperature for up to 4 days. Freeze for up to 3 months — wrap tightly in plastic wrap and foil, or use a freezer-safe bag.
+* **Storage:** Airtight container at room temperature for up to 4 days. Freeze for up to 3 months - wrap tightly in plastic wrap and foil, or use a freezer-safe bag.
 * Check a center roll for doneness; tent with foil if the outer rolls are browning before the centers are baked through.

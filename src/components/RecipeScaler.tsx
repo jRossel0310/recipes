@@ -25,7 +25,7 @@ export default function RecipeScaler({ baseServings, ingredients }: Props) {
         {showGroup && <h3>{ing.group}</h3>}
         {qty && <span className="qty">{qty}</span>} {ing.item}
         {metric && <span className="metric"> ({metric})</span>}
-        {ing.note && <span className="note"> — {ing.note}</span>}
+        {ing.note && <span className="note"> - {ing.note}</span>}
       </li>
     );
   });

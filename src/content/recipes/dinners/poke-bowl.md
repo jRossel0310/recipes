@@ -17,13 +17,13 @@ ingredients:
     unit: g
     item: cooked white or brown rice
     note: sushi rice, jasmine, or short-grain white all work
-  - group: Protein — pick one
+  - group: Protein - pick one
     qty: 170
     qtyMax: 225
     unit: g
     item: cooked salmon
     note: flaked, leftover, or store-bought
-  - group: Protein — pick one
+  - group: Protein - pick one
     qty: 1
     qtyMax: 2
     unit: cans
@@ -45,7 +45,7 @@ ingredients:
     optional: true
   - group: Vegetables
     item: seaweed salad
-    note: optional — only include if you weigh and log it; many store versions are heavy on sugar and oil
+    note: optional - only include if you weigh and log it; many store versions are heavy on sugar and oil
     optional: true
   - group: Sauce and toppings
     qty: 10
@@ -64,20 +64,20 @@ ingredients:
 
 ## Instructions
 
-1. Weigh the rice into your bowl. Don't skip the scale — rice is the single biggest calorie lever in this dish.
+1. Weigh the rice into your bowl. Don't skip the scale - rice is the single biggest calorie lever in this dish.
 2. Weigh the protein and add it on top of the rice.
 3. Weigh the edamame and add it to the bowl. Add cucumber to fill the rest of the bowl as desired.
 4. Weigh the avocado (if using) and add it.
 5. Weigh the Kewpie mayo and drizzle it over the bowl, or thin it with a splash of soy sauce or rice vinegar first to make it spread further.
 6. Add soy sauce and any optional toppings to taste.
-7. Toss gently or eat in layers — your call.
+7. Toss gently or eat in layers - your call.
 
 ## Notes
 
-* Rice, salmon, Kewpie, avocado, and edamame are all calorie-dense, so eyeballing any one of them throws the whole bowl off. Use a scale for all five — cucumber and pickled veg can be free-pour.
+* Rice, salmon, Kewpie, avocado, and edamame are all calorie-dense, so eyeballing any one of them throws the whole bowl off. Use a scale for all five - cucumber and pickled veg can be free-pour.
 * Kewpie hits roughly 70 kcal per 10 g. 10–20 g is enough for flavor and visible drizzle; past that, the calories climb fast for marginal taste benefit.
 * Avocado is great but optional. Skip it on days the salmon is on the higher end (200 g+) or on lower-calorie days.
-* Canned tuna is the leanest protein swap and meaningfully drops total calories — useful when going heavier on rice or sauce.
+* Canned tuna is the leanest protein swap and meaningfully drops total calories - useful when going heavier on rice or sauce.
 * Seaweed salad bought from a grocery store deli is often loaded with sugar and sesame oil (200+ kcal per 100 g is common). Only include if you can read the label or weigh and look it up.
 * Scaling: this recipe is single-serving by design; multiply everything for more bowls.
 * Meal prep: rice and edamame keep well in the fridge for 3–4 days. Slice cucumber and avocado fresh; assemble bowls just before eating to keep texture right.

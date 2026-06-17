@@ -56,7 +56,7 @@ ingredients:
 
 ## Instructions
 
-### Method 1 — Pasta Method
+### Method 1 - Pasta Method
 
 1. Bring a large pot of water (about 8 cups) to a rolling boil. Stir in the rice, bay leaf, and salt.
 2. Boil the rice uncovered for 10–12 minutes, checking for doneness near the end to avoid overcooking.
@@ -64,10 +64,10 @@ ingredients:
 4. Discard the bay leaf and transfer the rice to a large mixing bowl.
 5. While the rice is still warm, gently fold in the cilantro, lime juice, lemon juice, and olive oil. Taste and adjust salt as needed.
 
-### Method 2 — Classic Simmer
+### Method 2 - Classic Simmer
 
 1. Rinse the rice under cold water until the runoff is clear.
-2. Heat the olive oil in a heavy-bottomed saucepan over medium heat. Add the garlic (if using) and sauté for about 30 seconds until fragrant — do not brown.
+2. Heat the olive oil in a heavy-bottomed saucepan over medium heat. Add the garlic (if using) and sauté for about 30 seconds until fragrant - do not brown.
 3. Add the rice and salt and stir for about 1 minute to lightly toast the grains.
 4. Add the water (or broth) and bay leaf. Bring to a boil, then cover and reduce heat to low.
 5. Simmer for 10–15 minutes, or until the rice is tender and the liquid is absorbed.
@@ -76,9 +76,9 @@ ingredients:
 
 ## Notes
 
-* Always use freshly squeezed lime and lemon juice — bottled juice noticeably dulls the flavor.
+* Always use freshly squeezed lime and lemon juice - bottled juice noticeably dulls the flavor.
 * Rinsing the rice thoroughly is the key to fluffy, separate grains. Don't skip it (except in the pasta method, where draining serves a similar purpose).
-* Don't skip the off-heat rest in the simmer method — it makes the texture noticeably more tender.
+* Don't skip the off-heat rest in the simmer method - it makes the texture noticeably more tender.
 * Fold in herbs and citrus gently with a fork or wide spatula to avoid mashing the grains.
 * Use tender cilantro leaves only (no stems) for the mildest, cleanest flavor.
 * Brown rice variation: substitute long-grain brown rice and follow the package cook time; expect 35–45 minutes total.
