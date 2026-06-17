@@ -92,7 +92,7 @@ ingredients:
     unit: cup
     item: hummus OR feta cheese crumbles
     grams: 115
-    note: hummus (≈115 g) OR feta crumbles (≈75 g) — choose one
+    note: hummus (≈115 g) OR feta crumbles (≈75 g) - choose one
   - group: For the bowls
     item: Fresh chopped parsley
     note: for garnish
@@ -135,16 +135,16 @@ ingredients:
 3. Make the tzatziki: combine the Greek yogurt, minced garlic, diced cucumber, dill, lemon juice, salt, and pepper in a bowl. Stir well and refrigerate until ready to serve.
 4. Preheat the oven to 425°F (220°C). Grease a baking pan.
 5. Remove the chicken from the marinade and arrange on the pan along with the chopped red onion.
-6. Roast for 30–40 minutes, or until the chicken is cooked through (internal temperature 165°F / 74°C). Chicken breast may cook slightly faster than thigh — check at 25 minutes if using all breasts.
+6. Roast for 30–40 minutes, or until the chicken is cooked through (internal temperature 165°F / 74°C). Chicken breast may cook slightly faster than thigh - check at 25 minutes if using all breasts.
 7. Let the chicken rest a few minutes, then slice thinly.
 8. Assemble each bowl with a scoop of rice, sliced chicken and roasted onion, cucumber, cherry tomatoes, 75–125 g of tzatziki, and either a scoop of hummus or a sprinkle of feta. Garnish with chopped parsley and a pinch of crushed red pepper, if desired.
 
 ## Notes
 
 * This is a lightened version: marinade oil is reduced to 2–3 tbsp (from the original 1/2 cup), and the bowls use either hummus or feta by default rather than both. Add both back in if you want a richer bowl.
-* Chicken breasts cook faster and drier than thighs — pull as soon as the thickest part hits 165°F and rest before slicing. A half-and-half mix of breast and thigh gives a good balance of leanness and juiciness.
+* Chicken breasts cook faster and drier than thighs - pull as soon as the thickest part hits 165°F and rest before slicing. A half-and-half mix of breast and thigh gives a good balance of leanness and juiciness.
 * The marinade is acid-heavy (two lemons), so don't go beyond ~24 hours of marinating with chicken breast or the texture turns mealy.
 * Scaling: marinade, tzatziki, and chopped veggies can all be prepped 1–3 days ahead. Cooked components store separately for easier reheating.
 * Storage: keep chicken, rice, tzatziki, and fresh veggies in separate airtight containers in the fridge for up to 4 days. Tzatziki is best within 3 days.
 * Gluten-free: check that your hummus is gluten-free.
-* Great for meal prep — assemble cold bowls and reheat just the chicken and rice before topping with cold elements.
+* Great for meal prep - assemble cold bowls and reheat just the chicken and rice before topping with cold elements.

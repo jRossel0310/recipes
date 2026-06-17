@@ -1,4 +1,4 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection, reference, z } from 'astro:content';
 
 const ingredient = z.object({
   item: z.string(),
@@ -33,4 +33,21 @@ const recipes = defineCollection({
   }),
 });
 
-export const collections = { recipes };
+const dinners = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    date: z.date().optional(),
+    dishes: z
+      .array(
+        z.object({
+          recipe: reference('recipes'),
+          servings: z.number().positive(),
+          notes: z.array(z.string()).optional(),
+        }),
+      )
+      .min(1),
+  }),
+});
+
+export const collections = { recipes, dinners };

@@ -1,5 +1,5 @@
 ---
-title: Mexican Pinto Beans — 1 Can Version
+title: Mexican Pinto Beans - 1 Can Version
 source: Personal recipe
 servings: 2
 prepTime: 5 minutes
@@ -24,7 +24,7 @@ ingredients:
     note: minced
   - qty: 1
     item: small garlic clove
-    note: minced — or ½ tsp jarred minced garlic
+    note: minced - or ½ tsp jarred minced garlic
   - qty: 2
     qtyMax: 3
     unit: tbsp
@@ -43,7 +43,7 @@ ingredients:
     item: ground cinnamon
     note: ~1/16 tsp or less
   - item: salt
-    note: to taste — start with ⅛ tsp, especially with salted canned beans
+    note: to taste - start with ⅛ tsp, especially with salted canned beans
   - qty: 1
     unit: pinch
     item: black pepper
@@ -68,9 +68,9 @@ ingredients:
 
 ## Notes
 
-* Keep the cinnamon amount very small — around 1/16 tsp or less. It adds warmth without being detectable as cinnamon.
+* Keep the cinnamon amount very small - around 1/16 tsp or less. It adds warmth without being detectable as cinnamon.
 * If the beans seem dry during simmering, add water or bean liquid one tablespoon at a time.
 * Serve as a side dish, taco or burrito filling, or over rice.
 * Stores well in the fridge for up to 4 days; flavors deepen overnight.
-* Easily doubled — use 2 cans and scale spices accordingly.
+* Easily doubled - use 2 cans and scale spices accordingly.
 * For a vegan version, ensure no lard is added (standard canned pinto beans are vegan).

@@ -98,22 +98,22 @@ ingredients:
 
 ## Instructions
 
-1. Prep everything before you start cooking — stir fry moves fast. Cut the veggies into bite-size pieces (keep broccoli florets fairly small so they cook through). If using frozen veg, leave it in the bag until you're ready to add it.
+1. Prep everything before you start cooking - stir fry moves fast. Cut the veggies into bite-size pieces (keep broccoli florets fairly small so they cook through). If using frozen veg, leave it in the bag until you're ready to add it.
 2. Start the rice so it's ready when the stir fry is.
 3. Whisk all the sauce ingredients together in a medium bowl.
 4. Cut the chicken into 1-inch pieces. Sprinkle with the garlic powder and pepper, stir, then add the cornstarch and toss to coat.
 5. Heat 1 tbsp of olive oil in a deep skillet over medium-high heat. Let it get hot.
 6. Working in two batches, cook the chicken: shake off excess cornstarch, add half the chicken to the skillet, and cook for 4 minutes, then flip and cook another 3–4 minutes until browned and cooked through. Transfer to a plate. Add the second 1 tbsp of oil and repeat with the rest of the chicken.
 7. Add the onion to the pan and cook 1 minute, stirring. Add the broccoli and bell pepper and cook 3 minutes, stirring often, until tender-crisp.
-   * **If using frozen stir-fry veg:** add straight from the freezer, stir-fry for 4–6 minutes until heated through and any released water has cooked off. Don't crowd the pan — cook in two batches if needed.
+   * **If using frozen stir-fry veg:** add straight from the freezer, stir-fry for 4–6 minutes until heated through and any released water has cooked off. Don't crowd the pan - cook in two batches if needed.
 8. Return the chicken to the pan. Whisk the sauce again and pour it in. Let it bubble for under a minute, stirring constantly so everything is coated.
 9. Take the pan off the heat and serve immediately over rice.
 
 ## Notes
 
-* This version uses less oil and more chicken than the original — 2 tbsp total oil (≈5–7 g per serving) instead of 3 tbsp, and 3 chicken breasts instead of 2 for a more substantial protein portion.
+* This version uses less oil and more chicken than the original - 2 tbsp total oil (≈5–7 g per serving) instead of 3 tbsp, and 3 chicken breasts instead of 2 for a more substantial protein portion.
 * The sauce is intentionally not doubled. It coats the chicken and vegetables nicely as written; doubling makes the dish more saucy and pushes up the sugar and sodium per serving.
-* Frozen stir-fry vegetables work great and skip all the chopping. Don't thaw them first; just add straight to the hot pan and don't crowd it or they'll steam and turn watery. Avoid mixes with sauce packets — you only want the plain vegetables.
+* Frozen stir-fry vegetables work great and skip all the chopping. Don't thaw them first; just add straight to the hot pan and don't crowd it or they'll steam and turn watery. Avoid mixes with sauce packets - you only want the plain vegetables.
 * Maintain fairly high heat throughout and don't crowd the pan, or the chicken won't sear and the veggies will go soggy.
 * Mirin substitutes: dry sherry or sweet marsala wine work in a pinch.
 * Reader favorites: add cashews or water chestnuts at the end for crunch.

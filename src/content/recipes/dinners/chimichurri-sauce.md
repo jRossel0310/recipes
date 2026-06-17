@@ -50,13 +50,13 @@ ingredients:
 
 1. In a small bowl, whisk together the olive oil, white wine vinegar, minced garlic, salt, dried oregano, red pepper flakes, and smoked paprika until combined.
 2. Stir in the finely chopped parsley.
-3. Taste and adjust seasoning as needed — add more salt, vinegar, or red pepper flakes to your preference.
+3. Taste and adjust seasoning as needed - add more salt, vinegar, or red pepper flakes to your preference.
 4. Serve immediately or let sit for 10–15 minutes to allow the flavors to meld before using.
 
 ## Notes
 
 * Chop the parsley by hand rather than in a food processor for the best texture. Alternatively, combine all ingredients with a few quick pulses in a food processor or use a mortar and pestle.
-* White wine vinegar gives a brighter flavor than traditional red wine vinegar. Either works — use what you have.
+* White wine vinegar gives a brighter flavor than traditional red wine vinegar. Either works - use what you have.
 * Smoked paprika is an unconventional addition but adds a subtle smoky depth; it can be omitted for a more traditional version.
 * **Substitution:** Fresh cilantro can replace the parsley, or use a 50/50 mix of both.
 * **Serving ideas:** Drizzle over grilled or roasted vegetables, steak, chicken, or fish; toss with cooked grains like quinoa or farro; use as a salad dressing or swirl into polenta; spoon over a baked potato.

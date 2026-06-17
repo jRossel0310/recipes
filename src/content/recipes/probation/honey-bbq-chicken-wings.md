@@ -92,6 +92,6 @@ ingredients:
 
 * Drying wings uncovered in the fridge creates a crispier skin than patting dry with paper towel.
 * Add the seasoning in portions so every surface of the wings gets coated.
-* Leftover sauce can be stored in a freezer-safe bag. It stays pourable even from frozen — just reheat in a saucepan before using.
+* Leftover sauce can be stored in a freezer-safe bag. It stays pourable even from frozen - just reheat in a saucepan before using.
 * For extra crispiness, use a wire rack on the baking sheet while baking to allow air circulation.
 * You can optionally refrigerate the seasoned wings overnight before baking for deeper flavour.

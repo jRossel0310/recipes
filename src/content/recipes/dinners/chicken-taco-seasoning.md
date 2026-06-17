@@ -39,7 +39,7 @@ ingredients:
 
 ## Notes
 
-* This is the scaled spice mix only — no additional liquid or oil included.
+* This is the scaled spice mix only - no additional liquid or oil included.
 * Adjust chipotle powder up or down to control heat level.
 * Doubles or triples easily; store extra in an airtight jar for several months.
 * Works well on thighs, breasts, or shredded chicken for tacos.

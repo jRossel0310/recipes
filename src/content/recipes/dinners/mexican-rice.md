@@ -51,9 +51,9 @@ ingredients:
 
 ## Notes
 
-* Stir the rice constantly while toasting — this step is key to developing a nutty flavor and preventing the rice from sticking or burning.
+* Stir the rice constantly while toasting - this step is key to developing a nutty flavor and preventing the rice from sticking or burning.
 * Use chicken broth rather than water for the best flavor; water will produce a noticeably blander result.
 * **Variations:** Add a small can of diced green chilies, a handful of frozen corn, or rinsed black beans along with the broth for a heartier rice. A pinch of cayenne can be added with the cumin for extra heat.
 * **Vegetarian option:** Substitute the chicken broth with vegetable broth 1:1.
 * **Storage:** Store leftovers in an airtight container in the refrigerator for up to 4 days. Reheat in the microwave or on the stovetop; stir in a splash of broth if the rice seems dry.
-* **Scaling:** Doubles well — use a larger saucepan to ensure even heat distribution and extend simmer time by 3–5 minutes if needed.
+* **Scaling:** Doubles well - use a larger saucepan to ensure even heat distribution and extend simmer time by 3–5 minutes if needed.

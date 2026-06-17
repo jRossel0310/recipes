@@ -52,7 +52,7 @@ ingredients:
 3. Drain any excess fat from the pan. Season with salt and pepper.
 4. Transfer the beef mixture to a bowl and let it cool completely.
 5. Once cooled, finely mince the beef by hand on a cutting board, or pulse in a food processor (about 8–10 pulses) until it reaches a finely textured, spreadable consistency. You don't want a paste, just something cohesive enough to scoop.
-6. Combine the minced beef with the drained ricotta, Parmesan, and egg. Mix well. Taste and adjust seasoning — it should be well-seasoned since the pasta itself is unseasoned.
+6. Combine the minced beef with the drained ricotta, Parmesan, and egg. Mix well. Taste and adjust seasoning - it should be well-seasoned since the pasta itself is unseasoned.
 7. Cover and refrigerate for at least 30 minutes before assembling. The filling must be cold.
 
 ## Notes
