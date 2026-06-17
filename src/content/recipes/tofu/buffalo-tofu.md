@@ -9,6 +9,7 @@ nutrition:
   protein: 13
   carbs: 36
   fat: 17
+  servingGrams: 150  # estimate, verify/adjust
 tags: [tofu, vegan, buffalo, baked, appetizer, spicy]
 ingredients:
   - group: Tofu

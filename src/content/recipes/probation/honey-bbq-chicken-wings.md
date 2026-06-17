@@ -9,6 +9,7 @@ nutrition:
   protein: 5
   carbs: 12
   fat: 9
+  servingGrams: 100  # estimate, verify/adjust
 tags: [chicken, wings, bbq, honey, baked, game-day]
 ingredients:
   - group: To Wash Wings

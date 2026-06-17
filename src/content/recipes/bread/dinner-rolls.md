@@ -9,6 +9,7 @@ nutrition:
   protein: 1
   carbs: 7
   fat: 4
+  servingGrams: 30  # estimate, verify/adjust
 tags: [bread, rolls, baked, side-dish, holiday, yeast]
 ingredients:
   - qty: 4

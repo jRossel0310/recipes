@@ -9,6 +9,7 @@ nutrition:
   protein: 8
   carbs: 27
   fat: 3
+  servingGrams: 150  # estimate, verify/adjust
 tags: [mexican, beans, vegan, side-dish, quick, meal-prep]
 ingredients:
   - qty: 1
