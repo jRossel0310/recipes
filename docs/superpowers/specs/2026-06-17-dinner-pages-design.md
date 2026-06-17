@@ -101,12 +101,13 @@ ingredient into the largest practical unit plus a weight annotation.
 
 ### Conversion families
 
-- **Volume:** tsp → tbsp → cup → quart → gallon; and mL → L.
-  - Factors: 1 tbsp = 3 tsp; 1 cup = 16 tbsp; 1 quart = 4 cups; 1 gallon = 4 quarts;
-    1 L = 1000 mL.
+- **Volume:** tsp → tbsp → cup (cup is the ceiling); and mL → L.
+  - Factors: 1 tbsp = 3 tsp; 1 cup = 16 tbsp (= 48 tsp); 1 L = 1000 mL.
   - Roll up to the largest unit at which the value is ≥ 1, then humanize the fraction using the
-    existing `formatNumber`. E.g. 112 tsp ÷ 48 tsp/cup = 2.33 cups → "≈2⅓ cups"; 24 tsp ÷ 48 =
-    0.5 cup → "½ cup".
+    existing `formatNumber`. E.g. 112 tsp ÷ 48 tsp/cup = 2.33 cups → "≈2⅓ cups"; 24 tsp → "8 tbsp"
+    (0.5 cup is below the 1-cup threshold, so it stops at tbsp). Volume rolls up to **cup
+    maximum** — quart/gallon are excluded as impractical for a co-op kitchen (the reference docs
+    never exceed cups).
 - **Weight:** g → kg (≥ 1000 g); oz → lb (≥ 16 oz).
   - kg/lb shown to one decimal; g/oz to whole numbers.
 - **Count / descriptive units** (head, clove, can, lemon, bunch, sheet pan, etc.): no
@@ -118,7 +119,7 @@ ingredient into the largest practical unit plus a weight annotation.
 The rolled-up primary measure, plus the metric weight in parens when the recipe carries a
 `grams`/`ml` annotation (also rolled up: g→kg, mL→L). Examples:
 
-- `½ cup salt (≈145 g)`
+- `8 tbsp salt (≈145 g)`
 - `16 cups BBQ sauce (≈4.3 kg)`
 - `27.2 kg bone-in chicken thighs` (weight-primary item; `unit: kg` after roll-up from g)
 - `16 lemons` (count, no conversion)
