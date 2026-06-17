@@ -1,5 +1,5 @@
 .dinner { display: grid; gap: 1.5rem; }
-.dinner .jump { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; position: sticky; top: 0; background: var(--bg); padding: 0.5rem 0; border-bottom: 1px solid var(--border); }
+.dinner .jump { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; background: var(--bg); padding: 0.5rem 0; border-bottom: 1px solid var(--border); }
 .dinner .jump a { font-size: 0.95rem; text-decoration: none; padding: 0.25rem 0.6rem; border: 1px solid var(--border); border-radius: 999px; }
 .dinner .jump .reset { margin-left: auto; font-size: 0.85rem; padding: 0.3rem 0.7rem; border: 1px solid var(--border); border-radius: 8px; background: #fff; cursor: pointer; }
 .dish { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1rem 1.1rem; }
@@ -9,9 +9,10 @@
 .dish h4.group { margin: 0.75rem 0 0.25rem; font-size: 0.95rem; }
 .checklist { list-style: none; padding: 0; margin: 0; }
 .checklist.steps { counter-reset: step; }
-.checklist li { padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: 1.05rem; }
+.checklist li { padding: 0.55rem 0; border-bottom: 1px solid var(--border); font-size: 1.05rem; }
 .checklist label { display: flex; gap: 0.6rem; align-items: baseline; cursor: pointer; }
-.checklist input { width: 1.15rem; height: 1.15rem; flex: none; }
+.checklist label > span { min-width: 0; overflow-wrap: anywhere; }
+.checklist input { width: 1.4rem; height: 1.4rem; flex: none; }
 .checklist label.done { color: #b3a994; text-decoration: line-through; }
 .checklist .qty { font-weight: 600; }
 .checklist .metric, .checklist .note { color: #897f6d; font-weight: 400; }
@@ -19,3 +20,9 @@
 .cook-notes { margin: 0.75rem 0; padding: 0.6rem 0.8rem; background: #fff6e8; border: 1px solid #f0d9b5; border-radius: 8px; }
 .cook-notes strong { display: block; margin-bottom: 0.25rem; }
 .cook-notes ul { margin: 0; padding-left: 1.1rem; }
+.dish { scroll-margin-top: 0.75rem; }
+
+@media (max-width: 520px) {
+  .dinner { gap: 1rem; }
+  .dish { padding: 0.85rem 0.9rem; }
+}
