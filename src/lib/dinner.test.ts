@@ -24,6 +24,16 @@ describe('extractInstructions', () => {
   it('returns an empty array when there is no Instructions section', () => {
     expect(extractInstructions('## Notes\n\n* just a note')).toEqual([]);
   });
+
+  it('extracts multi-digit step numbers', () => {
+    const body = `## Instructions\n\n9. Step nine.\n10. Step ten.\n11. Step eleven.\n`;
+    expect(extractInstructions(body)).toEqual(['Step nine.', 'Step ten.', 'Step eleven.']);
+  });
+
+  it('ignores numbered prose that does not start a line', () => {
+    const body = `## Instructions\n\n1. Real step.\n\nSee reference 1. Not a step.\n`;
+    expect(extractInstructions(body)).toEqual(['Real step.']);
+  });
 });
 
 describe('buildChecklistDish', () => {
