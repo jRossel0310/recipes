@@ -1,0 +1,23 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const dinners = await getCollection('dinners');
+dinners.sort((a, b) => {
+  const da = a.data.date ? a.data.date.getTime() : 0;
+  const db = b.data.date ? b.data.date.getTime() : 0;
+  if (da !== db) return db - da; // newest first
+  return a.data.title.localeCompare(b.data.title);
+});
+---
+<BaseLayout title="Dinners">
+  <h1>Dinner nights</h1>
+  <div class="grid">
+    {dinners.map((d) => (
+      <a class="card" href={`/dinners/${d.slug}`}>
+        {d.data.title}
+        {d.data.date && <span> · {d.data.date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>}
+      </a>
+    ))}
+  </div>
+</BaseLayout>
