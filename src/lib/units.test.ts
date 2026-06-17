@@ -27,6 +27,14 @@ describe('rollUp', () => {
     expect(rollUp(16, 'lemons')).toEqual({ value: 16, unit: 'lemons' });
     expect(rollUp(5, undefined)).toEqual({ value: 5, unit: undefined });
   });
+  it('rolls to exactly 1 cup at the boundary', () => {
+    const r = rollUp(48, 'tsp'); // 48 tsp = exactly 1 cup
+    expect(r.unit).toBe('cup');
+    expect(r.value).toBeCloseTo(1);
+  });
+  it('stays in the smallest unit when below all thresholds', () => {
+    expect(rollUp(0.5, 'tsp')).toEqual({ value: 0.5, unit: 'tsp' });
+  });
 });
 
 describe('formatBatchQuantity', () => {
@@ -65,5 +73,8 @@ describe('formatBatchMetric', () => {
   });
   it('returns empty string when there is no metric annotation', () => {
     expect(formatBatchMetric({ item: 'eggs', qty: 6 })).toBe('');
+  });
+  it('joins grams and ml when both are present', () => {
+    expect(formatBatchMetric({ item: 'x', qty: 1, grams: 4320, ml: 2000 })).toBe('≈4.3 kg, ≈2 L');
   });
 });
