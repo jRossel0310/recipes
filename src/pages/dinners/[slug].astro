@@ -24,6 +24,7 @@ for (const dish of d.dishes) {
   {d.date && (
     <p>{d.date.toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric', year: 'numeric' })}</p>
   )}
+  <p class="nutrition-link"><a href={`/dinners/${entry.slug}/nutrition`}>Nutrition info →</a></p>
   <article>
     <Content />
   </article>

@@ -1,0 +1,48 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const dinners = await getCollection('dinners');
+  return dinners.map((entry) => ({ params: { slug: entry.slug }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const d = entry.data;
+
+const dishes = [];
+for (const dish of d.dishes) {
+  const recipe = await getEntry(dish.recipe);
+  dishes.push({ name: recipe.data.title, servings: dish.servings, nutrition: recipe.data.nutrition });
+}
+---
+<BaseLayout title={`${d.title} - Nutrition`}>
+  <h1>{d.title} - Nutrition</h1>
+  <p>Estimated values, per serving.</p>
+
+  {dishes.map((dish) => (
+    <section class="dish">
+      <h2>{dish.name} <span class="servings">· {dish.servings} servings</span></h2>
+      {dish.nutrition ? (
+        <p class="macros">
+          Per serving:
+          {dish.nutrition.calories != null && <span> {dish.nutrition.calories} cal</span>}
+          {dish.nutrition.protein != null && <span> · {dish.nutrition.protein} g protein</span>}
+          {dish.nutrition.carbs != null && <span> · {dish.nutrition.carbs} g carbs</span>}
+          {dish.nutrition.fat != null && <span> · {dish.nutrition.fat} g fat</span>}
+        </p>
+      ) : (
+        <p class="macros">No nutrition data.</p>
+      )}
+    </section>
+  ))}
+
+  <p><a href={`/dinners/${entry.slug}`}>← Back to {d.title}</a></p>
+</BaseLayout>
+
+<style>
+  .dish { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1rem 1.1rem; margin-bottom: 1rem; }
+  .dish h2 { margin: 0 0 0.4rem; }
+  .dish .servings { color: #897f6d; font-weight: 400; font-size: 1rem; }
+  .macros { margin: 0; }
+</style>
