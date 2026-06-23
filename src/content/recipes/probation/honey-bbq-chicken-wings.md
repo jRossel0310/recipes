@@ -83,7 +83,7 @@ ingredients:
 5. In a small bowl, combine the salt, black pepper, hot chilli powder, smoked paprika, and garlic powder.
 6. Place all the wings in a medium bowl. Sprinkle the seasoning blend in thirds, tossing with a wooden spoon after each addition to coat evenly.
 7. Arrange the seasoned wings on the lined baking sheet. Bake for 20 minutes, flip, then bake for another 25 minutes.
-8. While wings bake, melt the butter in a medium saucepan over medium heat. Add the BBQ sauce, honey, and ketchup. Stir to combine and bring to a simmer.
+8. While wings bake, melt the butter in a saucepan over medium heat. Add the BBQ sauce, honey, and ketchup. Stir to combine and bring to a simmer.
 9. Reduce heat to low and simmer, stirring occasionally, for 10–15 minutes.
 10. Transfer the baked wings to a large bowl. Pour the Honey BBQ Sauce over the wings and toss until fully coated.
 11. Return the coated wings to the baking sheet (replace parchment if needed) and bake for another 7–8 minutes until the sauce is bubbling and caramelized.
@@ -91,8 +91,6 @@ ingredients:
 
 ## Notes
 
-* Drying wings uncovered in the fridge creates a crispier skin than patting dry with paper towel.
+* Drying wings uncovered in the fridge creates a crispier skin than patting dry with paper towel. Try not to skip
 * Add the seasoning in portions so every surface of the wings gets coated.
-* Leftover sauce can be stored in a freezer-safe bag. It stays pourable even from frozen - just reheat in a saucepan before using.
 * For extra crispiness, use a wire rack on the baking sheet while baking to allow air circulation.
-* You can optionally refrigerate the seasoned wings overnight before baking for deeper flavour.

@@ -69,8 +69,8 @@ ingredients:
 
 ## Instructions
 
-1. Preheat oven to 325°F (165°C). Spray a 9×13 baking dish with non-stick cooking spray.
-2. Bring a large pot of salted water to a boil. Add pasta and cook until al dente per package directions. Drain.
+1. Bring a large pot of salted water to a boil. Add pasta and cook until al dente per package directions. Drain.
+2. Preheat oven to 325°F (165°C). Spray a 9×13 baking dish with non-stick cooking spray.
 3. In a large deep skillet, melt butter over medium heat. Whisk in flour and cook for 1 minute until lightly browned.
 4. Whisk in evaporated milk, heavy whipping cream, mustard, and all seasonings. Taste and adjust seasoning as needed.
 5. Slowly whisk in two-thirds of the shredded cheese until melted and smooth. Stir in the cooked drained pasta.
@@ -81,6 +81,3 @@ ingredients:
 ## Notes
 
 * Use a mix of cheeses for the best flavour - the combination of sharp cheddar, medium cheddar, and monterey jack gives a balance of tang and meltability.
-* Cook pasta just to al dente since it will continue to soften in the oven.
-* Leftovers can be stored in the refrigerator for up to 3 days. Reheat with a splash of milk to restore creaminess.
-* Recipe scales well - use a deeper dish or two 9×13 pans for a double batch.

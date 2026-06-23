@@ -15,8 +15,6 @@ dishes:
     servings: 120
     notes:
       - 5-6 full 9x13 pans (or 3 hotel pans)
-  - recipe: dinners/beans
-    servings: 120
   - recipe: bread/dinner-rolls
     servings: 144
 ---
