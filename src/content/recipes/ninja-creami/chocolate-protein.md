@@ -1,6 +1,6 @@
 ---
 title: Chocolate Protein Creami
-source: Creami recipe books (150+ recipes — link in creator's bio)
+source: Self
 servings: 1
 nutrition:
   calories: 193
@@ -32,4 +32,4 @@ ingredients:
 1. Add all ingredients to a Creami pint container and whisk or blend until smooth, with no lumps of cocoa or xanthan gum.
 2. Freeze on a level surface for 24 hours.
 3. Process on the Lite Ice Cream / Protein Ice Cream setting.
-4. If it comes out crumbly or powdery, add a splash of milk and re-spin until creamy.
+4. If it comes out crumbly or powdery, re-spin until creamy.
