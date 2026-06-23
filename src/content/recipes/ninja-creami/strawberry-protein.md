@@ -30,7 +30,8 @@ ingredients:
 
 ## Instructions
 
-1. Add all ingredients to a Creami pint container and blend until smooth.
-2. Freeze on a level surface for 24 hours.
-3. Process on the Lite Ice Cream / Protein Ice Cream setting.
-4. If it comes out crumbly or powdery, add a splash of milk and re-spin until creamy.
+1. Combine all ingredients and blend until smooth.
+2. Freeze flat for 24 hours.
+3. Let the pint defrost on the counter for 10–15 minutes.
+4. Spin on Lite Ice Cream, then Normal Ice Cream.
+5. If it comes out crumbly, respin — do not add milk.

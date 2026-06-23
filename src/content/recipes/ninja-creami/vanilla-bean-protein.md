@@ -38,7 +38,8 @@ ingredients:
 
 ## Instructions
 
-1. Blend all ingredients into a smooth base, with no lumps of protein powder or xanthan gum.
+1. Combine all ingredients and blend until smooth.
 2. Freeze flat for 24 hours.
-3. Process on the Lite Ice Cream / Protein Ice Cream setting.
-4. If it comes out crumbly or powdery, add a splash of milk and respin until creamy.
+3. Let the pint defrost on the counter for 10–15 minutes.
+4. Spin on Lite Ice Cream, then Normal Ice Cream.
+5. If it comes out crumbly, respin — do not add milk.

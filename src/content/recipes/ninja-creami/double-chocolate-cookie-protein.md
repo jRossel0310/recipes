@@ -27,8 +27,10 @@ ingredients:
 
 ## Instructions
 
-1. Blend the protein shake, cocoa powder, xanthan gum, and monk fruit sweetener into a smooth base.
-2. Store in a Creami pint container and keep upright in the freezer for at least 12 hours.
-3. Process on the Lite Ice Cream setting, then scrape the sides down and run a Respin cycle.
-4. Make a hole in the middle, add 2 of the crushed cookies, and run the Mix-In cycle.
-5. Top with the remaining crushed cookies and serve.
+1. Combine the protein shake, cocoa powder, xanthan gum, and monk fruit sweetener and blend until smooth.
+2. Freeze flat for 24 hours.
+3. Let the pint defrost on the counter for 10–15 minutes.
+4. Spin on Lite Ice Cream, then Normal Ice Cream.
+5. If it comes out crumbly, respin — do not add milk.
+6. Make a hole in the center, add half of the crushed cookies, and run the Mix-In cycle.
+7. Top with the remaining crushed cookies and serve.
