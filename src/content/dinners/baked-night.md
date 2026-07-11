@@ -2,16 +2,16 @@
 title: Baked Night
 date: 2026-06-20
 dishes:
-  - recipe: tofu/buffalo-tofu
+  - recipe: proteins/buffalo-tofu
     servings: 84
     notes:
       - 8-10 large rimmed sheet pans
       - Set up multiple breading stations, one dry hand / one wet
-  - recipe: probation/honey-bbq-chicken-wings
+  - recipe: on-trial/honey-bbq-chicken-wings
     servings: 120
     notes:
       - Wash step first; pat dry before seasoning
-  - recipe: probation/mac-n-cheese
+  - recipe: on-trial/mac-n-cheese
     servings: 120
     notes:
       - 5-6 full 9x13 pans (or 3 hotel pans)

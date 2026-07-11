@@ -1,27 +1,27 @@
 ---
 title: Enchilada Night
 dishes:
-  - recipe: dinners/chicken-enchiladas
+  - recipe: pasta-and-bakes/chicken-enchiladas
     servings: 120
     notes:
       - About 2 enchiladas per serving; bake at 350°F
       - Cook the chicken in batches, then shred
       - Source did not quantify the enchilada sauce; estimate is ~8-10 cans
-  - recipe: dinners/cheese-enchiladas
+  - recipe: pasta-and-bakes/cheese-enchiladas
     servings: 60
     notes:
       - Vegetarian option
       - Reserve some cheese to top before baking
-  - recipe: dinners/vegan-enchiladas
+  - recipe: pasta-and-bakes/vegan-enchiladas
     servings: 60
     notes:
       - Vegan option
       - Make the chile sauce first; it can be done ahead
-  - recipe: dinners/beans
+  - recipe: sides/beans
     servings: 120
-  - recipe: dinners/mexican-street-corn
+  - recipe: sides/mexican-street-corn
     servings: 120
-  - recipe: dinners/fajitas
+  - recipe: proteins/fajitas
     servings: 120
 ---
 
