@@ -57,6 +57,16 @@ describe('formatQuantity', () => {
     expect(formatQuantity({ item: 'milk', qty: 0.75, unit: 'cup' })).toBe('¾ cup');
   });
 
+  it('pluralizes canonical count and cup units', () => {
+    expect(formatQuantity({ item: 'flour', qty: 2, unit: 'cup' })).toBe('2 cups');
+    expect(formatQuantity({ item: 'garlic', qty: 3, unit: 'clove' })).toBe('3 cloves');
+    expect(formatQuantity({ item: 'beans', qty: 2, unit: 'can' })).toBe('2 cans');
+  });
+
+  it('uses SI capitalization for metric volume', () => {
+    expect(formatQuantity({ item: 'milk', qty: 300, unit: 'ml' })).toBe('300 mL');
+  });
+
   it('renders a range', () => {
     expect(formatQuantity({ item: 'chicken', qty: 6, qtyMax: 8 })).toBe('6–8');
   });
@@ -90,5 +100,9 @@ describe('formatMetric', () => {
   });
   it('returns empty string when there is no metric annotation', () => {
     expect(formatMetric({ item: 'eggs', qty: 2 })).toBe('');
+  });
+  it('suppresses duplicate metric annotations', () => {
+    expect(formatMetric({ item: 'pasta', qty: 220, unit: 'g', grams: 220 })).toBe('');
+    expect(formatMetric({ item: 'milk', qty: 300, unit: 'ml', ml: 300 })).toBe('');
   });
 });

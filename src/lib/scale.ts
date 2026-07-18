@@ -73,12 +73,17 @@ export function formatQuantity(ing: Ingredient): string {
   if (ing.qty === undefined) return '';
   const lo = formatNumber(ing.qty, ing.unit);
   const num = ing.qtyMax === undefined ? lo : `${lo}–${formatNumber(ing.qtyMax, ing.unit)}`;
-  return ing.unit ? `${num} ${ing.unit}` : num;
+  if (!ing.unit) return num;
+  const value = ing.qtyMax ?? ing.qty;
+  const plurals: Record<string, string> = { cup: 'cups', can: 'cans', clove: 'cloves', scoop: 'scoops', pinch: 'pinches', head: 'heads' };
+  const unit = value > 1 ? (plurals[ing.unit] ?? ing.unit) : ing.unit;
+  const display = unit === 'ml' ? 'mL' : unit === 'l' ? 'L' : unit;
+  return `${num} ${display}`;
 }
 
 export function formatMetric(ing: Ingredient): string {
   const parts: string[] = [];
-  if (ing.grams !== undefined) parts.push(`≈${formatNumber(ing.grams, 'g')} g`);
-  if (ing.ml !== undefined) parts.push(`≈${formatNumber(ing.ml, 'ml')} mL`);
+  if (ing.grams !== undefined && !['g', 'kg'].includes(ing.unit?.toLowerCase() ?? '')) parts.push(`≈${formatNumber(ing.grams, 'g')} g`);
+  if (ing.ml !== undefined && !['ml', 'l'].includes(ing.unit?.toLowerCase() ?? '')) parts.push(`≈${formatNumber(ing.ml, 'ml')} mL`);
   return parts.join(', ');
 }

@@ -59,6 +59,10 @@ describe('formatBatchQuantity', () => {
   it('formats a count with its unit word', () => {
     expect(formatBatchQuantity({ item: 'lemons', qty: 16, unit: 'lemons' })).toBe('16 lemons');
   });
+  it('pluralizes canonical count units', () => {
+    expect(formatBatchQuantity({ item: 'garlic', qty: 3, unit: 'clove' })).toBe('3 cloves');
+    expect(formatBatchQuantity({ item: 'beans', qty: 2, unit: 'can' })).toBe('2 cans');
+  });
   it('formats a unitless count', () => {
     expect(formatBatchQuantity({ item: 'eggs', qty: 6 })).toBe('6');
   });
@@ -88,5 +92,9 @@ describe('formatBatchMetric', () => {
   });
   it('joins grams and ml when both are present', () => {
     expect(formatBatchMetric({ item: 'x', qty: 1, grams: 4320, ml: 2000 })).toBe('≈4.3 kg, ≈2 L');
+  });
+  it('suppresses duplicate metric annotations', () => {
+    expect(formatBatchMetric({ item: 'pasta', qty: 220, unit: 'g', grams: 220 })).toBe('');
+    expect(formatBatchMetric({ item: 'milk', qty: 300, unit: 'ml', ml: 300 })).toBe('');
   });
 });

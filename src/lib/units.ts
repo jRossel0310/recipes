@@ -54,7 +54,8 @@ function prettyUnit(unit: string | undefined, value: number): string | undefined
   if (!unit) return unit;
   if (unit === 'ml') return 'mL';
   if (unit === 'l') return 'L';
-  if (unit === 'cup' && value > 1) return 'cups';
+  const plurals: Record<string, string> = { cup: 'cups', can: 'cans', clove: 'cloves', scoop: 'scoops', pinch: 'pinches', head: 'heads' };
+  if (value > 1 && plurals[unit]) return plurals[unit];
   return unit;
 }
 
@@ -80,11 +81,11 @@ export function formatBatchQuantity(ing: Ingredient): string {
 
 export function formatBatchMetric(ing: Ingredient): string {
   const parts: string[] = [];
-  if (ing.grams !== undefined) {
+  if (ing.grams !== undefined && !['g', 'kg'].includes(ing.unit?.toLowerCase() ?? '')) {
     const r = rollUp(ing.grams, 'g');
     parts.push(`≈${formatNumber(r.value, r.unit)} ${prettyUnit(r.unit, r.value)}`);
   }
-  if (ing.ml !== undefined) {
+  if (ing.ml !== undefined && !['ml', 'l'].includes(ing.unit?.toLowerCase() ?? '')) {
     const r = rollUp(ing.ml, 'ml');
     parts.push(`≈${formatNumber(r.value, r.unit)} ${prettyUnit(r.unit, r.value)}`);
   }
