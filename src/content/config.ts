@@ -30,6 +30,7 @@ const recipes = defineCollection({
       })
       .optional(),
     tags: z.array(z.string()).optional(),
+    hidden: z.boolean().optional(),
     ingredients: z.array(ingredient).min(1),
   }),
 });
@@ -38,6 +39,9 @@ const dinners = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
+    summary: z.string().optional(),
+    kind: z.enum(['everyday', 'event']).default('event'),
+    sortOrder: z.number().int().positive().optional(),
     date: z.date().optional(),
     dishes: z
       .array(
@@ -45,6 +49,7 @@ const dinners = defineCollection({
           recipe: reference('recipes'),
           servings: z.number().positive(),
           notes: z.array(z.string()).optional(),
+          optional: z.boolean().optional(),
         }),
       )
       .min(1),

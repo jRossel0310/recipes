@@ -50,6 +50,7 @@ describe('buildChecklistDish', () => {
     const dish = buildChecklistDish(recipe, BODY, 84, ['Use 8–10 sheet pans']);
     expect(dish.name).toBe('Buffalo Tofu');
     expect(dish.servings).toBe(84);
+    expect(dish.optional).toBe(false);
     // 454 g * (84/6) = 6356 g -> 6.4 kg
     expect(dish.ingredients[0].primary).toBe('6.4 kg');
     expect(dish.ingredients[0].item).toBe('tofu');
@@ -63,5 +64,9 @@ describe('buildChecklistDish', () => {
   it('defaults notes to an empty array', () => {
     const dish = buildChecklistDish(recipe, BODY, 6);
     expect(dish.notes).toEqual([]);
+  });
+
+  it('marks optional dinner dishes', () => {
+    expect(buildChecklistDish(recipe, BODY, 6, [], true).optional).toBe(true);
   });
 });

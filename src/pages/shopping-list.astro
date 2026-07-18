@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ShoppingListBuilder, { type RecipeChoice } from '../components/ShoppingListBuilder';
 
-const entries = await getCollection('recipes');
+const entries = await getCollection('recipes', ({ data }) => !data.hidden);
 const recipes: RecipeChoice[] = entries.map((e) => ({
   slug: e.id.replace(/\.md$/, ''),
   title: e.data.title,

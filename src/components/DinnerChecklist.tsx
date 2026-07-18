@@ -12,6 +12,7 @@ interface DishIngredient {
 interface DishView {
   name: string;
   servings: number;
+  optional: boolean;
   ingredients: DishIngredient[];
   steps: string[];
   notes: string[];
@@ -58,10 +59,10 @@ export default function DinnerChecklist({ slug, dishes }: Props) {
 
   return (
     <div className="dinner">
-      <nav className="jump">
+      <nav className="jump" aria-label="Jump to dish">
         {dishes.map((dish, di) => (
-          <a key={di} href={`#dish-${di}`}>
-            {dish.name}
+          <a key={di} href={`#dish-${di}`} className={dish.optional ? 'optional' : undefined}>
+            {dish.name}{dish.optional && ' · optional'}
           </a>
         ))}
         <button className="reset" onClick={reset}>
@@ -72,9 +73,10 @@ export default function DinnerChecklist({ slug, dishes }: Props) {
       {dishes.map((dish, di) => {
         let lastGroup: string | undefined;
         return (
-          <section key={di} id={`dish-${di}`} className="dish">
+          <section key={di} id={`dish-${di}`} className={`dish${dish.optional ? ' dish-optional' : ''}`}>
             <h2>
-              {dish.name} <span className="servings">· {dish.servings} servings</span>
+              {dish.name} {dish.optional && <span className="optional-badge">Optional</span>}
+              <span className="servings">· {dish.servings === 1 ? '1 batch' : `${dish.servings} servings`}</span>
             </h2>
 
             <h3>Ingredients</h3>

@@ -1,23 +1,69 @@
 :root {
-  --bg: #fbf7f0;
-  --fg: #2b2620;
-  --accent: #b5481f;
-  --card: #ffffff;
-  --border: #e6ddcd;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  --bg: #f5f6f2;
+  --surface: #ffffff;
+  --card: var(--surface);
+  --surface-soft: #ecefe8;
+  --fg: #172019;
+  --muted: #647067;
+  --accent: #236347;
+  --accent-strong: #164a34;
+  --accent-soft: #dcebe2;
+  --warm: #b65c35;
+  --border: #d9ded7;
+  --shadow: 0 12px 36px rgba(23, 32, 25, 0.07);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 * { box-sizing: border-box; }
-body { margin: 0; background: var(--bg); color: var(--fg); line-height: 1.5; overflow-wrap: break-word; -webkit-text-size-adjust: 100%; }
-a { color: var(--accent); }
-.container { max-width: 760px; margin: 0 auto; padding: 1rem; }
-header.site { border-bottom: 1px solid var(--border); }
-header.site .container { display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; align-items: baseline; }
-header.site a { text-decoration: none; font-weight: 600; }
-.card {
-  display: block; background: var(--card); border: 1px solid var(--border);
-  border-radius: 12px; padding: 0.85rem 1rem; text-decoration: none; color: inherit;
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--bg); color: var(--fg); line-height: 1.55; overflow-wrap: break-word; -webkit-text-size-adjust: 100%; }
+a { color: var(--accent); text-underline-offset: 0.2em; }
+.container { width: min(100% - 2rem, 1040px); margin-inline: auto; }
+main.container { padding-block: clamp(1.5rem, 4vw, 3.5rem) 4rem; }
+header.site { position: sticky; top: 0; z-index: 20; border-bottom: 1px solid rgba(217, 222, 215, 0.9); background: rgba(245, 246, 242, 0.92); backdrop-filter: blur(14px); }
+.nav-shell { min-height: 68px; display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+.brand { display: inline-flex; align-items: center; gap: 0.65rem; color: var(--fg); font-weight: 760; letter-spacing: -0.02em; text-decoration: none; }
+.brand-mark { display: grid; place-items: center; width: 2rem; height: 2rem; border-radius: 9px; color: white; background: var(--accent); font-size: 0.72rem; letter-spacing: 0.04em; }
+.site nav { display: flex; gap: 0.25rem; }
+.site nav a { color: var(--fg); padding: 0.55rem 0.7rem; border-radius: 8px; font-size: 0.94rem; font-weight: 650; text-decoration: none; }
+.site nav a:hover { background: var(--surface-soft); }
+h1, h2, h3 { line-height: 1.14; letter-spacing: -0.035em; }
+h1 { max-width: 18ch; margin: 0.25rem 0 0.75rem; font-size: clamp(2.2rem, 7vw, 4.6rem); }
+h2 { font-size: clamp(1.55rem, 4vw, 2.15rem); }
+.hero { padding-block: clamp(1rem, 5vw, 3.5rem); }
+.hero .lede { max-width: 42rem; }
+.eyebrow { margin: 0; color: var(--accent); font-size: 0.75rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; }
+.lede { margin: 0.5rem 0 1rem; color: var(--muted); font-size: clamp(1.05rem, 2.5vw, 1.25rem); }
+.page-section { padding-block: 1.5rem; scroll-margin-top: 5rem; }
+.featured-section { margin-inline: calc(50% - 50vw); padding-inline: max(1rem, calc((100vw - 1040px) / 2)); background: var(--surface-soft); }
+.section-heading { display: flex; justify-content: space-between; align-items: end; gap: 1rem; margin-bottom: 1rem; }
+.section-heading h2 { margin: 0.2rem 0 0; }
+.section-heading > a { flex: none; font-weight: 700; text-decoration: none; }
+.dinner-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.85rem; }
+.dinner-card, .recipe-card, .card { border: 1px solid var(--border); border-radius: 15px; background: var(--surface); color: inherit; text-decoration: none; transition: border-color 150ms ease, transform 150ms ease, box-shadow 150ms ease; }
+.dinner-card { min-height: 150px; display: flex; flex-direction: column; align-items: flex-start; padding: 1.15rem; }
+.dinner-card strong { margin: auto 0 0.4rem; font-size: 1.18rem; line-height: 1.25; letter-spacing: -0.02em; }
+.dinner-card > span:last-child { color: var(--muted); font-size: 0.9rem; }
+.card-kicker { color: var(--accent) !important; font-size: 0.72rem !important; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+.dinner-card:hover, .recipe-card:hover, .card:hover { border-color: #9ab3a3; box-shadow: var(--shadow); transform: translateY(-2px); }
+.category-nav { display: flex; gap: 0.5rem; overflow-x: auto; padding: 0.15rem 0 0.6rem; scrollbar-width: thin; }
+.category-nav a { flex: none; padding: 0.5rem 0.8rem; border: 1px solid var(--border); border-radius: 999px; background: var(--surface); color: var(--fg); font-size: 0.88rem; font-weight: 650; text-decoration: none; }
+.recipe-category { padding-top: 0.5rem; scroll-margin-top: 5rem; }
+h2.category { margin: 1.5rem 0 0.75rem; }
+.recipe-grid, .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.7rem; }
+.recipe-card, .card { display: flex; flex-direction: column; padding: 0.95rem 1rem; }
+.recipe-card span { margin-top: 0.25rem; color: var(--muted); font-size: 0.82rem; }
+article { max-width: 48rem; }
+article h2 { margin-top: 2rem; }
+.back-link { display: inline-block; margin-bottom: 1.25rem; font-weight: 700; text-decoration: none; }
+.nutrition-link a { display: inline-block; padding: 0.55rem 0.8rem; border-radius: 9px; background: var(--accent-soft); font-weight: 700; text-decoration: none; }
+footer { padding-block: 1.5rem 3rem; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.85rem; }
+button, input { font: inherit; }
+@media (max-width: 640px) {
+  .container { width: min(100% - 1.25rem, 1040px); }
+  .nav-shell { min-height: 60px; }
+  .brand > span:last-child { display: none; }
+  .site nav a { padding-inline: 0.55rem; font-size: 0.88rem; }
+  .dinner-grid, .recipe-grid, .grid { grid-template-columns: 1fr; }
+  .dinner-card { min-height: 125px; }
+  .section-heading { align-items: center; }
 }
-.card:hover { border-color: var(--accent); }
-.grid { display: grid; gap: 0.6rem; grid-template-columns: 1fr; }
-@media (min-width: 520px) { .grid { grid-template-columns: 1fr 1fr; } }
-h2.category { margin: 1.5rem 0 0.5rem; text-transform: capitalize; }

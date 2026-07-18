@@ -1,10 +1,13 @@
-.dinner { display: grid; gap: 1.5rem; }
-.dinner .jump { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; background: var(--bg); padding: 0.5rem 0; border-bottom: 1px solid var(--border); }
-.dinner .jump a { font-size: 0.95rem; text-decoration: none; padding: 0.25rem 0.6rem; border: 1px solid var(--border); border-radius: 999px; }
-.dinner .jump .reset { margin-left: auto; font-size: 0.85rem; padding: 0.3rem 0.7rem; border: 1px solid var(--border); border-radius: 8px; background: #fff; cursor: pointer; }
-.dish { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1rem 1.1rem; }
+.dinner { display: grid; gap: 1.25rem; margin-top: 1.5rem; }
+.dinner .jump { position: sticky; top: 68px; z-index: 10; display: flex; flex-wrap: nowrap; gap: 0.45rem; align-items: center; overflow-x: auto; margin-inline: calc(50% - 50vw); padding: 0.7rem max(1rem, calc((100vw - 1040px) / 2)); border-block: 1px solid var(--border); background: rgba(245, 246, 242, 0.95); backdrop-filter: blur(12px); }
+.dinner .jump a { flex: none; color: var(--fg); font-size: 0.88rem; font-weight: 650; text-decoration: none; padding: 0.4rem 0.7rem; border: 1px solid var(--border); border-radius: 999px; background: var(--surface); }
+.dinner .jump a.optional { color: var(--muted); border-style: dashed; }
+.dinner .jump .reset { flex: none; margin-left: auto; font-size: 0.82rem; padding: 0.42rem 0.7rem; border: 1px solid var(--border); border-radius: 999px; background: var(--surface); cursor: pointer; }
+.dish { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: clamp(1rem, 3vw, 1.5rem); box-shadow: 0 4px 18px rgba(23, 32, 25, 0.035); }
+.dish-optional { border-style: dashed; }
 .dish > h2 { margin: 0 0 0.75rem; }
-.dish h2 .servings { color: #897f6d; font-weight: 400; font-size: 1rem; }
+.dish h2 .servings { color: var(--muted); font-weight: 400; font-size: 1rem; }
+.optional-badge { display: inline-block; vertical-align: middle; margin-left: 0.35rem; padding: 0.2rem 0.45rem; border-radius: 999px; background: var(--surface-soft); color: var(--muted); font-size: 0.68rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; }
 .dish h3 { margin: 1rem 0 0.4rem; }
 .dish h4.group { margin: 0.75rem 0 0.25rem; font-size: 0.95rem; }
 .checklist { list-style: none; padding: 0; margin: 0; }
@@ -13,11 +16,11 @@
 .checklist label { display: flex; gap: 0.6rem; align-items: baseline; cursor: pointer; }
 .checklist label > span { min-width: 0; overflow-wrap: anywhere; }
 .checklist input { width: 1.4rem; height: 1.4rem; flex: none; }
-.checklist label.done { color: #b3a994; text-decoration: line-through; }
+.checklist label.done { color: #9aa39b; text-decoration: line-through; }
 .checklist .qty { font-weight: 600; }
-.checklist .metric, .checklist .note { color: #897f6d; font-weight: 400; }
-.checklist li.optional .qty::after { content: ' (optional)'; color: #897f6d; font-style: italic; font-weight: 400; }
-.cook-notes { margin: 0.75rem 0; padding: 0.6rem 0.8rem; background: #fff6e8; border: 1px solid #f0d9b5; border-radius: 8px; }
+.checklist .metric, .checklist .note { color: var(--muted); font-weight: 400; }
+.checklist li.optional .qty::after { content: ' (optional)'; color: var(--muted); font-style: italic; font-weight: 400; }
+.cook-notes { margin: 0.75rem 0; padding: 0.7rem 0.85rem; background: #f7eee8; border: 1px solid #ead3c5; border-radius: 10px; }
 .cook-notes strong { display: block; margin-bottom: 0.25rem; }
 .cook-notes ul { margin: 0; padding-left: 1.1rem; }
 .dish { scroll-margin-top: 0.75rem; }
@@ -25,4 +28,5 @@
 @media (max-width: 520px) {
   .dinner { gap: 1rem; }
   .dish { padding: 0.85rem 0.9rem; }
+  .dinner .jump { top: 60px; }
 }

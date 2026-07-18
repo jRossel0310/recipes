@@ -12,14 +12,18 @@ const { title } = Astro.props;
   </head>
   <body>
     <header class="site">
-      <div class="container">
-        <a href="/">🍳 Recipes</a>
-        <a href="/dinners">Dinners</a>
-        <a href="/shopping-list">Shopping list</a>
+      <div class="container nav-shell">
+        <a class="brand" href="/" aria-label="Dinner Table home"><span class="brand-mark">DT</span><span>Dinner Table</span></a>
+        <nav aria-label="Primary navigation">
+          <a href="/#dinners">Dinners</a>
+          <a href="/#recipes">Recipes</a>
+          <a href="/shopping-list">Shopping</a>
+        </nav>
       </div>
     </header>
     <main class="container">
       <slot />
     </main>
+    <footer class="container">Built for the nightly dinner routine.</footer>
   </body>
 </html>

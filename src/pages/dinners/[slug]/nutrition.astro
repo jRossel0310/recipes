@@ -13,16 +13,18 @@ const d = entry.data;
 const dishes = [];
 for (const dish of d.dishes) {
   const recipe = await getEntry(dish.recipe);
-  dishes.push({ name: recipe.data.title, servings: dish.servings, nutrition: recipe.data.nutrition });
+  dishes.push({ name: recipe.data.title, servings: dish.servings, optional: dish.optional ?? false, nutrition: recipe.data.nutrition });
 }
 ---
 <BaseLayout title={`${d.title} - Nutrition`}>
+  <a class="back-link" href={`/dinners/${entry.slug}`}>← Back to dinner</a>
+  <p class="eyebrow">Nutrition by dish</p>
   <h1>{d.title} - Nutrition</h1>
-  <p>Estimated values, per serving.</p>
+  <p class="lede">Estimated values per serving. Optional dishes are listed separately so you can include only what you make.</p>
 
   {dishes.map((dish) => (
     <section class="dish">
-      <h2>{dish.name} <span class="servings">· {dish.servings} servings</span></h2>
+      <h2>{dish.name} {dish.optional && <span class="optional-badge">Optional</span>} <span class="servings">· {dish.servings === 1 ? '1 batch' : `${dish.servings} servings`}</span></h2>
       {dish.nutrition ? (
         <p class="macros">
           Per serving:
@@ -40,13 +42,13 @@ for (const dish of d.dishes) {
     </section>
   ))}
 
-  <p><a href={`/dinners/${entry.slug}`}>← Back to {d.title}</a></p>
 </BaseLayout>
 
 <style>
-  .dish { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1rem 1.1rem; margin-bottom: 1rem; }
+  .dish { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 1rem 1.1rem; margin-bottom: 1rem; }
   .dish h2 { margin: 0 0 0.4rem; }
-  .dish .servings { color: #897f6d; font-weight: 400; font-size: 1rem; }
+  .dish .servings { color: var(--muted); font-weight: 400; font-size: 1rem; }
+  .optional-badge { display: inline-block; vertical-align: middle; padding: 0.2rem 0.45rem; border-radius: 999px; background: var(--surface-soft); color: var(--muted); font-size: 0.68rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; }
   .macros { margin: 0; }
-  .per100 { margin: 0.2rem 0 0; color: #897f6d; }
+  .per100 { margin: 0.2rem 0 0; color: var(--muted); }
 </style>

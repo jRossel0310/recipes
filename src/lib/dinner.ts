@@ -28,6 +28,7 @@ export interface DishIngredient {
 export interface DishView {
   name: string;
   servings: number;
+  optional: boolean;
   ingredients: DishIngredient[];
   steps: string[];
   notes: string[];
@@ -38,6 +39,7 @@ export function buildChecklistDish(
   body: string,
   targetServings: number,
   notes: string[] = [],
+  optional = false,
 ): DishView {
   const factor = scaleFactor(recipe.servings, targetServings);
   const ingredients: DishIngredient[] = recipe.ingredients.map((ing) => {
@@ -51,5 +53,5 @@ export function buildChecklistDish(
       optional: s.optional,
     };
   });
-  return { name: recipe.title, servings: targetServings, ingredients, steps: extractInstructions(body), notes };
+  return { name: recipe.title, servings: targetServings, optional, ingredients, steps: extractInstructions(body), notes };
 }

@@ -6,5 +6,5 @@
 .slb .out { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1rem; }
 .slb .out ul { list-style: none; padding: 0; margin: 0.5rem 0; }
 .slb .out li { padding: 0.25rem 0; border-bottom: 1px solid var(--border); }
-.slb .src { color: #897f6d; font-size: 0.85rem; }
+.slb .src { color: var(--muted); font-size: 0.85rem; }
 .slb h3.cat { text-transform: capitalize; margin: 0.75rem 0 0.25rem; }
