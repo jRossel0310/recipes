@@ -24,7 +24,7 @@ ingredients:
     note: finely chopped
   - group: Ragu
     qty: 14
-    unit: cloves
+    unit: clove
     item: garlic
     note: minced
   - group: Ragu
@@ -74,7 +74,7 @@ ingredients:
     grams: 300
   - group: Bechamel
     qty: 5
-    unit: quarts
+    unit: qt
     item: whole milk
     ml: 4730
     note: about 1.25 gallons
@@ -110,18 +110,18 @@ ingredients:
 3. Add the vegan mince and brown well.
 4. Stir in the diced carrot and celery.
 5. Add the crushed tomatoes, tomato paste, and vegetable stock; season with salt, pepper, and Italian herbs.
-6. Simmer 20-30 minutes until thick. Do not rush it - let the tomatoes fully cook so the flavor deepens.
+6. Simmer 20-30 minutes until thick.
 
 **Bechamel**
 
 7. Melt the butter in a large pot over medium heat.
 8. Whisk in the flour and cook 5-7 minutes until pale golden, not browned.
 9. Slowly whisk in the warm milk.
-10. Simmer, whisking, until thick and smooth, then season with salt and nutmeg. It should coat a spoon and stay pourable, not pasty. Keep warm for assembly.
+10. Simmer, whisking, until it coats a spoon but stays pourable. Season with salt and nutmeg and keep warm.
 
 **Pasta**
 
-11. Par-boil the lasagna sheets 4-5 minutes (skip if using no-boil). Lay them flat and keep lightly oiled so they do not stick; they should be flexible but firm.
+11. Par-boil the lasagna sheets 4-5 minutes (skip if using no-boil). Lay them flat and keep lightly oiled so they don't stick.
 
 **Assembly (per hotel pan)**
 
@@ -133,11 +133,11 @@ ingredients:
 
 15. Cover tightly with foil and bake at 375°F (190°C) for 50-60 minutes; more trays in the oven need more time.
 16. Uncover and bake another 15-25 minutes until the cheese is browned and the edges are bubbling.
-17. Rest 15-20 minutes before cutting - it will be sloppy if cut immediately.
+17. Rest 15-20 minutes before cutting.
 
 ## Notes
 
-* The ricotta mixture from the source is intentionally omitted; the bechamel carries the creaminess (the source notes it is "doing most of the work").
-* Scale caveat: the ragu quantities here are the source's smaller listed batch (about 3.5x, ~20 servings), while the bechamel is sized for 4 hotel pans. Scale the ragu up to match the number of pans you are actually filling.
-* Vegetarian as written (vegan mince with dairy bechamel and cheese). For fully vegan, use plant butter, plant milk, and vegan cheese.
+* No ricotta on purpose; the bechamel carries the creaminess.
+* The ragu quantities are the source's ~20-serving batch, but the bechamel is sized for 4 hotel pans. Scale the ragu to however many pans you're filling.
+* Vegetarian as written. For fully vegan, use plant butter, plant milk, and vegan cheese.
 * Nutrition is a rough estimate; adjust `servingGrams` to correct the per-100g figure.

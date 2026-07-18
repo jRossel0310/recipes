@@ -3,8 +3,13 @@ title: Stir-Fried Vegetables
 source: personal recipe
 servings: 4
 prepTime: 10 minutes
-cookTime: 8–10 minutes
+cookTime: 8-10 minutes
 tags: [vegetables, side-dish, stir-fry, everyday]
+nutrition:
+  calories: 120
+  protein: 3
+  carbs: 14
+  fat: 6
 ingredients:
   - qty: 1
     unit: lb
@@ -27,11 +32,10 @@ ingredients:
 ## Instructions
 
 1. Heat a large skillet or wok over medium-high heat. Add the oil.
-2. Add the vegetables in a single layer and stir-fry until tender-crisp, 5–8 minutes. Work in batches if needed; frozen vegetables may take slightly longer.
-3. Add your chosen sauce and toss for 1–2 minutes, just until the vegetables are coated and the sauce is hot.
-4. Taste, season with salt and pepper as needed, and serve immediately.
+2. Add the vegetables in a single layer and stir-fry until tender-crisp, 5-8 minutes. Work in batches if needed; frozen vegetables take a little longer.
+3. Add your sauce and toss 1-2 minutes, just until everything is coated and hot.
+4. Taste, season with salt and pepper, and serve.
 
 ## Notes
 
-* Keep the pan hot and avoid crowding it so the vegetables brown instead of steaming.
-* Use plain frozen vegetables without an included sauce packet when adding your own sauce.
+* If buying frozen vegetables, get the plain kind without a sauce packet.

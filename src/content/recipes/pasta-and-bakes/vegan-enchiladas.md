@@ -5,11 +5,11 @@ servings: 60
 prepTime: 50 minutes
 cookTime: 30 minutes
 nutrition:
-  calories: 380
-  protein: 16
-  carbs: 55
-  fat: 10
-  servingGrams: 280  # estimate, verify/adjust
+  calories: 130
+  protein: 5
+  carbs: 24
+  fat: 2
+  servingGrams: 140
 tags: [mexican, enchiladas, vegan, plant-based, dinner, co-op, large-batch]
 ingredients:
   - group: Sauce
@@ -29,8 +29,8 @@ ingredients:
     qtyMax: 7
     unit: can
     item: black beans
-    grams: 4000
-    note: 15 oz each, drained and rinsed
+    grams: 2550
+    note: 15 oz each before draining; drained and rinsed
   - group: Filling
     qty: 16
     item: medium carrots
@@ -108,6 +108,5 @@ ingredients:
 ## Notes
 
 * The source does not quantify the sauce chiles - use a handful of dried chiles to taste.
-* Vegan cheese is optional.
 * The vegan option for the dinner.
 * Nutrition is a rough estimate - verify and adjust.

@@ -5,7 +5,7 @@ kind: everyday
 sortOrder: 7
 dishes:
   - recipe: proteins/pan-cooked-buffalo-chicken-thighs
-    servings: 1
+    servings: 6
   - recipe: sides/roasted-potatoes
     servings: 4
   - recipe: sides/seasoned-zucchini

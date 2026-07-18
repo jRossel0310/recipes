@@ -24,7 +24,7 @@ ingredients:
     item: ground turkey
     grams: 454
   - qty: 4
-    unit: cloves
+    unit: clove
     item: garlic
     grams: 12
     note: minced
@@ -58,7 +58,7 @@ ingredients:
     item: tomato paste
     grams: 48
   - qty: 1.75
-    unit: cups
+    unit: cup
     item: low-sodium chicken broth
     grams: 415
   - qty: 28
@@ -93,7 +93,7 @@ ingredients:
 1. Heat the olive oil in a Dutch oven or large pot over medium-high heat. Add the onion and cook 2 minutes, until it starts to soften. Add the ground turkey and cook, stirring to crumble the meat, until browned, about 5 minutes. Add the garlic and cook, stirring, for 30 seconds.
 2. Add the brown sugar, chili powder, cumin, oregano, salt, pepper, and tomato paste. Stir to combine. Add the broth and stir, scraping up any browned bits from the bottom of the pot.
 3. Stir in the crushed tomatoes and beans.
-4. Bring to a boil, then reduce heat to low and simmer for 1–2 hours, stirring occasionally. Keep the chili covered during the first part of the cook time, then uncover for the last 30 minutes to thicken.
+4. Bring to a boil, then reduce heat to low and simmer covered for 1-2 hours, stirring occasionally. Uncover for the last 30 minutes to thicken.
 5. Serve with toppings, as desired.
 
 ### Slow Cooker
@@ -101,7 +101,7 @@ ingredients:
 1. Heat the olive oil in a large skillet over medium-high heat. Add the onion and cook 2 minutes. Add the ground turkey and cook, stirring to crumble, until browned, about 5 minutes. Stir in the garlic and cook 30 seconds.
 2. Turn off the heat and stir in the brown sugar, chili powder, cumin, oregano, salt, pepper, and tomato paste. Add the broth, scraping up any browned bits, then transfer the mixture to the slow cooker.
 3. Add the crushed tomatoes and beans to the slow cooker and stir.
-4. Cook on high for 3–4 hours or on low for 6–8 hours.
+4. Cook on high for 3-4 hours or on low for 6-8 hours.
 5. Stir and serve with toppings, as desired.
 
 ### Instant Pot
@@ -115,12 +115,7 @@ ingredients:
 
 ## Notes
 
-* Stirring the spices and tomato paste into the meat mixture before adding any liquid deepens the flavor - don't skip this step.
-* For a thicker chili, simmer uncovered (stovetop) or use the sauté function (Instant Pot) until it reduces to your liking.
-* Spice level: 2 tbsp chili powder gives moderate heat; use 1 tbsp for mild. Add a pinch of cayenne or red pepper flakes for more kick.
-* Variations: add chopped bell peppers, carrots, or celery with the onion; add chopped sweet potato with the garlic; stir in chopped spinach at the end.
-* Substitutions: ground beef or ground chicken works in place of turkey; cannellini beans or chickpeas can swap in for any of the beans.
-* For a meatier chili, double the turkey and reduce or omit one can of beans.
-* Storage: refrigerate in an airtight container for 3–4 days, or freeze for up to 3 months. Thaw overnight in the refrigerator before reheating.
-* Reheat in a covered pot over medium-low heat, stirring occasionally, or microwave until steaming hot.
-* Leftover chili turns into great chili mac - stir in cooked pasta and shredded cheddar.
+* Ground beef or chicken works in place of turkey; cannellini beans or chickpeas can stand in for any of the beans.
+* For a meatier chili, double the turkey and drop a can of beans.
+* Keeps 3-4 days in the fridge or 3 months frozen.
+* Leftovers make great chili mac; stir in cooked pasta and shredded cheddar.

@@ -48,18 +48,14 @@ ingredients:
 
 ## Instructions
 
-1. In a small bowl, whisk together the olive oil, white wine vinegar, minced garlic, salt, dried oregano, red pepper flakes, and smoked paprika until combined.
-2. Stir in the finely chopped parsley.
-3. Taste and adjust seasoning as needed - add more salt, vinegar, or red pepper flakes to your preference.
-4. Serve immediately or let sit for 10–15 minutes to allow the flavors to meld before using.
+1. Whisk together everything except the parsley.
+2. Stir in the parsley and taste for salt and vinegar.
+3. Serve right away, or better, let it sit 10-15 minutes first.
 
 ## Notes
 
-* Chop the parsley by hand rather than in a food processor for the best texture. Alternatively, combine all ingredients with a few quick pulses in a food processor or use a mortar and pestle.
-* White wine vinegar gives a brighter flavor than traditional red wine vinegar. Either works - use what you have.
-* Smoked paprika is an unconventional addition but adds a subtle smoky depth; it can be omitted for a more traditional version.
-* **Substitution:** Fresh cilantro can replace the parsley, or use a 50/50 mix of both.
-* **Serving ideas:** Drizzle over grilled or roasted vegetables, steak, chicken, or fish; toss with cooked grains like quinoa or farro; use as a salad dressing or swirl into polenta; spoon over a baked potato.
-* **Storage:** Keep in an airtight container in the refrigerator for up to 4 days.
-* **Freezing:** Freeze in ice cube trays for easy portioning. Frozen cubes keep for up to 3 months. Thaw at room temperature or overnight in the fridge.
-* **Scaling:** Doubles easily with no technique changes.
+* Chop the parsley by hand; a food processor turns it to mush.
+* Red wine vinegar is more traditional, white is brighter. Use what you have.
+* The smoked paprika isn't traditional; leave it out for a classic version.
+* Cilantro can replace the parsley, or do half and half.
+* Keeps 4 days in the fridge, or freeze in ice cube trays for up to 3 months.

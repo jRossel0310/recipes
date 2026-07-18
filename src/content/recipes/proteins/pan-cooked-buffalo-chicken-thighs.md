@@ -1,16 +1,21 @@
 ---
 title: Pan-Cooked Buffalo Chicken Thighs
 source: personal recipe
-servings: 1
+servings: 6
 prepTime: 5 minutes
-cookTime: 15–20 minutes
+cookTime: 15-20 minutes
 tags: [chicken, buffalo, skillet, spicy, gluten-free]
+nutrition:
+  calories: 315
+  protein: 27
+  carbs: 1
+  fat: 23
 ingredients:
   - group: For the chicken
     qty: 1
     item: pack boneless skinless chicken thighs
     grams: 900
-    note: Costco pack, roughly 2–2.5 lb / 900–1100 g
+    note: Costco pack, roughly 2-2.5 lb / 900-1100 g
   - group: For the chicken
     qty: 0.5
     unit: tsp
@@ -67,15 +72,9 @@ ingredients:
 
 ## Instructions
 
-1. Pat the chicken thighs dry. Season them evenly with the salt, garlic powder, onion powder, black pepper, and paprika.
-2. Heat the oil in a large skillet over medium-high heat. Add the chicken in a single layer and cook for 6–8 minutes on the first side without moving it much.
-3. Flip the chicken, reduce the heat to medium, and cook for another 5–7 minutes. The thickest pieces must reach at least 165°F (74°C), though thighs are usually best around 175–185°F (79–85°C).
-4. Transfer the cooked chicken to a plate and reduce the heat to low.
-5. Add the Frank's RedHot, butter, garlic powder, and honey (if using) to the same skillet. Whisk over low heat until the butter melts; do not let the sauce boil hard.
-6. Return the chicken to the skillet and turn it several times to coat. Cook it in the sauce for 1–2 minutes, then turn off the heat and spoon the extra sauce over the top.
-
-## Notes
-
-* The recipe is sized for one Costco pack of boneless, skinless chicken thighs, roughly 2–2.5 lb (900–1100 g).
-* Cook in batches if needed to keep the thighs in a single layer and promote browning.
-* Do not add the buffalo sauce until the chicken is fully cooked. Adding it too early can burn the sauce before the thighs are done.
+1. Pat the chicken thighs dry and season all over.
+2. Heat the oil in a large skillet over medium-high. Cook the chicken in a single layer (batches if needed), 6-8 minutes without moving it much.
+3. Flip, reduce the heat to medium, and cook another 5-7 minutes. Thighs are best around 175-185°F (79-85°C).
+4. Move the chicken to a plate and drop the heat to low.
+5. Whisk the Frank's, butter, garlic powder, and honey (if using) in the same skillet until the butter melts. Don't let it boil hard.
+6. Return the chicken and turn to coat. Give it 1-2 minutes in the sauce, then spoon the extra over the top.

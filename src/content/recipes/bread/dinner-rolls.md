@@ -3,18 +3,18 @@ title: The Best Dinner Rolls
 source: https://www.momontimeout.com/the-best-dinner-rolls-recipe/
 servings: 24
 prepTime: 10 minutes
-cookTime: 12–15 minutes
+cookTime: 12-15 minutes
 nutrition:
-  calories: 74
-  protein: 1
-  carbs: 7
+  calories: 125
+  protein: 3
+  carbs: 19
   fat: 4
   servingGrams: 30  # estimate, verify/adjust
 tags: [bread, rolls, baked, side-dish, holiday, yeast]
 ingredients:
   - qty: 4
     qtyMax: 5
-    unit: cups
+    unit: cup
     item: all-purpose flour
     grams: 480
   - qty: 2
@@ -30,7 +30,7 @@ ingredients:
     item: salt
     grams: 6
   - qty: 1.5
-    unit: cups
+    unit: cup
     item: warm milk
     ml: 355
     note: 110°F / 43°C
@@ -58,13 +58,12 @@ ingredients:
 5. Add additional flour as necessary. The dough should be slightly sticky and soft, pulling away from the edge of the bowl.
 6. Transfer the dough to a lightly greased bowl, cover with a towel or plastic wrap, and let rise for 30 minutes at room temperature.
 7. Punch down the dough lightly to deflate.
-8. Pinch off pieces and form 24 rolls (about 2 oz / ≈57 g each). Use a kitchen scale for even sizing.
+8. Pinch off pieces and form 24 rolls (about 2 oz / 57 g each).
 9. Place rolls on a lightly greased quarter baking sheet or 9×13 baking dish. Cover and let rise for an additional 30 minutes at room temperature.
 10. Preheat oven to 375°F (190°C).
-11. Bake for 12–15 minutes or until golden brown and cooked through. Tent with foil if rolls begin to brown too quickly.
+11. Bake for 12-15 minutes or until golden brown and cooked through. Tent with foil if rolls begin to brown too quickly.
 12. Remove from oven and brush hot rolls with melted butter. Serve immediately.
 
 ## Notes
 
-* Milk temperature is critical - aim for 100–110°F (38–43°C) to activate the yeast without killing it.
-* For uniform size, pat the dough into an 8×12 inch rectangle, cut into 4 strips, then cut each strip into 6 pieces.
+* For evenly sized rolls, pat the dough into an 8×12 inch rectangle, cut into 4 strips, then cut each strip into 6 pieces.

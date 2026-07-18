@@ -18,7 +18,7 @@ ingredients:
   - qty: 1
     unit: scoop
     item: vanilla protein powder
-    note: about 30–33 g
+    note: about 30-33 g
   - qty: 0.5
     unit: tsp
     item: vanilla bean paste
@@ -40,6 +40,6 @@ ingredients:
 
 1. Combine all ingredients and blend until smooth.
 2. Freeze flat for 24 hours.
-3. Let the pint defrost on the counter for 10–15 minutes.
+3. Let the pint defrost on the counter for 10-15 minutes.
 4. Spin on Lite Ice Cream, then Normal Ice Cream.
-5. If it comes out crumbly, respin — do not add milk.
+5. If it comes out crumbly, respin. Don't add milk.

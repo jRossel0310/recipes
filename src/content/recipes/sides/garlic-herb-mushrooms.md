@@ -5,6 +5,11 @@ servings: 2
 prepTime: 5 minutes
 cookTime: 10 minutes
 tags: [mushrooms, side, vegetarian, garlic, herb, gluten-free]
+nutrition:
+  calories: 65
+  protein: 4
+  carbs: 6
+  fat: 3
 ingredients:
   - qty: 225
     qtyMax: 300
@@ -21,7 +26,7 @@ ingredients:
     note: optional, but highly recommended
     optional: true
   - qty: 2
-    unit: cloves
+    unit: clove
     item: garlic
     note: minced
   - qty: 0.5
@@ -55,8 +60,8 @@ ingredients:
 1. Slice the mushrooms into ¼-inch slices.
 2. Heat a skillet over medium-high heat.
 3. Add the oil, then the mushrooms in a single layer.
-4. Leave them alone for 3–4 minutes. This helps them brown instead of steaming.
-5. Stir and cook another 3–4 minutes until most of the moisture has evaporated.
-6. Add the garlic, onion powder, Italian seasoning, smoked paprika, black pepper, and salt. Cook about 1 minute until the garlic becomes fragrant.
-7. Stir in the Worcestershire sauce and cook another 30–60 seconds until it coats the mushrooms.
+4. Leave them alone for 3-4 minutes so they brown instead of steaming.
+5. Stir and cook another 3-4 minutes until most of the moisture has evaporated.
+6. Add the garlic and all the seasonings. Cook about 1 minute until the garlic is fragrant.
+7. Stir in the Worcestershire sauce and cook another 30-60 seconds until it coats the mushrooms.
 8. Remove from heat and finish with a squeeze of lemon juice and parsley if using.

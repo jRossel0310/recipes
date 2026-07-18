@@ -34,12 +34,9 @@ ingredients:
 
 ## Instructions
 
-1. Combine all spices in a small bowl and mix thoroughly.
-2. Rub or sprinkle evenly over 1 to 1½ lb of chicken before cooking.
+1. Mix all the spices in a small bowl.
+2. Rub evenly over 1 to 1½ lb of chicken before cooking.
 
 ## Notes
 
-* This is the scaled spice mix only - no additional liquid or oil included.
-* Adjust chipotle powder up or down to control heat level.
-* Doubles or triples easily; store extra in an airtight jar for several months.
-* Works well on thighs, breasts, or shredded chicken for tacos.
+* Doubles or triples easily; extra keeps for months in an airtight jar.

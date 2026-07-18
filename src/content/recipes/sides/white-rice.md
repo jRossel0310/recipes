@@ -6,13 +6,18 @@ prepTime: 2 minutes
 cookTime: rice cooker cycle plus 10 minutes resting
 tags: [rice, side-dish, rice-cooker, everyday]
 hidden: true
+nutrition:
+  calories: 225
+  protein: 4
+  carbs: 49
+  fat: 1
 ingredients:
   - qty: 1
     unit: cup
     item: white rice
     grams: 185
   - qty: 1.25
-    unit: cups
+    unit: cup
     item: water
     ml: 296
   - qty: 0.5
@@ -32,7 +37,3 @@ ingredients:
 2. Cook using the normal white rice setting.
 3. When the cycle finishes, leave the lid closed and rest the rice for 10 minutes.
 4. Fluff with a fork and serve.
-
-## Notes
-
-* Keep the lid closed during the rest so the rice finishes steaming evenly.

@@ -34,6 +34,6 @@ ingredients:
 
 1. Combine all ingredients and blend very thoroughly, starting with 120 g water and adding more only until the mixture is pourable. Taste and adjust sweetness before freezing.
 2. Pour into a Creami Deluxe pint container, keeping below the max-fill line, and freeze flat for 24 hours.
-3. Let the pint defrost on the counter for 10–15 minutes.
+3. Let the pint defrost on the counter for 10-15 minutes.
 4. Spin on the Sorbet setting.
-5. If it comes out crumbly, respin — do not add milk.
+5. If it comes out crumbly, respin. Don't add anything.

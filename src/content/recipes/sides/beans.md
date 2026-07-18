@@ -59,19 +59,13 @@ ingredients:
 
 ## Instructions
 
-1. Heat a small pan over medium heat with a little oil. Sauté the minced onion for 2–3 minutes until softened.
-2. Add the garlic and cook for 30 seconds, stirring constantly.
+1. Heat a small pan over medium heat with a little oil. Sauté the onion 2-3 minutes until softened.
+2. Add the garlic and cook 30 seconds.
 3. Add the beans, cumin, chili powder, cinnamon, black pepper, and a splash of water or bean liquid.
-4. Simmer for 8–12 minutes, stirring occasionally.
-5. For a thicker sauce, mash a few spoonfuls of beans against the side of the pan while they simmer.
-6. Stir in the cilantro near the end of cooking.
-7. Taste and adjust salt as needed before serving.
+4. Simmer 8-12 minutes, stirring occasionally. Mash a few spoonfuls against the pan if you want it thicker.
+5. Stir in the cilantro near the end, then taste for salt.
 
 ## Notes
 
-* Keep the cinnamon amount very small - around 1/16 tsp or less. It adds warmth without being detectable as cinnamon.
-* If the beans seem dry during simmering, add water or bean liquid one tablespoon at a time.
-* Serve as a side dish, taco or burrito filling, or over rice.
-* Stores well in the fridge for up to 4 days; flavors deepen overnight.
-* Easily doubled - use 2 cans and scale spices accordingly.
-* For a vegan version, ensure no lard is added (standard canned pinto beans are vegan).
+* Keep the cinnamon to a small pinch; it adds warmth without reading as cinnamon.
+* Keeps 4 days in the fridge, and the flavors deepen overnight.

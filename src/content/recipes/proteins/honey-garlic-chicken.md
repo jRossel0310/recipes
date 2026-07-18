@@ -3,8 +3,13 @@ title: Honey Garlic Chicken
 source: personal recipe
 servings: 4
 prepTime: 10 minutes
-cookTime: 15–20 minutes
+cookTime: 15-20 minutes
 tags: [chicken, honey-garlic, skillet, high-protein, meal-prep]
+nutrition:
+  calories: 340
+  protein: 47
+  carbs: 10
+  fat: 12
 ingredients:
   - group: For the chicken
     qty: 800
@@ -72,15 +77,9 @@ ingredients:
 
 ## Instructions
 
-1. Season the cubed chicken with the salt, black pepper, chili flakes (if using), garlic powder, onion powder, paprika, and olive oil. Toss until evenly coated.
-2. Heat a pan over medium heat, then add some of the butter and let it melt.
-3. Add the chicken in a single layer without overcrowding the pan. Work in two batches if needed.
-4. Cook for 4–5 minutes on the first side, without moving it much, until a golden-brown crust forms. Turn the chicken and cook for another 3–4 minutes, or until cooked through.
-5. Reduce the heat to its lowest setting. Add the remaining butter, minced garlic, and honey, using 15 g honey per batch if cooking in two batches.
-6. Stir until the chicken is evenly coated and the sauce becomes sticky. Remove from the pan and finish with chopped parsley.
-
-## Notes
-
-* Leave out the chili flakes for a non-spicy version.
-* Cook in batches as needed; crowding the pan prevents the chicken from browning properly.
-* Lower the heat completely before adding the garlic and honey so they do not burn.
+1. Toss the chicken with the olive oil and all the seasonings.
+2. Melt some of the butter in a pan over medium heat.
+3. Add the chicken in a single layer, in two batches if needed.
+4. Cook 4-5 minutes undisturbed until browned, then turn and cook another 3-4 minutes until cooked through.
+5. Drop the heat to low so the garlic and honey don't burn, then add the remaining butter, the garlic, and the honey (15 g per batch).
+6. Stir until the chicken is coated and the sauce is sticky. Finish with the parsley.

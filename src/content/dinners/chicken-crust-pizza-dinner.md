@@ -14,4 +14,4 @@ dishes:
     optional: true
 ---
 
-Make the pizza the centerpiece and choose whichever side sounds good. A simple salad or other roasted vegetables also work when you do not want mushrooms or zucchini.
+Make the pizza the centerpiece and choose whichever side sounds good. A simple salad or other roasted vegetables also work if you don't want mushrooms or zucchini.

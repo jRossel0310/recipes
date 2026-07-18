@@ -79,14 +79,14 @@ ingredients:
 ## Instructions
 
 1. Preheat the oven to 425°F (220°C) and lightly grease a large rimmed baking sheet.
-2. Press tofu using large baking sheets and placing another baking sheet on top with something heavy to push the water out
-3. Cut the tofu into 18 wing-shaped sticks - slice the block into 6 slabs width-wise, then cut each slab into 3 lengthwise strips.
-4. Set up a breading station: cornstarch in one bowl, plant milk in a second bowl, and the bread crumb mixture (panko, olive oil, paprika, salt, pepper, parsley stirred together) in a third bowl. Pour some of the crumb mixture onto a plate.
-5. Dip each tofu piece into the starch, then the milk, then roll in the breadcrumbs. Place on the prepared baking sheet. Use one hand for dry ingredients and the other for wet to prevent clumping. Make sure to follow this step or you will have a bad time
-6. Bake for 25 minutes, flip, then bake an additional 10–15 minutes until crispy.
+2. Press the tofu: sandwich it between two baking sheets with something heavy on top to push the water out.
+3. Cut the tofu into 18 wing-shaped sticks: 6 slabs width-wise, then each slab into 3 strips.
+4. Set up a breading station: cornstarch in one bowl, plant milk in a second, and the bread crumb mixture (panko, olive oil, paprika, salt, pepper, parsley) in a third.
+5. Dip each piece in the starch, then the milk, then roll in the breadcrumbs. Use one hand for dry and the other for wet, or you will have a bad time.
+6. Bake for 25 minutes, flip, then bake another 10-15 minutes until crispy.
 7. While baking, make the buffalo sauce: melt the vegan butter and stir in the hot sauce, granulated garlic, and salt.
 8. Transfer the baked tofu wings to a large bowl and toss with the buffalo sauce to coat. Serve immediately.
 
 ## Notes
 
-* For a convection oven, bake for 30–35 minutes total, flipping halfway through.
+* For a convection oven, bake for 30-35 minutes total, flipping halfway through.

@@ -29,8 +29,8 @@ ingredients:
 
 1. Combine the protein shake, cocoa powder, xanthan gum, and monk fruit sweetener and blend until smooth.
 2. Freeze flat for 24 hours.
-3. Let the pint defrost on the counter for 10–15 minutes.
+3. Let the pint defrost on the counter for 10-15 minutes.
 4. Spin on Lite Ice Cream, then Normal Ice Cream.
-5. If it comes out crumbly, respin — do not add milk.
+5. If it comes out crumbly, respin. Don't add milk.
 6. Make a hole in the center, add half of the crushed cookies, and run the Mix-In cycle.
 7. Top with the remaining crushed cookies and serve.

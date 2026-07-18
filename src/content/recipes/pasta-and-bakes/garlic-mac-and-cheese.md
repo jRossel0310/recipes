@@ -3,8 +3,13 @@ title: Garlic Mac and Cheese
 source: personal recipe
 servings: 3
 prepTime: 5 minutes
-cookTime: 15–20 minutes
+cookTime: 15-20 minutes
 tags: [pasta, mac-and-cheese, garlic, stovetop, comfort-food]
+nutrition:
+  calories: 485
+  protein: 22
+  carbs: 66
+  fat: 15
 ingredients:
   - qty: 220
     unit: g
@@ -12,8 +17,9 @@ ingredients:
     grams: 220
     note: uncooked weight
   - qty: 1
-    unit: heaping tbsp
+    unit: tbsp
     item: minced garlic
+    note: heaping
   - qty: 300
     unit: ml
     item: skim milk
@@ -57,5 +63,4 @@ ingredients:
 
 ## Notes
 
-* Keep the heat low after adding the cheeses to prevent the sauce from splitting.
-* Nutmeg deepens the flavor of the cheese sauce without making it taste sweet.
+* The nutmeg deepens the cheese flavor without tasting sweet; don't skip it.

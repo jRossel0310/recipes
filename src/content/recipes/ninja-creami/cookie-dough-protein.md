@@ -50,8 +50,8 @@ ingredients:
 1. Combine all the base ingredients and blend until smooth.
 2. Freeze flat for 24 hours.
 3. Make the ganache: stir the unsweetened cocoa powder into the sugar-free syrup until smooth (about 15 g total).
-4. Let the pint defrost on the counter for 10–15 minutes.
+4. Let the pint defrost on the counter for 10-15 minutes.
 5. Spin on Lite Ice Cream, then Normal Ice Cream.
-6. If it comes out crumbly, respin — do not add milk.
+6. If it comes out crumbly, respin. Don't add milk.
 7. Make a hole down to the bottom with a butter knife and fill it with the ganache and half of the cookie dough bites, then run the Mix-In cycle.
 8. Top with the remaining cookie dough bites and serve.

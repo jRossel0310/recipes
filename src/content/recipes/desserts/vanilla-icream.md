@@ -12,7 +12,7 @@ nutrition:
 tags: [dessert, ice-cream, vanilla, frozen, no-cook, make-ahead]
 ingredients:
   - qty: 2
-    unit: cups
+    unit: cup
     item: heavy whipping cream
     grams: 480
   - qty: 1
@@ -43,12 +43,12 @@ ingredients:
 
 ## Instructions
 
-1. In a bowl or saucepan, combine the milk, sugar, and a pinch of salt. Whisk until the sugar dissolves. Warm slightly if needed, but do not boil.
+1. Whisk the milk, sugar, and a pinch of salt until the sugar dissolves. Warm slightly if needed, but don't boil.
 2. Mix in the heavy cream, vanilla extract, and vanilla bean paste or seeds.
-3. Cover and refrigerate the base for at least 4 hours, ideally overnight. The colder the base, the smoother the ice cream will churn.
-4. Pour the chilled base into an ice cream maker and churn according to the manufacturer's instructions until it reaches a soft-serve consistency.
-5. Transfer to an airtight container and freeze for 2–4 hours for a scoopable texture.
+3. Cover and refrigerate the base at least 4 hours, ideally overnight. A colder base churns smoother.
+4. Churn in an ice cream maker to a soft-serve consistency.
+5. Transfer to an airtight container and freeze 2-4 hours until scoopable.
 
 ## Notes
 
-* Vanilla bean paste or fresh bean seeds give the best flecked appearance; extract alone works but is less visually striking.
+* Extract alone works fine; the paste or bean seeds are what give it the flecks.

@@ -26,9 +26,9 @@ ingredients:
   - group: Protein - pick one
     qty: 1
     qtyMax: 2
-    unit: cans
+    unit: can
     item: tuna
-    note: ≈75–150 g drained; alternative to salmon
+    note: ≈75-150 g drained; alternative to salmon
     optional: true
   - group: Vegetables
     qty: 75
@@ -52,7 +52,7 @@ ingredients:
     qtyMax: 20
     unit: g
     item: Kewpie mayo
-    note: about 1–1.5 tsp
+    note: about 1-1.5 tsp
   - group: Sauce and toppings
     item: Soy sauce or tamari
     note: to taste
@@ -74,12 +74,9 @@ ingredients:
 
 ## Notes
 
-* Rice, salmon, Kewpie, avocado, and edamame are all calorie-dense, so eyeballing any one of them throws the whole bowl off. Use a scale for all five - cucumber and pickled veg can be free-pour.
-* Kewpie hits roughly 70 kcal per 10 g. 10–20 g is enough for flavor and visible drizzle; past that, the calories climb fast for marginal taste benefit.
-* Avocado is great but optional. Skip it on days the salmon is on the higher end (200 g+) or on lower-calorie days.
-* Canned tuna is the leanest protein swap and meaningfully drops total calories - useful when going heavier on rice or sauce.
-* Seaweed salad bought from a grocery store deli is often loaded with sugar and sesame oil (200+ kcal per 100 g is common). Only include if you can read the label or weigh and look it up.
-* Scaling: this recipe is single-serving by design; multiply everything for more bowls.
-* Meal prep: rice and edamame keep well in the fridge for 3–4 days. Slice cucumber and avocado fresh; assemble bowls just before eating to keep texture right.
-* Cooked salmon stores up to 3 days refrigerated. Canned tuna is the easiest meal-prep protein since it skips the cooking step entirely.
-* Use sushi-grade raw fish only if you're sourcing it from a fishmonger you trust and using it the same day.
+* Rice, salmon, Kewpie, avocado, and edamame are all calorie-dense, so weigh all five. Cucumber and pickled veg can be free-pour.
+* Kewpie runs about 70 kcal per 10 g; 10-20 g is plenty for flavor.
+* Canned tuna is the leanest swap and drops the total meaningfully.
+* Store-bought seaweed salad is often loaded with sugar and sesame oil; check the label before logging it.
+* Rice and edamame keep 3-4 days in the fridge. Slice cucumber and avocado fresh.
+* Raw fish only if it's sushi-grade from a source you trust, used the same day.

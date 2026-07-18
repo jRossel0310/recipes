@@ -5,6 +5,11 @@ servings: 3
 prepTime: 5 minutes
 cookTime: 25 minutes
 tags: [rice, spanish, side-dish, rice-cooker, gluten-free]
+nutrition:
+  calories: 240
+  protein: 5
+  carbs: 52
+  fat: 1
 ingredients:
   - qty: 1
     unit: cup

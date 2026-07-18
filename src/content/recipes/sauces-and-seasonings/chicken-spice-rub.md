@@ -46,11 +46,10 @@ ingredients:
 
 ## Instructions
 
-1. Combine all spices in a small bowl and mix thoroughly.
-2. Rub evenly over about 1 Costco pack of chicken (roughly 2–2.5 lb / 900–1100 g) before cooking.
+1. Mix all the spices in a small bowl.
+2. Rub evenly over about 1 Costco pack of chicken (roughly 2-2.5 lb / 900-1100 g) before cooking.
 
 ## Notes
 
-* Sized for one Costco chicken pack; scale up and store extra in an airtight jar for several months.
-* Use smoked paprika for a deeper, grilled flavor or sweet paprika for a milder blend.
-* Red pepper flakes are optional — leave them out for no heat.
+* Smoked paprika gives it a deeper, grilled flavor; sweet keeps it milder.
+* Scales up fine; extra keeps for months in an airtight jar.

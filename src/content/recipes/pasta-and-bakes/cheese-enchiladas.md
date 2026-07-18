@@ -5,11 +5,11 @@ servings: 60
 prepTime: 30 minutes
 cookTime: 20 minutes
 nutrition:
-  calories: 480
-  protein: 20
-  carbs: 42
-  fat: 26
-  servingGrams: 220  # estimate, verify/adjust
+  calories: 300
+  protein: 12
+  carbs: 26
+  fat: 17
+  servingGrams: 150
 tags: [mexican, enchiladas, cheese, vegetarian, dinner, co-op, large-batch]
 ingredients:
   - qty: 2

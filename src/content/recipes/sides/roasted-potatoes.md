@@ -3,8 +3,13 @@ title: Seasoned Roasted Potatoes
 source: personal recipe
 servings: 4
 prepTime: 10 minutes
-cookTime: 35–45 minutes
+cookTime: 35-45 minutes
 tags: [potatoes, side, roasted, vegetarian, gluten-free]
+nutrition:
+  calories: 180
+  protein: 4
+  carbs: 33
+  fat: 4
 ingredients:
   - qty: 700
     qtyMax: 800
@@ -49,6 +54,6 @@ ingredients:
 
 1. Toss the cubed potatoes with the oil.
 2. Add all the seasonings and mix until evenly coated.
-3. Roast at 425°F (220°C) for 35–45 minutes, flipping halfway through. The exact time depends on the size of your cubes.
+3. Roast at 425°F (220°C) for 35-45 minutes depending on cube size, flipping halfway through.
 4. If using Parmesan, sprinkle it on during the last 5 minutes or immediately after they come out of the oven.
 5. Finish with a little chopped parsley or chives if you have them.

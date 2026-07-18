@@ -5,7 +5,7 @@ kind: everyday
 sortOrder: 1
 dishes:
   - recipe: proteins/cilantro-lime-chicken-thighs
-    servings: 1
+    servings: 6
   - recipe: sides/cilantro-lime-rice
     servings: 3
   - recipe: sides/beans

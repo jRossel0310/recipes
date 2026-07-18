@@ -5,14 +5,14 @@ servings: 4
 prepTime: 10 minutes
 cookTime: 20 minutes
 nutrition:
-  calories: 390
-  protein: 9
-  carbs: 52
-  fat: 16
+  calories: 520
+  protein: 11
+  carbs: 57
+  fat: 27
 tags: [breakfast, waffles, quick, family-friendly, freezer-friendly]
 ingredients:
   - qty: 2
-    unit: cups
+    unit: cup
     item: all-purpose flour
     grams: 240
   - qty: 2
@@ -33,7 +33,7 @@ ingredients:
     grams: 57
     note: grated or finely cubed
   - qty: 1.333
-    unit: cups
+    unit: cup
     item: milk
     ml: 315
   - qty: 1
@@ -51,19 +51,14 @@ ingredients:
 
 ## Instructions
 
-1. In a large bowl, whisk together the flour, baking powder, salt, and sugar until combined.
-2. Add the cold grated or cubed butter to the dry mixture. Use your fingertips or a pastry cutter to work it in until the mixture resembles coarse, sandy crumbs.
-3. In a separate bowl, whisk together the milk, egg, and melted butter or oil.
-4. Pour the wet ingredients into the dry ingredients and stir lightly until just combined. The batter should remain slightly lumpy - do not overmix.
-5. Preheat your waffle iron and grease lightly if needed. Pour in enough batter to fill your waffle iron according to its size. Cook until golden brown and crisp, typically 3–5 minutes per waffle.
-6. Serve immediately with your desired toppings.
+1. Whisk together the flour, baking powder, salt, and sugar in a large bowl.
+2. Work the cold butter into the dry mix with your fingertips or a pastry cutter until it looks like coarse crumbs.
+3. Whisk the milk, egg, and melted butter together in a separate bowl.
+4. Stir the wet into the dry until just combined. Leave it a little lumpy.
+5. Cook in a preheated waffle iron until golden and crisp, about 3-5 minutes per waffle.
 
 ## Notes
 
-* Cutting cold butter into the dry mix is what gives these waffles their fluffy, tender interior - don't skip this step.
-* Do not overmix the batter; lumps are desirable and result in a lighter waffle.
-* The optional baking soda adds a slight tang and extra lift, especially useful if your milk is slightly acidic or if substituting buttermilk.
-* For extra crispiness, let waffles rest on a wire rack instead of stacking them - stacking traps steam and softens the exterior.
-* **Buttermilk variation:** Substitute the milk 1:1 with buttermilk and include the baking soda for a tangy, extra-fluffy result.
-* Store leftover waffles in an airtight container in the refrigerator for up to 3 days, or freeze for up to 2 months. Reheat in a toaster or oven at 350°F (175°C) to restore crispness.
-* To scale: this recipe doubles easily; mix dry and wet ingredients in separate larger bowls before combining.
+* For buttermilk waffles, swap the milk 1:1 for buttermilk and include the baking soda.
+* Rest finished waffles on a wire rack instead of stacking them so they stay crisp.
+* Extras freeze well; reheat in the toaster.

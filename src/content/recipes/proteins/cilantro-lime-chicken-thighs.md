@@ -1,22 +1,27 @@
 ---
 title: Cilantro Lime Chicken Thighs
 source: personal recipe
-servings: 1
-prepTime: 10 minutes (plus 1–2 hours marinating)
-cookTime: 10–12 minutes
+servings: 6
+prepTime: 10 minutes (plus 1-2 hours marinating)
+cookTime: 10-12 minutes
 tags: [chicken, cilantro-lime, skillet, meal-prep, gluten-free]
+nutrition:
+  calories: 230
+  protein: 27
+  carbs: 2
+  fat: 13
 ingredients:
   - group: For the chicken and marinade
     qty: 1
     item: pack boneless skinless chicken thighs
     grams: 900
-    note: Costco pack, roughly 2–2.5 lb / 900–1100 g
+    note: Costco pack, roughly 2-2.5 lb / 900-1100 g
   - group: For the chicken and marinade
     qty: 1
     unit: tbsp
     item: fresh lime juice
     grams: 15
-    note: about 1/2–1 lime
+    note: about 1/2-1 lime
   - group: For the chicken and marinade
     qty: 0.5
     item: lime
@@ -30,7 +35,7 @@ ingredients:
     optional: true
   - group: For the chicken and marinade
     qty: 2
-    unit: cloves
+    unit: clove
     item: garlic
     grams: 6
     note: minced
@@ -91,14 +96,12 @@ ingredients:
 
 ## Instructions
 
-1. Combine the lime juice, lime zest, olive oil (if using), garlic, salt, black pepper, cumin, chili powder, smoked paprika, oregano, onion powder, cayenne (if using), and cilantro (if using).
-2. Add the chicken thighs and toss until evenly coated. Cover and marinate in the refrigerator for 1–2 hours. If short on time, marinate for at least 45 minutes.
-3. Heat a skillet over medium-high heat. Remove the chicken from the marinade and arrange it in a single layer, working in batches as needed.
-4. Pan-fry for 5–6 minutes on the first side, then flip and cook for another 4–6 minutes. Cook until the thickest part reaches 175–185°F (79–85°C).
-5. Remove the chicken from the pan. Finish with a squeeze of fresh lime juice and chopped cilantro, if desired.
+1. Stir together all the marinade ingredients.
+2. Toss the chicken thighs in the marinade, cover, and refrigerate 1-2 hours (45 minutes if you're short on time).
+3. Heat a skillet over medium-high and arrange the chicken in a single layer, in batches as needed.
+4. Cook 5-6 minutes, flip, and cook another 4-6 minutes, until the thickest part reaches 175-185°F (79-85°C).
+5. Finish with a squeeze of lime and chopped cilantro.
 
 ## Notes
 
-* The recipe is sized for one Costco pack of boneless, skinless chicken thighs, roughly 2–2.5 lb (900–1100 g).
-* Avoid crowding the skillet; cook in batches so the thighs brown instead of steaming.
-* The higher finishing temperature gives chicken thighs their best texture.
+* Thighs are better cooked past breast temperature; 175-185°F is where they turn tender.
