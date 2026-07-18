@@ -73,7 +73,7 @@ export function formatBatchQuantity(ing: Ingredient): string {
   const loVal = r.value;
   const hiVal = ing.qtyMax === undefined ? undefined : convert(ing.qtyMax, ing.unit, unit);
   const lo = formatNumber(loVal, unit);
-  const num = hiVal === undefined ? lo : `${lo}–${formatNumber(hiVal, unit)}`;
+  const num = hiVal === undefined ? lo : `${lo}-${formatNumber(hiVal, unit)}`;
   // Pluralize based on the upper bound when it's a range.
   const display = prettyUnit(unit, hiVal ?? loVal);
   return display ? `${num} ${display}` : num;

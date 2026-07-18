@@ -72,7 +72,7 @@ export function formatNumber(value: number, unit?: string): string {
 export function formatQuantity(ing: Ingredient): string {
   if (ing.qty === undefined) return '';
   const lo = formatNumber(ing.qty, ing.unit);
-  const num = ing.qtyMax === undefined ? lo : `${lo}–${formatNumber(ing.qtyMax, ing.unit)}`;
+  const num = ing.qtyMax === undefined ? lo : `${lo}-${formatNumber(ing.qtyMax, ing.unit)}`;
   if (!ing.unit) return num;
   const value = ing.qtyMax ?? ing.qty;
   const plurals: Record<string, string> = { cup: 'cups', can: 'cans', clove: 'cloves', scoop: 'scoops', pinch: 'pinches', head: 'heads' };

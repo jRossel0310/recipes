@@ -67,7 +67,7 @@ describe('formatBatchQuantity', () => {
     expect(formatBatchQuantity({ item: 'eggs', qty: 6 })).toBe('6');
   });
   it('formats a range in a single rolled-up unit', () => {
-    expect(formatBatchQuantity({ item: 'vinegar', qty: 240, qtyMax: 360, unit: 'ml' })).toBe('240–360 mL');
+    expect(formatBatchQuantity({ item: 'vinegar', qty: 240, qtyMax: 360, unit: 'ml' })).toBe('240-360 mL');
   });
   it('returns empty string when there is no qty', () => {
     expect(formatBatchQuantity({ item: 'salt', note: 'to taste' })).toBe('');
@@ -76,7 +76,7 @@ describe('formatBatchQuantity', () => {
     expect(formatBatchQuantity({ item: 'flour', qty: 48, unit: 'tablespoons' })).toBe('3 cups');
   });
   it('normalizes a plural weight unit in a range', () => {
-    expect(formatBatchQuantity({ item: 'cheese', qty: 14, qtyMax: 16, unit: 'lbs' })).toBe('14–16 lb');
+    expect(formatBatchQuantity({ item: 'cheese', qty: 14, qtyMax: 16, unit: 'lbs' })).toBe('14-16 lb');
   });
 });
 

@@ -19,7 +19,7 @@ function itemLine(item: ShoppingItem): string {
   const parts: string[] = [];
   if (item.qty !== undefined) {
     const lo = formatNumber(item.qty, item.unit);
-    const num = item.qtyMax !== undefined ? `${lo}–${formatNumber(item.qtyMax, item.unit)}` : lo;
+    const num = item.qtyMax !== undefined ? `${lo}-${formatNumber(item.qtyMax, item.unit)}` : lo;
     parts.push(item.unit ? `${num} ${item.unit}` : num);
   }
   let line = `${parts.join(' ')} ${item.item}`.trim();

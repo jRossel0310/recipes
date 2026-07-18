@@ -68,11 +68,11 @@ describe('formatQuantity', () => {
   });
 
   it('renders a range', () => {
-    expect(formatQuantity({ item: 'chicken', qty: 6, qtyMax: 8 })).toBe('6–8');
+    expect(formatQuantity({ item: 'chicken', qty: 6, qtyMax: 8 })).toBe('6-8');
   });
 
   it('renders a range with a unit', () => {
-    expect(formatQuantity({ item: 'water', qty: 0.5, qtyMax: 1, unit: 'cup' })).toBe('½–1 cup');
+    expect(formatQuantity({ item: 'water', qty: 0.5, qtyMax: 1, unit: 'cup' })).toBe('½-1 cup');
   });
 
   it('renders a unitless count', () => {
