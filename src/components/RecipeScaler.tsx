@@ -8,8 +8,25 @@ interface Props {
   ingredients: Ingredient[];
 }
 
+const MAX_SERVINGS = 9999;
+
 export default function RecipeScaler({ baseServings, ingredients }: Props) {
   const [servings, setServings] = useState(baseServings);
+  // Holds raw keystrokes while the field is mid-edit so a cleared or half-typed
+  // value can sit on screen without the ingredient list following it.
+  const [draft, setDraft] = useState<string | null>(null);
+
+  function commit(raw: string) {
+    setDraft(raw);
+    const n = Number(raw);
+    if (Number.isInteger(n) && n >= 1 && n <= MAX_SERVINGS) setServings(n);
+  }
+
+  function step(next: number) {
+    setServings(Math.min(MAX_SERVINGS, Math.max(1, next)));
+    setDraft(null);
+  }
+
   const factor = scaleFactor(baseServings, servings);
   const scaled = ingredients.map((ing) => scaleIngredient(ing, factor));
 
@@ -33,12 +50,23 @@ export default function RecipeScaler({ baseServings, ingredients }: Props) {
   return (
     <div className="scaler">
       <div className="stepper">
-        <button aria-label="Fewer servings" onClick={() => setServings((s) => Math.max(1, s - 1))}>−</button>
-        <span className="count">{servings}</span>
-        <button aria-label="More servings" onClick={() => setServings((s) => s + 1)}>+</button>
+        <button aria-label="Fewer servings" onClick={() => step(servings - 1)}>−</button>
+        <input
+          className="count"
+          type="number"
+          min={1}
+          max={MAX_SERVINGS}
+          inputMode="numeric"
+          aria-label="Servings"
+          value={draft ?? String(servings)}
+          onChange={(e) => commit(e.target.value)}
+          onFocus={(e) => e.target.select()}
+          onBlur={() => setDraft(null)}
+        />
+        <button aria-label="More servings" onClick={() => step(servings + 1)}>+</button>
         <span>servings</span>
         {servings !== baseServings && (
-          <button className="reset" onClick={() => setServings(baseServings)}>reset</button>
+          <button className="reset" onClick={() => step(baseServings)}>reset</button>
         )}
       </div>
       <ul className="ingredients">{rows}</ul>
