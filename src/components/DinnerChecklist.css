@@ -1,8 +1,10 @@
 .dinner { display: grid; gap: 1.25rem; margin-top: 1.5rem; --jump-h: 61px; }
-.dinner .jump { position: sticky; top: var(--header-h); z-index: 10; display: flex; flex-wrap: nowrap; gap: 0.45rem; align-items: center; overflow-x: auto; margin-inline: calc(50% - 50vw); padding: 0.7rem max(1rem, calc((100vw - 1040px) / 2)); border-block: 1px solid var(--border); background: rgba(245, 246, 242, 0.95); backdrop-filter: blur(12px); }
+.dinner .jump { position: sticky; top: var(--header-h); z-index: 10; display: flex; gap: 0.45rem; align-items: center; margin-inline: calc(50% - 50vw); padding: 0.7rem max(1rem, calc((100vw - 1040px) / 2)); border-block: 1px solid var(--border); background: rgba(245, 246, 242, 0.95); backdrop-filter: blur(12px); }
+.dinner .jump-pills { flex: 1 1 auto; min-width: 0; display: flex; flex-wrap: nowrap; gap: 0.45rem; overflow-x: auto; mask-image: linear-gradient(to right, black calc(100% - 24px), transparent); -webkit-mask-image: linear-gradient(to right, black calc(100% - 24px), transparent); }
 .dinner .jump a { flex: none; color: var(--fg); font-size: 0.88rem; font-weight: 650; text-decoration: none; padding: 0.4rem 0.7rem; border: 1px solid var(--border); border-radius: 999px; background: var(--surface); }
 .dinner .jump a.optional { color: var(--muted); border-style: dashed; }
-.dinner .jump .reset { flex: none; margin-left: auto; font-size: 0.82rem; padding: 0.42rem 0.7rem; border: 1px solid var(--border); border-radius: 999px; background: var(--surface); cursor: pointer; }
+.dinner .jump a.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+.dinner .jump .reset { flex: none; font-size: 0.82rem; padding: 0.42rem 0.7rem; border: 1px solid var(--border); border-radius: 999px; background: var(--surface); cursor: pointer; }
 .dish { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: clamp(1rem, 3vw, 1.5rem); box-shadow: 0 4px 18px rgba(23, 32, 25, 0.035); }
 .dish-optional { border-style: dashed; }
 .dish > h2 { margin: 0 0 0.75rem; }

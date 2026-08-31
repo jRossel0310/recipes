@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './DinnerChecklist.css';
 
 interface DishIngredient {
@@ -25,6 +25,9 @@ interface Props {
 export default function DinnerChecklist({ slug, dishes }: Props) {
   const storageKey = `dinner-checklist:${slug}`;
   const [checked, setChecked] = useState<Record<string, boolean>>({});
+  const [activeDish, setActiveDish] = useState(0);
+  const sectionRefs = useRef<(HTMLElement | null)[]>([]);
+  const linkRefs = useRef<(HTMLAnchorElement | null)[]>([]);
 
   // Load persisted state after mount (keeps SSR markup and first client render identical).
   useEffect(() => {
@@ -35,6 +38,30 @@ export default function DinnerChecklist({ slug, dishes }: Props) {
       /* ignore unreadable storage */
     }
   }, [storageKey]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries.filter((e) => e.isIntersecting);
+        if (visible.length === 0) return;
+        const topMost = visible.reduce((a, b) => (a.boundingClientRect.top < b.boundingClientRect.top ? a : b));
+        const index = sectionRefs.current.findIndex((el) => el === topMost.target);
+        if (index !== -1) setActiveDish(index);
+      },
+      // 132px clears the sticky site header (60-68px) + sticky jump nav (~61px) across
+      // breakpoints; the -70% bottom margin keeps the trigger band near the top of the
+      // viewport so only the dish currently under the sticky bars counts as active.
+      { rootMargin: '-132px 0px -70% 0px', threshold: 0 },
+    );
+    for (const el of sectionRefs.current) {
+      if (el) observer.observe(el);
+    }
+    return () => observer.disconnect();
+  }, [dishes.length]);
+
+  useEffect(() => {
+    linkRefs.current[activeDish]?.scrollIntoView({ inline: 'nearest', block: 'nearest' });
+  }, [activeDish]);
 
   function toggle(key: string) {
     setChecked((prev) => {
@@ -60,11 +87,18 @@ export default function DinnerChecklist({ slug, dishes }: Props) {
   return (
     <div className="dinner">
       <nav className="jump" aria-label="Jump to dish">
-        {dishes.map((dish, di) => (
-          <a key={di} href={`#dish-${di}`} className={dish.optional ? 'optional' : undefined}>
-            {dish.name}{dish.optional && ' · optional'}
-          </a>
-        ))}
+        <div className="jump-pills">
+          {dishes.map((dish, di) => (
+            <a
+              key={di}
+              ref={(el) => (linkRefs.current[di] = el)}
+              href={`#dish-${di}`}
+              className={[dish.optional ? 'optional' : '', di === activeDish ? 'active' : ''].filter(Boolean).join(' ') || undefined}
+            >
+              {dish.name}{dish.optional && ' · optional'}
+            </a>
+          ))}
+        </div>
         <button className="reset" onClick={reset}>
           Reset checklist
         </button>
@@ -73,7 +107,12 @@ export default function DinnerChecklist({ slug, dishes }: Props) {
       {dishes.map((dish, di) => {
         let lastGroup: string | undefined;
         return (
-          <section key={di} id={`dish-${di}`} className={`dish${dish.optional ? ' dish-optional' : ''}`}>
+          <section
+            key={di}
+            id={`dish-${di}`}
+            ref={(el) => (sectionRefs.current[di] = el)}
+            className={`dish${dish.optional ? ' dish-optional' : ''}`}
+          >
             <h2>
               {dish.name} {dish.optional && <span className="optional-badge">Optional</span>}
               <span className="servings">· {dish.servings === 1 ? '1 batch' : `${dish.servings} servings`}</span>
