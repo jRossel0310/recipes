@@ -1,5 +1,5 @@
-.dinner { display: grid; gap: 1.25rem; margin-top: 1.5rem; }
-.dinner .jump { position: sticky; top: 68px; z-index: 10; display: flex; flex-wrap: nowrap; gap: 0.45rem; align-items: center; overflow-x: auto; margin-inline: calc(50% - 50vw); padding: 0.7rem max(1rem, calc((100vw - 1040px) / 2)); border-block: 1px solid var(--border); background: rgba(245, 246, 242, 0.95); backdrop-filter: blur(12px); }
+.dinner { display: grid; gap: 1.25rem; margin-top: 1.5rem; --jump-h: 61px; }
+.dinner .jump { position: sticky; top: var(--header-h); z-index: 10; display: flex; flex-wrap: nowrap; gap: 0.45rem; align-items: center; overflow-x: auto; margin-inline: calc(50% - 50vw); padding: 0.7rem max(1rem, calc((100vw - 1040px) / 2)); border-block: 1px solid var(--border); background: rgba(245, 246, 242, 0.95); backdrop-filter: blur(12px); }
 .dinner .jump a { flex: none; color: var(--fg); font-size: 0.88rem; font-weight: 650; text-decoration: none; padding: 0.4rem 0.7rem; border: 1px solid var(--border); border-radius: 999px; background: var(--surface); }
 .dinner .jump a.optional { color: var(--muted); border-style: dashed; }
 .dinner .jump .reset { flex: none; margin-left: auto; font-size: 0.82rem; padding: 0.42rem 0.7rem; border: 1px solid var(--border); border-radius: 999px; background: var(--surface); cursor: pointer; }
@@ -23,10 +23,9 @@
 .cook-notes { margin: 0.75rem 0; padding: 0.7rem 0.85rem; background: #f7eee8; border: 1px solid #ead3c5; border-radius: 10px; }
 .cook-notes strong { display: block; margin-bottom: 0.25rem; }
 .cook-notes ul { margin: 0; padding-left: 1.1rem; }
-.dish { scroll-margin-top: 0.75rem; }
+.dish { scroll-margin-top: calc(var(--header-h) + var(--jump-h) + 0.75rem); }
 
 @media (max-width: 520px) {
   .dinner { gap: 1rem; }
   .dish { padding: 0.85rem 0.9rem; }
-  .dinner .jump { top: 60px; }
 }
