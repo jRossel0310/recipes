@@ -68,22 +68,3 @@ export function formatNumber(value: number, unit?: string): string {
   if (u && DECIMAL_UNITS.has(u)) return trimDecimal(value);
   return humanizeFraction(value);
 }
-
-export function formatQuantity(ing: Ingredient): string {
-  if (ing.qty === undefined) return '';
-  const lo = formatNumber(ing.qty, ing.unit);
-  const num = ing.qtyMax === undefined ? lo : `${lo}-${formatNumber(ing.qtyMax, ing.unit)}`;
-  if (!ing.unit) return num;
-  const value = ing.qtyMax ?? ing.qty;
-  const plurals: Record<string, string> = { cup: 'cups', can: 'cans', clove: 'cloves', scoop: 'scoops', pinch: 'pinches', head: 'heads' };
-  const unit = value > 1 ? (plurals[ing.unit] ?? ing.unit) : ing.unit;
-  const display = unit === 'ml' ? 'mL' : unit === 'l' ? 'L' : unit;
-  return `${num} ${display}`;
-}
-
-export function formatMetric(ing: Ingredient): string {
-  const parts: string[] = [];
-  if (ing.grams !== undefined && !['g', 'kg'].includes(ing.unit?.toLowerCase() ?? '')) parts.push(`≈${formatNumber(ing.grams, 'g')} g`);
-  if (ing.ml !== undefined && !['ml', 'l'].includes(ing.unit?.toLowerCase() ?? '')) parts.push(`≈${formatNumber(ing.ml, 'ml')} mL`);
-  return parts.join(', ');
-}

@@ -66,7 +66,7 @@ function convert(value: number, fromUnit: string | undefined, toUnit: string | u
   return (value * factorOf(ladder, canonicalUnit(fromUnit.toLowerCase()))) / factorOf(ladder, toUnit);
 }
 
-export function formatBatchQuantity(ing: Ingredient): string {
+export function formatScaledQuantity(ing: Ingredient): string {
   if (ing.qty === undefined) return '';
   const r = rollUp(ing.qty, ing.unit);
   const unit = r.unit;
@@ -79,7 +79,7 @@ export function formatBatchQuantity(ing: Ingredient): string {
   return display ? `${num} ${display}` : num;
 }
 
-export function formatBatchMetric(ing: Ingredient): string {
+export function formatScaledMetric(ing: Ingredient): string {
   const parts: string[] = [];
   if (ing.grams !== undefined && !['g', 'kg'].includes(ing.unit?.toLowerCase() ?? '')) {
     const r = rollUp(ing.grams, 'g');

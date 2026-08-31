@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import type { Ingredient } from '../lib/types';
-import { scaleFactor, scaleIngredient, formatQuantity, formatMetric } from '../lib/scale';
+import { scaleFactor, scaleIngredient } from '../lib/scale';
+import { formatScaledQuantity, formatScaledMetric } from '../lib/units';
 import './RecipeScaler.css';
 
 interface Props {
@@ -35,8 +36,8 @@ export default function RecipeScaler({ baseServings, ingredients }: Props) {
   const rows = scaled.map((ing, i) => {
     const showGroup = ing.group && ing.group !== lastGroup;
     if (ing.group) lastGroup = ing.group;
-    const qty = formatQuantity(ing);
-    const metric = formatMetric(ing);
+    const qty = formatScaledQuantity(ing);
+    const metric = formatScaledMetric(ing);
     return (
       <li key={i} className={ing.optional ? 'optional' : undefined}>
         {showGroup && <h3>{ing.group}</h3>}

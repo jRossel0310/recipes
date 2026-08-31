@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { rollUp, formatBatchQuantity, formatBatchMetric } from './units';
+import { rollUp, formatScaledQuantity, formatScaledMetric } from './units';
 
 describe('rollUp', () => {
   it('rolls tsp up to cups at the cup ceiling', () => {
@@ -43,58 +43,58 @@ describe('rollUp', () => {
   });
 });
 
-describe('formatBatchQuantity', () => {
+describe('formatScaledQuantity', () => {
   it('formats a rolled-up volume with pluralized cups', () => {
-    expect(formatBatchQuantity({ item: 'salt', qty: 112, unit: 'tsp' })).toBe('2⅓ cups');
+    expect(formatScaledQuantity({ item: 'salt', qty: 112, unit: 'tsp' })).toBe('2⅓ cups');
   });
   it('uses tbsp when the value is below one cup (largest unit >= 1)', () => {
-    expect(formatBatchQuantity({ item: 'salt', qty: 24, unit: 'tsp' })).toBe('8 tbsp');
+    expect(formatScaledQuantity({ item: 'salt', qty: 24, unit: 'tsp' })).toBe('8 tbsp');
   });
   it('keeps a single cup singular', () => {
-    expect(formatBatchQuantity({ item: 'milk', qty: 1, unit: 'cup' })).toBe('1 cup');
+    expect(formatScaledQuantity({ item: 'milk', qty: 1, unit: 'cup' })).toBe('1 cup');
   });
   it('formats weight rolled to kg', () => {
-    expect(formatBatchQuantity({ item: 'chicken', qty: 27200, unit: 'g' })).toBe('27.2 kg');
+    expect(formatScaledQuantity({ item: 'chicken', qty: 27200, unit: 'g' })).toBe('27.2 kg');
   });
   it('formats a count with its unit word', () => {
-    expect(formatBatchQuantity({ item: 'lemons', qty: 16, unit: 'lemons' })).toBe('16 lemons');
+    expect(formatScaledQuantity({ item: 'lemons', qty: 16, unit: 'lemons' })).toBe('16 lemons');
   });
   it('pluralizes canonical count units', () => {
-    expect(formatBatchQuantity({ item: 'garlic', qty: 3, unit: 'clove' })).toBe('3 cloves');
-    expect(formatBatchQuantity({ item: 'beans', qty: 2, unit: 'can' })).toBe('2 cans');
+    expect(formatScaledQuantity({ item: 'garlic', qty: 3, unit: 'clove' })).toBe('3 cloves');
+    expect(formatScaledQuantity({ item: 'beans', qty: 2, unit: 'can' })).toBe('2 cans');
   });
   it('formats a unitless count', () => {
-    expect(formatBatchQuantity({ item: 'eggs', qty: 6 })).toBe('6');
+    expect(formatScaledQuantity({ item: 'eggs', qty: 6 })).toBe('6');
   });
   it('formats a range in a single rolled-up unit', () => {
-    expect(formatBatchQuantity({ item: 'vinegar', qty: 240, qtyMax: 360, unit: 'ml' })).toBe('240-360 mL');
+    expect(formatScaledQuantity({ item: 'vinegar', qty: 240, qtyMax: 360, unit: 'ml' })).toBe('240-360 mL');
   });
   it('returns empty string when there is no qty', () => {
-    expect(formatBatchQuantity({ item: 'salt', note: 'to taste' })).toBe('');
+    expect(formatScaledQuantity({ item: 'salt', note: 'to taste' })).toBe('');
   });
   it('rolls up an aliased volume unit', () => {
-    expect(formatBatchQuantity({ item: 'flour', qty: 48, unit: 'tablespoons' })).toBe('3 cups');
+    expect(formatScaledQuantity({ item: 'flour', qty: 48, unit: 'tablespoons' })).toBe('3 cups');
   });
   it('normalizes a plural weight unit in a range', () => {
-    expect(formatBatchQuantity({ item: 'cheese', qty: 14, qtyMax: 16, unit: 'lbs' })).toBe('14-16 lb');
+    expect(formatScaledQuantity({ item: 'cheese', qty: 14, qtyMax: 16, unit: 'lbs' })).toBe('14-16 lb');
   });
 });
 
-describe('formatBatchMetric', () => {
+describe('formatScaledMetric', () => {
   it('rolls a grams annotation up to kg', () => {
-    expect(formatBatchMetric({ item: 'sauce', qty: 16, unit: 'cup', grams: 4320 })).toBe('≈4.3 kg');
+    expect(formatScaledMetric({ item: 'sauce', qty: 16, unit: 'cup', grams: 4320 })).toBe('≈4.3 kg');
   });
   it('rolls an ml annotation up to L', () => {
-    expect(formatBatchMetric({ item: 'oil', qty: 2, unit: 'cup', ml: 2000 })).toBe('≈2 L');
+    expect(formatScaledMetric({ item: 'oil', qty: 2, unit: 'cup', ml: 2000 })).toBe('≈2 L');
   });
   it('returns empty string when there is no metric annotation', () => {
-    expect(formatBatchMetric({ item: 'eggs', qty: 6 })).toBe('');
+    expect(formatScaledMetric({ item: 'eggs', qty: 6 })).toBe('');
   });
   it('joins grams and ml when both are present', () => {
-    expect(formatBatchMetric({ item: 'x', qty: 1, grams: 4320, ml: 2000 })).toBe('≈4.3 kg, ≈2 L');
+    expect(formatScaledMetric({ item: 'x', qty: 1, grams: 4320, ml: 2000 })).toBe('≈4.3 kg, ≈2 L');
   });
   it('suppresses duplicate metric annotations', () => {
-    expect(formatBatchMetric({ item: 'pasta', qty: 220, unit: 'g', grams: 220 })).toBe('');
-    expect(formatBatchMetric({ item: 'milk', qty: 300, unit: 'ml', ml: 300 })).toBe('');
+    expect(formatScaledMetric({ item: 'pasta', qty: 220, unit: 'g', grams: 220 })).toBe('');
+    expect(formatScaledMetric({ item: 'milk', qty: 300, unit: 'ml', ml: 300 })).toBe('');
   });
 });

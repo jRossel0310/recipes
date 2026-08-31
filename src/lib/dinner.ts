@@ -1,6 +1,6 @@
 import type { RecipeData } from './types';
 import { scaleFactor, scaleIngredient } from './scale';
-import { formatBatchQuantity, formatBatchMetric } from './units';
+import { formatScaledQuantity, formatScaledMetric } from './units';
 
 export function extractInstructions(body: string): string[] {
   const start = body.search(/^##\s+Instructions\s*$/m);
@@ -45,8 +45,8 @@ export function buildChecklistDish(
   const ingredients: DishIngredient[] = recipe.ingredients.map((ing) => {
     const s = scaleIngredient(ing, factor);
     return {
-      primary: formatBatchQuantity(s),
-      metric: formatBatchMetric(s),
+      primary: formatScaledQuantity(s),
+      metric: formatScaledMetric(s),
       item: s.item,
       note: s.note,
       group: s.group,

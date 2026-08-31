@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { scaleFactor, scaleIngredient, formatNumber, formatQuantity, formatMetric } from './scale';
+import { scaleFactor, scaleIngredient, formatNumber } from './scale';
 import type { Ingredient } from './types';
 
 describe('scaleFactor', () => {
@@ -49,60 +49,5 @@ describe('formatNumber', () => {
     expect(formatNumber(1.5, 'l')).toBe('1.5');
     expect(formatNumber(1.25, 'lb')).toBe('1.3');
     expect(formatNumber(2.0, 'kg')).toBe('2');
-  });
-});
-
-describe('formatQuantity', () => {
-  it('renders qty + unit', () => {
-    expect(formatQuantity({ item: 'milk', qty: 0.75, unit: 'cup' })).toBe('¾ cup');
-  });
-
-  it('pluralizes canonical count and cup units', () => {
-    expect(formatQuantity({ item: 'flour', qty: 2, unit: 'cup' })).toBe('2 cups');
-    expect(formatQuantity({ item: 'garlic', qty: 3, unit: 'clove' })).toBe('3 cloves');
-    expect(formatQuantity({ item: 'beans', qty: 2, unit: 'can' })).toBe('2 cans');
-  });
-
-  it('uses SI capitalization for metric volume', () => {
-    expect(formatQuantity({ item: 'milk', qty: 300, unit: 'ml' })).toBe('300 mL');
-  });
-
-  it('renders a range', () => {
-    expect(formatQuantity({ item: 'chicken', qty: 6, qtyMax: 8 })).toBe('6-8');
-  });
-
-  it('renders a range with a unit', () => {
-    expect(formatQuantity({ item: 'water', qty: 0.5, qtyMax: 1, unit: 'cup' })).toBe('½-1 cup');
-  });
-
-  it('renders a unitless count', () => {
-    expect(formatQuantity({ item: 'eggs', qty: 2 })).toBe('2');
-  });
-
-  it('returns empty string when there is no qty', () => {
-    expect(formatQuantity({ item: 'salt', note: 'to taste' })).toBe('');
-  });
-
-  it('renders grams with unit', () => {
-    expect(formatQuantity({ item: 'flour', qty: 339, unit: 'g' })).toBe('339 g');
-  });
-});
-
-describe('formatMetric', () => {
-  it('formats a grams annotation', () => {
-    expect(formatMetric({ item: 'pasta', qty: 0.75, unit: 'lb', grams: 339 })).toBe('≈339 g');
-  });
-  it('formats an ml annotation', () => {
-    expect(formatMetric({ item: 'milk', qty: 0.75, unit: 'cup', ml: 180 })).toBe('≈180 mL');
-  });
-  it('formats both grams and ml', () => {
-    expect(formatMetric({ item: 'x', qty: 1, grams: 100, ml: 50 })).toBe('≈100 g, ≈50 mL');
-  });
-  it('returns empty string when there is no metric annotation', () => {
-    expect(formatMetric({ item: 'eggs', qty: 2 })).toBe('');
-  });
-  it('suppresses duplicate metric annotations', () => {
-    expect(formatMetric({ item: 'pasta', qty: 220, unit: 'g', grams: 220 })).toBe('');
-    expect(formatMetric({ item: 'milk', qty: 300, unit: 'ml', ml: 300 })).toBe('');
   });
 });
