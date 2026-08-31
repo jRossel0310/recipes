@@ -44,7 +44,7 @@ export default function DinnerChecklist({ slug, dishes }: Props) {
       (entries) => {
         const visible = entries.filter((e) => e.isIntersecting);
         if (visible.length === 0) return;
-        const topMost = visible.reduce((a, b) => (a.boundingClientRect.top < b.boundingClientRect.top ? a : b));
+        const topMost = visible.reduce((a, b) => (a.boundingClientRect.top > b.boundingClientRect.top ? a : b));
         const index = sectionRefs.current.findIndex((el) => el === topMost.target);
         if (index !== -1) setActiveDish(index);
       },
