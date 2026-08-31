@@ -11,7 +11,14 @@ export interface RecipeChoice {
   data: RecipeData;
 }
 
-interface Props { recipes: RecipeChoice[] }
+export interface DinnerOption {
+  slug: string;
+  title: string;
+  kind: string;
+  dishes: { recipeSlug: string; servings: number }[];
+}
+
+interface Props { recipes: RecipeChoice[]; dinners?: DinnerOption[] }
 
 interface Selected { servings: number }
 
@@ -27,8 +34,9 @@ function itemLine(item: ShoppingItem): string {
   return line;
 }
 
-export default function ShoppingListBuilder({ recipes }: Props) {
+export default function ShoppingListBuilder({ recipes, dinners = [] }: Props) {
   const [selected, setSelected] = useState<Record<string, Selected>>({});
+  const [loadedDinner, setLoadedDinner] = useState('');
 
   const byCategory = useMemo(() => {
     const m = new Map<string, RecipeChoice[]>();
@@ -59,6 +67,21 @@ export default function ShoppingListBuilder({ recipes }: Props) {
     setSelected((prev) => ({ ...prev, [slug]: { servings: Math.max(1, servings) } }));
   }
 
+  function loadDinner(slug: string) {
+    setLoadedDinner(slug);
+    if (!slug) return;
+    const dinner = dinners.find((d) => d.slug === slug);
+    if (!dinner) return;
+    const next: Record<string, Selected> = {};
+    for (const dish of dinner.dishes) next[dish.recipeSlug] = { servings: dish.servings };
+    setSelected(next);
+  }
+
+  function clearAll() {
+    setLoadedDinner('');
+    setSelected({});
+  }
+
   const text = useMemo(() => {
     const lines = list.items.map((i) => `- ${itemLine(i)}`);
     if (list.toTaste.length) {
@@ -72,6 +95,26 @@ export default function ShoppingListBuilder({ recipes }: Props) {
 
   return (
     <div className="slb">
+      {dinners.length > 0 && (
+        <div className="dinner-load">
+          <label htmlFor="dinner-select">Load a dinner</label>
+          <select id="dinner-select" value={loadedDinner} onChange={(e) => loadDinner(e.target.value)}>
+            <option value="">Choose a dinner...</option>
+            {dinners.map((d) => (
+              <option key={d.slug} value={d.slug}>
+                {d.title} ({d.dishes.length} {d.dishes.length === 1 ? 'dish' : 'dishes'})
+              </option>
+            ))}
+          </select>
+          {anySelected && (
+            <button type="button" className="clear" onClick={clearAll}>
+              Clear
+            </button>
+          )}
+          <p className="hint">Pulls in every dish's ingredients at that dinner's servings, merging shared ingredients into one line. Adjust checkboxes and servings below as needed.</p>
+        </div>
+      )}
+
       <div className="pick">
         <h2>Pick recipes</h2>
         {byCategory.map(([cat, rs]) => (

@@ -1,28 +1,30 @@
 ---
 title: Enchilada Night
+kind: cloyne
+summary: Chicken, cheese, and vegan enchiladas with fajitas, beans, and street corn - serves ~175.
 dishes:
   - recipe: pasta-and-bakes/chicken-enchiladas
-    servings: 120
+    servings: 140
     notes:
       - About 2 enchiladas per serving; bake at 350°F
       - Cook the chicken in batches, then shred
       - Source did not quantify the enchilada sauce; estimate is ~8-10 cans
   - recipe: pasta-and-bakes/cheese-enchiladas
-    servings: 60
+    servings: 70
     notes:
       - Vegetarian option
       - Reserve some cheese to top before baking
   - recipe: pasta-and-bakes/vegan-enchiladas
-    servings: 60
+    servings: 70
     notes:
       - Vegan option
       - Make the chile sauce first; it can be done ahead
   - recipe: sides/beans
-    servings: 120
+    servings: 140
   - recipe: sides/mexican-street-corn
-    servings: 120
+    servings: 140
   - recipe: proteins/fajitas
-    servings: 120
+    servings: 140
 ---
 
 Start the chile sauce and the beans early - both can sit while you work. Cook the chicken and build the three enchilada trays in parallel across the crew (one cook on chicken, one on cheese, one on vegan). Street corn and fajitas finish fast on the flat-top near service. Everything bakes at 350°F, so stagger trays through the ovens.

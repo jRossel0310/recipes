@@ -1,4 +1,9 @@
 .slb { display: grid; gap: 1rem; }
+.slb .dinner-load { background: var(--accent-soft); border: 1px solid var(--border); border-radius: 12px; padding: 1rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; }
+.slb .dinner-load label { font-weight: 700; }
+.slb .dinner-load select { font: inherit; padding: 0.4rem 0.6rem; border-radius: 8px; border: 1px solid var(--border); background: var(--surface); color: var(--fg); }
+.slb .dinner-load .clear { font: inherit; padding: 0.4rem 0.7rem; border-radius: 8px; border: 1px solid var(--border); background: var(--surface); cursor: pointer; }
+.slb .dinner-load .hint { flex-basis: 100%; margin: 0; color: var(--muted); font-size: 0.85rem; }
 .slb .pick { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1rem; }
 .slb .row { display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0; }
 .slb .row label { flex: 1; }

@@ -1,7 +1,7 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, getEntry } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ShoppingListBuilder, { type RecipeChoice } from '../components/ShoppingListBuilder';
+import ShoppingListBuilder, { type RecipeChoice, type DinnerOption } from '../components/ShoppingListBuilder';
 
 const entries = await getCollection('recipes', ({ data }) => !data.hidden);
 const recipes: RecipeChoice[] = entries.map((e) => ({
@@ -10,8 +10,20 @@ const recipes: RecipeChoice[] = entries.map((e) => ({
   category: e.id.split('/')[0],
   data: { title: e.data.title, servings: e.data.servings, ingredients: e.data.ingredients },
 }));
+
+const dinnerEntries = await getCollection('dinners');
+const dinners: DinnerOption[] = [];
+for (const d of dinnerEntries) {
+  const dishes = [];
+  for (const dish of d.data.dishes) {
+    const recipe = await getEntry(dish.recipe);
+    dishes.push({ recipeSlug: recipe.id.replace(/\.md$/, ''), servings: dish.servings });
+  }
+  dinners.push({ slug: d.slug, title: d.data.title, kind: d.data.kind, dishes });
+}
+dinners.sort((a, b) => a.title.localeCompare(b.title));
 ---
 <BaseLayout title="Shopping list">
   <h1>Shopping list builder</h1>
-  <ShoppingListBuilder client:load recipes={recipes} />
+  <ShoppingListBuilder client:load recipes={recipes} dinners={dinners} />
 </BaseLayout>

@@ -1,0 +1,37 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const dinners = await getCollection('dinners', ({ data }) => data.kind === 'cloyne');
+dinners.sort((a, b) => {
+  const order = (a.data.sortOrder ?? 999) - (b.data.sortOrder ?? 999);
+  if (order !== 0) return order;
+  const da = a.data.date ? a.data.date.getTime() : 0;
+  const db = b.data.date ? b.data.date.getTime() : 0;
+  if (da !== db) return db - da; // newest first
+  return a.data.title.localeCompare(b.data.title);
+});
+---
+<BaseLayout title="Cloyne">
+  <p class="eyebrow">Co-op sized cooking</p>
+  <h1>Cloyne</h1>
+  <p class="lede">Full menus scaled for feeding around 150 - every recipe, quantity, and head-cook note for a shift, on one page.</p>
+  <div class="dinner-grid">
+    {dinners.map((d) => (
+      <a class="dinner-card" href={`/cloyne/${d.slug}`}>
+        <span class="card-kicker">{d.data.dishes.length} {d.data.dishes.length === 1 ? 'recipe' : 'recipes'}</span>
+        <strong>{d.data.title}</strong>
+        {d.data.summary && <span>{d.data.summary}</span>}
+      </a>
+    ))}
+    {dinners.length === 0 && <p>No Cloyne menus yet - add one to <code>src/content/dinners/</code> with <code>kind: cloyne</code>.</p>}
+  </div>
+</BaseLayout>
+
+<style>
+  /* A handful of Cloyne menus shouldn't be forced into a fixed 2-column grid -
+     let cards size to content so a single menu doesn't strand itself in a half-empty row. */
+  @media (min-width: 641px) {
+    .dinner-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+  }
+</style>

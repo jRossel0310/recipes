@@ -1,0 +1,35 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import DinnerChecklist from '../../components/DinnerChecklist';
+import { buildChecklistDish, type DishView } from '../../lib/dinner';
+
+export async function getStaticPaths() {
+  const dinners = await getCollection('dinners', ({ data }) => data.kind === 'cloyne');
+  return dinners.map((entry) => ({ params: { slug: entry.slug }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+const d = entry.data;
+
+const dishes: DishView[] = [];
+for (const dish of d.dishes) {
+  const recipe = await getEntry(dish.recipe);
+  dishes.push(buildChecklistDish(recipe.data, recipe.body, dish.servings, dish.notes ?? [], dish.optional ?? false));
+}
+---
+<BaseLayout title={d.title}>
+  <a class="back-link" href="/cloyne">← All Cloyne menus</a>
+  <p class="eyebrow">Cloyne · co-op sized</p>
+  <h1>{d.title}</h1>
+  {d.summary && <p class="lede">{d.summary}</p>}
+  {d.date && (
+    <p>{d.date.toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric', year: 'numeric' })}</p>
+  )}
+  <p class="nutrition-link"><a href={`/cloyne/${entry.slug}/nutrition`}>View combined nutrition →</a></p>
+  <article>
+    <Content />
+  </article>
+  <DinnerChecklist client:load slug={`cloyne-${entry.slug}`} dishes={dishes} />
+</BaseLayout>

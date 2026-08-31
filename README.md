@@ -97,6 +97,53 @@ Overall shift notes go here (start order, timing, reminders).
 - Quantities scale automatically from the recipe's base servings - no hand math.
 - View at `/dinners/<slug>`; reuse next week by copying the file and adjusting servings/notes.
 - If a dish isn't a recipe yet, add it to `src/content/recipes/` first (see the recipe format above), then reference it.
+- `kind` sorts a dinner into a section: `everyday` (regular rotation, shown on the home page), `event`
+  (large one-off dinners, default if omitted), or `cloyne` (co-op sized menus - see below). `summary` and
+  `sortOrder` are optional too.
+
+### Cloyne menus (co-op sized, ~150 servings)
+
+Cloyne menus are dinner files with `kind: cloyne` - same format as above, same scaling and checklist
+machinery, just filed under their own tab instead of the regular dinner list. They live in
+`src/content/dinners/<slug>.md` alongside everything else and show up at `/cloyne` and `/cloyne/<slug>`.
+
+```markdown
+---
+title: Enchilada Night
+kind: cloyne
+summary: Chicken, cheese, and vegan enchiladas with fajitas, beans, and street corn - serves ~150.
+dishes:
+  - recipe: pasta-and-bakes/chicken-enchiladas
+    servings: 120
+  - recipe: pasta-and-bakes/cheese-enchiladas
+    servings: 60
+---
+
+Shift notes go here.
+```
+
+See `src/content/dinners/enchilada-night.md` for a full worked example.
+
+### Adding a Cloyne menu with an LLM
+
+Paste the prompt below into an LLM along with your menu (dish names + how many servings each - remember
+Cloyne portions are co-op scale, typically 100-150+ per dish).
+
+---
+
+Create an Astro dinner file for my recipe site's Cloyne (co-op sized) menus. Output only the file contents.
+
+- Frontmatter: `title`, `kind: cloyne`, optional `summary` (one line) and `date` (YYYY-MM-DD), and `dishes`.
+- Each dish: `recipe` (a recipe slug like `tofu/buffalo-tofu` - ask me if unsure which slug), `servings`
+  (a number, co-op scale - usually 100-150+), and optional `notes` (a YAML list of short head-cook
+  reminders: pan counts, batching, timing).
+- After the frontmatter, write the overall shift notes as a short markdown paragraph.
+- Do not invent recipe slugs; use only ones I provide. If a dish isn't a recipe yet, tell me so I can add
+  it first.
+
+Here is the menu:
+
+[PASTE MENU HERE]
 
 ### Adding a dinner with an LLM
 

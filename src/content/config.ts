@@ -40,7 +40,7 @@ const dinners = defineCollection({
   schema: z.object({
     title: z.string(),
     summary: z.string().optional(),
-    kind: z.enum(['everyday', 'event']).default('event'),
+    kind: z.enum(['everyday', 'event', 'cloyne']).default('event'),
     sortOrder: z.number().int().positive().optional(),
     date: z.date().optional(),
     dishes: z
