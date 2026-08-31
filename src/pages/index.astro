@@ -67,20 +67,20 @@ const categoryNames: Record<string, string> = {
     <nav class="category-nav" aria-label="Recipe categories">
       {categories.map((category) => <a href={`#${category}`}>{categoryNames[category] ?? category}</a>)}
     </nav>
+    {categories.map((category) => (
+      <section id={category} class="recipe-category">
+        <h2 class="category">{categoryNames[category] ?? category}</h2>
+        <div class="recipe-grid">
+          {byCategory.get(category)!
+            .sort((a, b) => a.data.title.localeCompare(b.data.title))
+            .map((r) => (
+              <a class="recipe-card" href={`/recipes/${r.id.replace(/\.md$/, '')}`}>
+                <strong>{r.data.title}</strong>
+                <span>{r.data.prepTime && `Prep ${r.data.prepTime}`}{r.data.prepTime && r.data.cookTime && ' · '}{r.data.cookTime && `Cook ${r.data.cookTime}`}</span>
+              </a>
+            ))}
+        </div>
+      </section>
+    ))}
   </section>
-  {categories.map((category) => (
-    <section id={category} class="recipe-category">
-      <h2 class="category">{categoryNames[category] ?? category}</h2>
-      <div class="recipe-grid">
-        {byCategory.get(category)!
-          .sort((a, b) => a.data.title.localeCompare(b.data.title))
-          .map((r) => (
-            <a class="recipe-card" href={`/recipes/${r.id.replace(/\.md$/, '')}`}>
-              <strong>{r.data.title}</strong>
-              <span>{r.data.prepTime && `Prep ${r.data.prepTime}`}{r.data.prepTime && r.data.cookTime && ' · '}{r.data.cookTime && `Cook ${r.data.cookTime}`}</span>
-            </a>
-          ))}
-      </div>
-    </section>
-  ))}
 </BaseLayout>
