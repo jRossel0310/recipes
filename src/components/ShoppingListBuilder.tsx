@@ -18,7 +18,7 @@ export interface DinnerOption {
   dishes: { recipeSlug: string; servings: number }[];
 }
 
-interface Props { recipes: RecipeChoice[]; dinners?: DinnerOption[] }
+interface Props { recipes: RecipeChoice[]; dinners?: DinnerOption[]; allRecipes?: RecipeChoice[] }
 
 interface Selected { servings: number }
 
@@ -34,7 +34,7 @@ function itemLine(item: ShoppingItem): string {
   return line;
 }
 
-export default function ShoppingListBuilder({ recipes, dinners = [] }: Props) {
+export default function ShoppingListBuilder({ recipes, dinners = [], allRecipes = recipes }: Props) {
   const [selected, setSelected] = useState<Record<string, Selected>>({});
   const [loadedDinner, setLoadedDinner] = useState('');
   const [pickerOpen, setPickerOpen] = useState(true);
@@ -48,12 +48,16 @@ export default function ShoppingListBuilder({ recipes, dinners = [] }: Props) {
     return [...m.entries()].sort((a, b) => a[0].localeCompare(b[0]));
   }, [recipes]);
 
+  const recipeBySlug = useMemo(() => new Map(allRecipes.map((r) => [r.slug, r])), [allRecipes]);
+
   const list = useMemo(() => {
-    const sel = recipes
-      .filter((r) => selected[r.slug])
-      .map((r) => ({ recipe: r.data, targetServings: selected[r.slug].servings }));
+    const sel: { recipe: RecipeData; targetServings: number }[] = [];
+    for (const [slug, s] of Object.entries(selected)) {
+      const r = recipeBySlug.get(slug);
+      if (r) sel.push({ recipe: r.data, targetServings: s.servings });
+    }
     return consolidate(sel);
-  }, [recipes, selected]);
+  }, [recipeBySlug, selected]);
 
   function toggle(r: RecipeChoice) {
     setSelected((prev) => {

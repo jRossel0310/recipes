@@ -59,7 +59,12 @@ export default function DinnerChecklist({ slug, dishes }: Props) {
     return () => observer.disconnect();
   }, [dishes.length]);
 
+  const didMountRef = useRef(false);
   useEffect(() => {
+    if (!didMountRef.current) {
+      didMountRef.current = true;
+      return;
+    }
     linkRefs.current[activeDish]?.scrollIntoView({ inline: 'nearest', block: 'nearest' });
   }, [activeDish]);
 
@@ -91,7 +96,7 @@ export default function DinnerChecklist({ slug, dishes }: Props) {
           {dishes.map((dish, di) => (
             <a
               key={di}
-              ref={(el) => (linkRefs.current[di] = el)}
+              ref={(el) => { linkRefs.current[di] = el; }}
               href={`#dish-${di}`}
               className={[dish.optional ? 'optional' : '', di === activeDish ? 'active' : ''].filter(Boolean).join(' ') || undefined}
             >
@@ -110,7 +115,7 @@ export default function DinnerChecklist({ slug, dishes }: Props) {
           <section
             key={di}
             id={`dish-${di}`}
-            ref={(el) => (sectionRefs.current[di] = el)}
+            ref={(el) => { sectionRefs.current[di] = el; }}
             className={`dish${dish.optional ? ' dish-optional' : ''}`}
           >
             <h2>

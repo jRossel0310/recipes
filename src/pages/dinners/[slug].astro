@@ -5,7 +5,7 @@ import DinnerChecklist from '../../components/DinnerChecklist';
 import { buildChecklistDish, type DishView } from '../../lib/dinner';
 
 export async function getStaticPaths() {
-  const dinners = await getCollection('dinners');
+  const dinners = await getCollection('dinners', ({ data }) => data.kind !== 'cloyne');
   return dinners.map((entry) => ({ params: { slug: entry.slug }, props: { entry } }));
 }
 

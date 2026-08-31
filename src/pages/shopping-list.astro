@@ -11,6 +11,14 @@ const recipes: RecipeChoice[] = entries.map((e) => ({
   data: { title: e.data.title, servings: e.data.servings, ingredients: e.data.ingredients },
 }));
 
+const allEntries = await getCollection('recipes');
+const allRecipes: RecipeChoice[] = allEntries.map((e) => ({
+  slug: e.id.replace(/\.md$/, ''),
+  title: e.data.title,
+  category: e.id.split('/')[0],
+  data: { title: e.data.title, servings: e.data.servings, ingredients: e.data.ingredients },
+}));
+
 const dinnerEntries = await getCollection('dinners');
 const dinners: DinnerOption[] = [];
 for (const d of dinnerEntries) {
@@ -25,5 +33,5 @@ dinners.sort((a, b) => a.title.localeCompare(b.title));
 ---
 <BaseLayout title="Shopping list">
   <h1>Shopping list builder</h1>
-  <ShoppingListBuilder client:load recipes={recipes} dinners={dinners} />
+  <ShoppingListBuilder client:load recipes={recipes} dinners={dinners} allRecipes={allRecipes} />
 </BaseLayout>

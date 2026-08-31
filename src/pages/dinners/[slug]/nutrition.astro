@@ -3,7 +3,7 @@ import { getCollection, getEntry } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 export async function getStaticPaths() {
-  const dinners = await getCollection('dinners');
+  const dinners = await getCollection('dinners', ({ data }) => data.kind !== 'cloyne');
   return dinners.map((entry) => ({ params: { slug: entry.slug }, props: { entry } }));
 }
 
