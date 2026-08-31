@@ -12,6 +12,8 @@
 .slb .row label { flex: 1; }
 .slb .row input[type='number'] { width: 4rem; }
 .slb .out { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1rem; }
+.slb .out .copy-btn { display: inline-block; margin-bottom: 0.5rem; padding: 0.65rem 1rem; min-height: 44px; border-radius: 9px; border: 1px solid var(--border); background: var(--surface); font-weight: 700; cursor: pointer; }
+.slb .out .copy-btn:hover { border-color: #9ab3a3; }
 .slb .out ul { list-style: none; padding: 0; margin: 0.5rem 0; }
 .slb .out li { padding: 0.25rem 0; border-bottom: 1px solid var(--border); }
 .slb .src { color: var(--muted); font-size: 0.85rem; }

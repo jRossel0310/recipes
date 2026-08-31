@@ -160,7 +160,9 @@ export default function ShoppingListBuilder({ recipes, dinners = [] }: Props) {
       {anySelected && (
         <div className="out">
           <h2>Shopping list</h2>
-          <button onClick={() => navigator.clipboard.writeText(text)}>Copy as text</button>
+          <button type="button" className="copy-btn" onClick={() => navigator.clipboard.writeText(text)}>
+            Copy as text
+          </button>
           <ul>
             {list.items.map((i, idx) => (
               <li key={idx}>
