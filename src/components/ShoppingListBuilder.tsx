@@ -37,6 +37,7 @@ function itemLine(item: ShoppingItem): string {
 export default function ShoppingListBuilder({ recipes, dinners = [] }: Props) {
   const [selected, setSelected] = useState<Record<string, Selected>>({});
   const [loadedDinner, setLoadedDinner] = useState('');
+  const [pickerOpen, setPickerOpen] = useState(true);
 
   const byCategory = useMemo(() => {
     const m = new Map<string, RecipeChoice[]>();
@@ -75,11 +76,13 @@ export default function ShoppingListBuilder({ recipes, dinners = [] }: Props) {
     const next: Record<string, Selected> = {};
     for (const dish of dinner.dishes) next[dish.recipeSlug] = { servings: dish.servings };
     setSelected(next);
+    setPickerOpen(false);
   }
 
   function clearAll() {
     setLoadedDinner('');
     setSelected({});
+    setPickerOpen(true);
   }
 
   const text = useMemo(() => {
@@ -116,8 +119,18 @@ export default function ShoppingListBuilder({ recipes, dinners = [] }: Props) {
       )}
 
       <div className="pick">
-        <h2>Pick recipes</h2>
-        {byCategory.map(([cat, rs]) => (
+        <div className="pick-header">
+          <h2>Pick recipes</h2>
+          <button type="button" className="pick-toggle" onClick={() => setPickerOpen((v) => !v)} aria-expanded={pickerOpen}>
+            {pickerOpen ? 'Hide' : 'Edit'}
+          </button>
+        </div>
+        {!pickerOpen && (
+          <p className="pick-summary">
+            {Object.keys(selected).length} {Object.keys(selected).length === 1 ? 'recipe' : 'recipes'} selected
+          </p>
+        )}
+        {pickerOpen && byCategory.map(([cat, rs]) => (
           <div key={cat}>
             <h3 className="cat">{cat}</h3>
             {rs.map((r) => (
