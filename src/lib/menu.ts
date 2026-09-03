@@ -32,6 +32,13 @@ export function menuTags(tags: string[]): string[] {
   return out;
 }
 
+// A date set on the dinner wins; otherwise use today, which only the browser
+// knows (the site is static, so build time would freeze the last deploy's date).
+// Undefined until the browser supplies it, which renders the _/_ placeholder.
+export function resolveMenuDate(explicit?: Date, today?: Date): Date | undefined {
+  return explicit ?? today;
+}
+
 // Frontmatter dates parse as UTC midnight, so read them in UTC or the day slips.
 function formatDate(date?: Date): string {
   if (!date) return '_/_';

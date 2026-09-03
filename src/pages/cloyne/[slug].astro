@@ -4,7 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import DinnerChecklist from '../../components/DinnerChecklist';
 import CopyableMenu from '../../components/CopyableMenu';
 import { buildChecklistDish, type DishView } from '../../lib/dinner';
-import { buildMenuText, type MenuDish } from '../../lib/menu';
+import type { MenuDish } from '../../lib/menu';
 
 export async function getStaticPaths() {
   const dinners = await getCollection('dinners', ({ data }) => data.kind === 'cloyne');
@@ -27,7 +27,6 @@ for (const dish of d.dishes) {
     menuTags: dish.menuTags,
   });
 }
-const menuText = buildMenuText({ dishes: menuDishes, date: d.date, serveTime: d.serveTime });
 ---
 <BaseLayout title={d.title}>
   <a class="back-link" href="/cloyne">← All Cloyne menus</a>
@@ -42,5 +41,5 @@ const menuText = buildMenuText({ dishes: menuDishes, date: d.date, serveTime: d.
     <Content />
   </article>
   <DinnerChecklist client:load slug={`cloyne-${entry.slug}`} dishes={dishes} />
-  <CopyableMenu client:load text={menuText} />
+  <CopyableMenu client:load dishes={menuDishes} dateISO={d.date?.toISOString()} serveTime={d.serveTime} />
 </BaseLayout>

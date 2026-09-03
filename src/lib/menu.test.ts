@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { menuName, menuTags, buildMenuText, type MenuDish } from './menu';
+import { menuName, menuTags, buildMenuText, resolveMenuDate, type MenuDish } from './menu';
 
 describe('menuName', () => {
   it('strips a trailing parenthetical batch label', () => {
@@ -110,5 +110,21 @@ describe('buildMenuText', () => {
         'Prep:',
       ].join('\n'),
     );
+  });
+});
+
+describe('resolveMenuDate', () => {
+  it('prefers the date set on the dinner over today', () => {
+    const set = new Date('2026-09-02');
+    const today = new Date('2026-11-20');
+    expect(resolveMenuDate(set, today)).toBe(set);
+  });
+  it('falls back to today when the dinner sets no date', () => {
+    const today = new Date('2026-11-20');
+    expect(resolveMenuDate(undefined, today)).toBe(today);
+  });
+  it('stays undefined before the browser supplies today, so the header shows the placeholder', () => {
+    expect(resolveMenuDate(undefined, undefined)).toBeUndefined();
+    expect(buildMenuText({ dishes: [], date: resolveMenuDate(undefined, undefined) })).toContain('_/_');
   });
 });
