@@ -18,7 +18,3 @@ dishes:
   - recipe: proteins/fajitas
     servings: 140
 ---
-
-Soak the beans the night before. Start the chile sauce and the bean simmer early - both can sit while you work. Cook the chicken and build the three enchilada trays in parallel across the crew (one cook on chicken, one on cheese, one on vegan). Rice goes in the cookers mid-afternoon; street corn and fajitas finish fast on the flat-top near service. Everything bakes at 350°F, so stagger trays through the ovens.
-
-Quantities for beans, rice, street corn, and fajitas are scaled from the site recipes, so they may differ slightly from the original reference sheet.
