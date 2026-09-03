@@ -11,7 +11,7 @@ export interface MenuInput {
   serveTime?: string;
 }
 
-const DEFAULT_SERVE_TIME = '18:30';
+const DEFAULT_SERVE_TIME = '7:00 pm';
 
 // Recipe titles carry batch labels that do not belong on a menu board:
 // "Chicken Enchiladas (Co-op Batch)", "Mexican Pinto Beans - Dry Bean Version".

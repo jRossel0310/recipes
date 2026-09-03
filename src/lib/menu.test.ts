@@ -68,11 +68,11 @@ describe('buildMenuText', () => {
     const text = buildMenuText({ dishes: [] });
     expect(text.split('\n')[0]).toBe('Dinner Menu _/_');
   });
-  it('defaults the serving time to 18:30', () => {
-    expect(buildMenuText({ dishes: [] })).toContain('Planning on serving 18:30');
+  it('defaults the serving time to 7:00 pm', () => {
+    expect(buildMenuText({ dishes: [] })).toContain('Planning on serving 7:00 pm');
   });
   it('uses a custom serving time when given', () => {
-    expect(buildMenuText({ dishes: [], serveTime: '19:00' })).toContain('Planning on serving 19:00');
+    expect(buildMenuText({ dishes: [], serveTime: '6:30 pm' })).toContain('Planning on serving 6:30 pm');
   });
   it('ends with empty crew role labels', () => {
     const lines = buildMenuText({ dishes: [] }).split('\n');
@@ -103,7 +103,7 @@ describe('buildMenuText', () => {
         'Chipotle Fajita Veggies (vg, gf)',
         'Mexican Street Corn (v, gf)',
         '',
-        'Planning on serving 18:30',
+        'Planning on serving 7:00 pm',
         '',
         'Head:',
         'Ass:',
