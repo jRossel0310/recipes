@@ -43,6 +43,7 @@ const dinners = defineCollection({
     kind: z.enum(['everyday', 'event', 'cloyne']).default('event'),
     sortOrder: z.number().int().positive().optional(),
     date: z.date().optional(),
+    serveTime: z.string().optional(),
     dishes: z
       .array(
         z.object({
@@ -50,6 +51,8 @@ const dinners = defineCollection({
           servings: z.number().positive(),
           notes: z.array(z.string()).optional(),
           optional: z.boolean().optional(),
+          menuName: z.string().optional(),
+          menuTags: z.array(z.string()).optional(),
         }),
       )
       .min(1),

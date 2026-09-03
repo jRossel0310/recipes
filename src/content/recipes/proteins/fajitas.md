@@ -9,7 +9,7 @@ nutrition:
   protein: 1
   carbs: 7
   fat: 5
-tags: [vegetarian, vegan, tex-mex, fajita, vegetables, chipotle-copycat]
+tags: [vegetarian, vegan, tex-mex, fajita, vegetables, chipotle-copycat, gluten-free]
 ingredients:
   - qty: 3
     item: bell peppers

@@ -10,7 +10,7 @@ nutrition:
   carbs: 30
   fat: 3
   servingGrams: 150  # estimate, verify/adjust
-tags: [mexican, beans, vegan, side-dish, dry-beans, large-batch, meal-prep]
+tags: [mexican, beans, vegan, side-dish, dry-beans, large-batch, meal-prep, gluten-free]
 ingredients:
   - qty: 1
     unit: cup
