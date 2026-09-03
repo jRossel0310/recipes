@@ -19,10 +19,15 @@ ingredients:
     unit: cup
     item: chicken broth
     ml: 240
-  - qty: 0.5
-    unit: cup
-    item: tomato sauce
-    grams: 122
+  - qty: 3
+    unit: tbsp
+    item: tomato paste
+    grams: 48
+  - qty: 5
+    unit: tbsp
+    item: water
+    ml: 74
+    note: whisk into the paste until smooth before it goes in
   - qty: 0.25
     unit: cup
     item: onion
@@ -37,6 +42,7 @@ ingredients:
 
 ## Instructions
 
-1. Add the rice, chicken broth, tomato sauce, onion, garlic salt, and cumin to the rice cooker and stir to combine.
-2. Close the lid and run the regular white rice cycle.
-3. Once done, let it rest a few minutes, then fluff with a fork and serve.
+1. Whisk the tomato paste and water together until smooth - no lumps, or they will not disperse in the cooker.
+2. Add the rice, chicken broth, thinned tomato paste, onion, garlic salt, and cumin to the rice cooker and stir to combine.
+3. Close the lid and run the regular white rice cycle.
+4. Once done, let it rest a few minutes, then fluff with a fork and serve.
