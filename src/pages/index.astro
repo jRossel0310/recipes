@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import RecipeSearch, { type SearchableRecipe } from '../components/RecipeSearch';
 
 const recipes = await getCollection('recipes', ({ data }) => !data.hidden);
 const dinners = await getCollection('dinners', ({ data }) => data.kind === 'everyday');
@@ -38,12 +39,21 @@ const categoryNames: Record<string, string> = {
   desserts: 'Desserts',
   'on-trial': 'On trial',
 };
+const searchable: SearchableRecipe[] = recipes.map((r) => ({
+  slug: r.id.replace(/\.md$/, ''),
+  title: r.data.title,
+  category: categoryNames[r.id.split('/')[0]] ?? r.id.split('/')[0],
+  tags: r.data.tags ?? [],
+  prepTime: r.data.prepTime,
+  cookTime: r.data.cookTime,
+}));
 ---
 <BaseLayout title="Recipes">
   <section class="hero">
     <p class="eyebrow">Cookshift reference</p>
     <h1>Recipes & dinners.</h1>
     <p class="lede">food food food</p>
+    <RecipeSearch client:load recipes={searchable} />
   </section>
 
   <section id="dinners" class="page-section featured-section">
