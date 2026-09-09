@@ -74,9 +74,5 @@ ingredients:
 
 ## Notes
 
-* This recipe scales by batch, not by brownie - 1 = one full 7x11 pan (16 brownies). The nutrition above is per brownie, not per batch.
 * Sift the flour and cocoa with a sifter or fine mesh strainer for the best texture.
-* Coconut oil isn't a good substitute for the vegan butter; for oil-free, applesauce works instead.
-* Reduce the sugar to 1 cup total if you want it less sweet.
-* These taste even better the next day - fudgy, not cake-like.
 * Dutch-process cocoa gives a darker, slightly less fudgy result than natural cocoa.
