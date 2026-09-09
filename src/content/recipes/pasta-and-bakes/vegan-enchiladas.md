@@ -10,7 +10,7 @@ nutrition:
   carbs: 24
   fat: 2
   servingGrams: 140
-tags: [mexican, enchiladas, vegan, plant-based, dinner, co-op, large-batch]
+tags: [mexican, enchiladas, vegan, plant-based, dinner, co-op, large-batch, gluten-free]
 ingredients:
   - group: Sauce
     item: dried chiles

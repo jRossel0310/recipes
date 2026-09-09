@@ -9,7 +9,7 @@ nutrition:
   protein: 7
   carbs: 46
   fat: 12
-tags: [side-dish, mexican-inspired, corn, vegetarian, quick, summer]
+tags: [side-dish, mexican-inspired, corn, vegetarian, quick, summer, gluten-free]
 ingredients:
   - qty: 3
     unit: can
