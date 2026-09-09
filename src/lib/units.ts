@@ -40,11 +40,15 @@ export function rollUp(value: number, unit?: string): { value: number; unit?: st
   const u = canonicalUnit(unit.toLowerCase());
   const ladder = findLadder(u);
   if (!ladder) return { value, unit }; // count/descriptive unit - leave as-is
+  const originalIndex = ladder.findIndex(([lu]) => lu === u);
   const base = value * factorOf(ladder, u);
-  // Largest unit at which the converted value is >= 1 (ladder is ascending).
-  let chosen = ladder[0];
-  for (const entry of ladder) {
-    if (base / entry[1] >= 1) chosen = entry;
+  // Largest unit at which the converted value is >= 1, never smaller than the
+  // ingredient's original unit - e.g. "0.5 cup" stays in cups (as "½ cup") rather
+  // than rolling down to "8 tbsp" just because 0.5 < 1. Only scaling up past the
+  // next unit (e.g. tbsp -> cup) should change the displayed unit.
+  let chosen = ladder[originalIndex];
+  for (let i = originalIndex; i < ladder.length; i++) {
+    if (base / ladder[i][1] >= 1) chosen = ladder[i];
   }
   return { value: base / chosen[1], unit: chosen[0] };
 }

@@ -41,6 +41,18 @@ describe('rollUp', () => {
     expect(r.unit).toBe('cup');
     expect(r.value).toBeCloseTo(3);
   });
+  it('never rolls down below the original unit, even when the value is under 1', () => {
+    // 0.5 cup is exactly 8 tbsp, but a recipe written in cups should stay in cups.
+    expect(rollUp(0.5, 'cup')).toEqual({ value: 0.5, unit: 'cup' });
+    expect(rollUp(0.25, 'cup')).toEqual({ value: 0.25, unit: 'cup' });
+  });
+  it('still rolls up from a non-floor unit when scaling pushes it past the next threshold', () => {
+    const r = rollUp(2, 'tbsp'); // 2 tbsp = 6 tsp, but tbsp is the floor here - stays put
+    expect(r).toEqual({ value: 2, unit: 'tbsp' });
+    const scaledUp = rollUp(20, 'tbsp'); // 20 tbsp scaled up should still roll to cups
+    expect(scaledUp.unit).toBe('cup');
+    expect(scaledUp.value).toBeCloseTo(20 / 16);
+  });
 });
 
 describe('formatScaledQuantity', () => {
@@ -52,6 +64,9 @@ describe('formatScaledQuantity', () => {
   });
   it('keeps a single cup singular', () => {
     expect(formatScaledQuantity({ item: 'milk', qty: 1, unit: 'cup' })).toBe('1 cup');
+  });
+  it('keeps a fractional cup in cups rather than rolling down to tbsp', () => {
+    expect(formatScaledQuantity({ item: 'cornstarch', qty: 0.5, unit: 'cup' })).toBe('½ cup');
   });
   it('formats weight rolled to kg', () => {
     expect(formatScaledQuantity({ item: 'chicken', qty: 27200, unit: 'g' })).toBe('27.2 kg');
