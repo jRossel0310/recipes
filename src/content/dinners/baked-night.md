@@ -20,5 +20,3 @@ dishes:
   - recipe: desserts/vegan-brownies
     servings: 14
 ---
-
-Rolls need two 30-minute rises, so mix the dough early. We've got 35 lb of chicken drumsticks on hand this time (not the 60 lb of thighs the chicken recipes are written for) - split it evenly between the honey BBQ and buffalo batches, about 17-18 lb each. Season and bake the chicken first since it takes longest, then the tofu wings - both should be hot at service. Hold back a little extra of both the honey BBQ and buffalo sauce to set out at the end so people can add more to their plates. For the mac and cheese, make it as one big batch through the cheese sauce step, then split it before adding the pasta - stir the buffalo sauce into half for the buffalo mac and cheese, leave the other half plain. Mac and cheese and coleslaw can be made ahead and held. Brownies can be baked ahead and cut before service.
