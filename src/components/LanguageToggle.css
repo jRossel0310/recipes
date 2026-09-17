@@ -1,0 +1,6 @@
+.lang-toggle { display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; color: inherit; font-size: 0.9rem; }
+.lang-toggle-track { width: 34px; height: 18px; border-radius: 999px; background: #c9d3cc; position: relative; transition: background 0.15s ease; }
+.lang-toggle-thumb { position: absolute; top: 2px; left: 2px; width: 14px; height: 14px; border-radius: 50%; background: #fff; transition: transform 0.15s ease; }
+.lang-toggle.is-on .lang-toggle-track { background: #6f9480; }
+.lang-toggle.is-on .lang-toggle-thumb { transform: translateX(16px); }
+.lang-toggle.is-disabled { opacity: 0.45; cursor: not-allowed; }
