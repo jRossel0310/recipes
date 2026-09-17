@@ -59,4 +59,31 @@ const dinners = defineCollection({
   }),
 });
 
-export const collections = { recipes, dinners };
+const recipesDe = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    summary: z.string().optional(),
+    ingredients: z.array(ingredient).min(1),
+    sourceHash: z.string(),
+    reviewed: z.boolean().default(false),
+  }),
+});
+
+const dinnersDe = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    summary: z.string().optional(),
+    notes: z.array(z.string()).optional(),
+    sourceHash: z.string(),
+    reviewed: z.boolean().default(false),
+  }),
+});
+
+export const collections = {
+  recipes,
+  dinners,
+  'recipes-de': recipesDe,
+  'dinners-de': dinnersDe,
+};
