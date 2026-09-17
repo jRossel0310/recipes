@@ -2,10 +2,15 @@ import type { RecipeData } from './types';
 import { scaleFactor, scaleIngredient } from './scale';
 import { formatScaledQuantity, formatScaledMetric } from './units';
 
+// English bodies use "## Instructions"; German bodies use "## Zubereitung"
+// (the same string as t('de', 'instructions')). Both must be recognized so a
+// translated dish keeps its cooking steps.
+const INSTRUCTIONS_HEADING = /^##\s+(?:Instructions|Zubereitung)\s*$/m;
+
 export function extractInstructions(body: string): string[] {
-  const start = body.search(/^##\s+Instructions\s*$/m);
+  const start = body.search(INSTRUCTIONS_HEADING);
   if (start === -1) return [];
-  let rest = body.slice(start).replace(/^##\s+Instructions\s*$/m, '');
+  let rest = body.slice(start).replace(INSTRUCTIONS_HEADING, '');
   const next = rest.search(/^##\s/m);
   if (next !== -1) rest = rest.slice(0, next);
   const steps: string[] = [];

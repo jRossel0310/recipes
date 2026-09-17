@@ -4,7 +4,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import DinnerChecklist from '../../../components/DinnerChecklist';
 import TranslationBanner from '../../../components/TranslationBanner.astro';
 import { buildChecklistDish, type DishView } from '../../../lib/dinner';
-import { resolveTranslation } from '../../../lib/translation';
+import { resolveTranslation, alignGermanIngredients } from '../../../lib/translation';
 import { t } from '../../../lib/ui-strings';
 
 export async function getStaticPaths() {
@@ -43,19 +43,19 @@ for (const dish of d.dishes) {
       ? { sourceHash: germanRecipe.data.sourceHash, reviewed: germanRecipe.data.reviewed }
       : undefined,
   });
-  const source = r.useGerman
-    ? {
-        ...recipe.data,
-        title: germanRecipe!.data.title,
-        ingredients: recipe.data.ingredients.map((ing, i) => ({
-          ...ing,
-          item: germanRecipe!.data.ingredients[i].item,
-          note: germanRecipe!.data.ingredients[i].note,
-          group: germanRecipe!.data.ingredients[i].group,
-        })),
-      }
+  // A reordered or shortened German ingredient list still passes the
+  // sourceHash check (the hash only covers the English file), so align by
+  // content before trusting it; fall back to the English dish otherwise.
+  let dishUseGerman = r.useGerman;
+  let alignedIngredients = null;
+  if (dishUseGerman) {
+    alignedIngredients = alignGermanIngredients(recipe.data.ingredients, germanRecipe!.data.ingredients);
+    if (!alignedIngredients) dishUseGerman = false;
+  }
+  const source = dishUseGerman
+    ? { ...recipe.data, title: germanRecipe!.data.title, ingredients: alignedIngredients! }
     : recipe.data;
-  const body = r.useGerman ? germanRecipe!.body : recipe.body;
+  const body = dishUseGerman ? germanRecipe!.body : recipe.body;
   dishes.push(buildChecklistDish(source, body, dish.servings, dish.notes ?? [], dish.optional ?? false));
 }
 ---
@@ -64,6 +64,6 @@ for (const dish of d.dishes) {
   <h1>{chosen.data.title}</h1>
   <TranslationBanner kind={banner} lang="de" />
   {chosen.data.summary && <p class="lede">{chosen.data.summary}</p>}
-  <article><Content /></article>
+  <article lang={useGerman ? 'de' : 'en'}><Content /></article>
   <DinnerChecklist client:load slug={`cloyne-de-${entry.slug}`} dishes={dishes} />
 </BaseLayout>

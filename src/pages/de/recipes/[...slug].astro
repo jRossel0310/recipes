@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import RecipeScaler from '../../../components/RecipeScaler';
 import TranslationBanner from '../../../components/TranslationBanner.astro';
-import { resolveTranslation } from '../../../lib/translation';
+import { resolveTranslation, alignGermanIngredients } from '../../../lib/translation';
 
 export async function getStaticPaths() {
   const recipes = await getCollection('recipes');
@@ -17,27 +17,34 @@ export async function getStaticPaths() {
 
 const { entry, germanEntry } = Astro.props;
 const english = { title: entry.data.title, ingredients: entry.data.ingredients, body: entry.body };
-const { useGerman, banner } = resolveTranslation({
+let { useGerman, banner } = resolveTranslation({
   english,
   german: germanEntry
     ? { sourceHash: germanEntry.data.sourceHash, reviewed: germanEntry.data.reviewed }
     : undefined,
 });
 
+// Quantities ALWAYS come from the English entry; German supplies text only.
+// The sourceHash fingerprint only covers the English file, so a reordered or
+// shortened German ingredient list would still pass the hash check - align
+// by content, not just by index count, and fall back to English if it fails.
+let ingredients = entry.data.ingredients;
+if (useGerman) {
+  const aligned = alignGermanIngredients(entry.data.ingredients, germanEntry!.data.ingredients);
+  if (aligned) {
+    ingredients = aligned;
+  } else {
+    useGerman = false;
+    banner = 'stale';
+  }
+}
+
 const chosen = useGerman ? germanEntry! : entry;
 const { Content } = await chosen.render();
-
-// Quantities ALWAYS come from the English entry; German supplies text only.
-const ingredients = entry.data.ingredients.map((ing, i) => ({
-  ...ing,
-  item: useGerman ? germanEntry!.data.ingredients[i].item : ing.item,
-  note: useGerman ? germanEntry!.data.ingredients[i].note : ing.note,
-  group: useGerman ? germanEntry!.data.ingredients[i].group : ing.group,
-}));
 ---
 <BaseLayout title={chosen.data.title} lang="de">
   <h1>{chosen.data.title}</h1>
   <TranslationBanner kind={banner} lang="de" />
   <RecipeScaler client:load baseServings={entry.data.servings} ingredients={ingredients} />
-  <article><Content /></article>
+  <article lang={useGerman ? 'de' : 'en'}><Content /></article>
 </BaseLayout>

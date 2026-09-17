@@ -34,6 +34,13 @@ describe('extractInstructions', () => {
     const body = `## Instructions\n\n1. Real step.\n\nSee reference 1. Not a step.\n`;
     expect(extractInstructions(body)).toEqual(['Real step.']);
   });
+
+  it('extracts steps from a German "Zubereitung" section', () => {
+    // German bodies use "## Zubereitung" (t('de', 'instructions')) instead of
+    // "## Instructions" - a translated dish must not lose its method.
+    const body = `## Zubereitung\n\n1. Schritt eins.\n2. Schritt zwei.\n\n## Hinweise\n\n* Note.\n`;
+    expect(extractInstructions(body)).toEqual(['Schritt eins.', 'Schritt zwei.']);
+  });
 });
 
 describe('buildChecklistDish', () => {
