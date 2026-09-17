@@ -1,0 +1,69 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import DinnerChecklist from '../../../components/DinnerChecklist';
+import TranslationBanner from '../../../components/TranslationBanner.astro';
+import { buildChecklistDish, type DishView } from '../../../lib/dinner';
+import { resolveTranslation } from '../../../lib/translation';
+import { t } from '../../../lib/ui-strings';
+
+export async function getStaticPaths() {
+  const dinners = await getCollection('dinners', ({ data }) => data.kind !== 'cloyne');
+  const german = await getCollection('dinners-de');
+  const bySlug = new Map(german.map((g) => [g.slug, g]));
+  return dinners.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry, germanEntry: bySlug.get(entry.slug) },
+  }));
+}
+
+const { entry, germanEntry } = Astro.props;
+const d = entry.data;
+
+const { useGerman, banner } = resolveTranslation({
+  english: { title: d.title, summary: d.summary, body: entry.body },
+  german: germanEntry
+    ? { sourceHash: germanEntry.data.sourceHash, reviewed: germanEntry.data.reviewed }
+    : undefined,
+});
+const chosen = useGerman ? germanEntry! : entry;
+const { Content } = await chosen.render();
+
+const germanRecipes = await getCollection('recipes-de');
+const germanBySlug = new Map(germanRecipes.map((g) => [g.id.replace(/\.md$/, ''), g]));
+
+// The dish list ALWAYS comes from the English dinner file - single source of truth.
+const dishes: DishView[] = [];
+for (const dish of d.dishes) {
+  const recipe = await getEntry(dish.recipe);
+  const germanRecipe = germanBySlug.get(recipe.id.replace(/\.md$/, ''));
+  const r = resolveTranslation({
+    english: { title: recipe.data.title, ingredients: recipe.data.ingredients, body: recipe.body },
+    german: germanRecipe
+      ? { sourceHash: germanRecipe.data.sourceHash, reviewed: germanRecipe.data.reviewed }
+      : undefined,
+  });
+  const source = r.useGerman
+    ? {
+        ...recipe.data,
+        title: germanRecipe!.data.title,
+        ingredients: recipe.data.ingredients.map((ing, i) => ({
+          ...ing,
+          item: germanRecipe!.data.ingredients[i].item,
+          note: germanRecipe!.data.ingredients[i].note,
+          group: germanRecipe!.data.ingredients[i].group,
+        })),
+      }
+    : recipe.data;
+  const body = r.useGerman ? germanRecipe!.body : recipe.body;
+  dishes.push(buildChecklistDish(source, body, dish.servings, dish.notes ?? [], dish.optional ?? false));
+}
+---
+<BaseLayout title={chosen.data.title} lang="de">
+  <a class="back-link" href="/de/dinners">{t('de', 'backToDinners')}</a>
+  <h1>{chosen.data.title}</h1>
+  <TranslationBanner kind={banner} lang="de" />
+  {chosen.data.summary && <p class="lede">{chosen.data.summary}</p>}
+  <article><Content /></article>
+  <DinnerChecklist client:load slug={`dinner-de-${entry.slug}`} dishes={dishes} />
+</BaseLayout>
