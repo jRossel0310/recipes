@@ -1,10 +1,12 @@
 ---
 import '../styles/global.css';
-interface Props { title: string }
-const { title } = Astro.props;
+import { t, type Locale } from '../lib/ui-strings';
+interface Props { title: string; lang?: Locale }
+const { title, lang = 'en' } = Astro.props;
+const prefix = lang === 'de' ? '/de' : '';
 ---
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -15,16 +17,16 @@ const { title } = Astro.props;
       <div class="container nav-shell">
         <a class="brand" href="/" aria-label="Dinner Table home"><span class="brand-mark">DT</span><span>Dinner Table</span></a>
         <nav aria-label="Primary navigation">
-          <a href="/#dinners">Dinners</a>
-          <a href="/#recipes">Recipes</a>
-          <a href="/shopping-list">Shopping</a>
-          <a href="/cloyne">Cloyne</a>
+          <a href="/#dinners">{t(lang, 'dinners')}</a>
+          <a href="/#recipes">{t(lang, 'recipes')}</a>
+          <a href="/shopping-list">{t(lang, 'shopping')}</a>
+          <a href={`${prefix}/cloyne`}>{t(lang, 'cloyne')}</a>
         </nav>
       </div>
     </header>
     <main class="container">
       <slot />
     </main>
-    <footer class="container">Built for the nightly dinner routine.</footer>
+    <footer class="container">{t(lang, 'footer')}</footer>
   </body>
 </html>
