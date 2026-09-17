@@ -1,7 +1,7 @@
 ---
 import '../styles/global.css';
 import { t, type Locale } from '../lib/ui-strings';
-import LanguageToggle from '../components/LanguageToggle';
+import LanguageToggle from '../components/LanguageToggle.astro';
 interface Props { title: string; lang?: Locale }
 const { title, lang = 'en' } = Astro.props;
 const prefix = lang === 'de' ? '/de' : '';
@@ -30,7 +30,7 @@ const prefix = lang === 'de' ? '/de' : '';
     </main>
     <footer class="container footer-row">
       <span>{t(lang, 'footer')}</span>
-      <LanguageToggle client:load />
+      <LanguageToggle />
     </footer>
   </body>
 </html>
