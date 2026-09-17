@@ -1,5 +1,11 @@
 import { describe, it, expect } from 'vitest';
-import { translatableFields, fingerprint, resolveTranslation, alignGermanIngredients } from './translation';
+import {
+  translatableFields,
+  fingerprint,
+  resolveTranslation,
+  alignGermanIngredients,
+  alignGermanDishNotes,
+} from './translation';
 
 const english = {
   title: 'Chili-Lime Corn',
@@ -126,5 +132,45 @@ describe('alignGermanIngredients', () => {
       { item: 'Mais-Text', note: 'a-de' },
     ];
     expect(alignGermanIngredients(bothHaveNotes, swappedSameShape)).not.toBeNull();
+  });
+});
+
+describe('alignGermanDishNotes', () => {
+  it('distributes a flat German notes array back onto the right dishes by count', () => {
+    const dishes = [
+      { notes: ['keep warm', 'double for co-op size'] },
+      { notes: ['spicy'] },
+      { notes: [] },
+    ];
+    const german = ['warmhalten', 'für Koop-Größe verdoppeln', 'scharf'];
+    expect(alignGermanDishNotes(dishes, german)).toEqual([
+      ['warmhalten', 'für Koop-Größe verdoppeln'],
+      ['scharf'],
+      [],
+    ]);
+  });
+
+  it('returns null when the flat German array is shorter than the total English note count', () => {
+    const dishes = [{ notes: ['a', 'b'] }, { notes: ['c'] }];
+    expect(alignGermanDishNotes(dishes, ['a-de', 'b-de'])).toBeNull();
+  });
+
+  it('returns null when the flat German array is longer than the total English note count', () => {
+    const dishes = [{ notes: ['a'] }];
+    expect(alignGermanDishNotes(dishes, ['a-de', 'extra'])).toBeNull();
+  });
+
+  it('handles dinners with no notes at all', () => {
+    const dishes = [{ notes: [] }, {}, { notes: undefined }];
+    expect(alignGermanDishNotes(dishes, [])).toEqual([[], [], []]);
+  });
+
+  it('distributes correctly when only some dishes have notes', () => {
+    const dishes = [{}, { notes: ['only this dish has a note'] }, {}];
+    expect(alignGermanDishNotes(dishes, ['nur dieses Gericht hat eine Notiz'])).toEqual([
+      [],
+      ['nur dieses Gericht hat eine Notiz'],
+      [],
+    ]);
   });
 });

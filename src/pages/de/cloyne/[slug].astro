@@ -4,7 +4,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import DinnerChecklist from '../../../components/DinnerChecklist';
 import TranslationBanner from '../../../components/TranslationBanner.astro';
 import { buildChecklistDish, type DishView } from '../../../lib/dinner';
-import { resolveTranslation, alignGermanIngredients } from '../../../lib/translation';
+import { resolveTranslation, alignGermanIngredients, alignGermanDishNotes } from '../../../lib/translation';
 import { t } from '../../../lib/ui-strings';
 
 export async function getStaticPaths() {
@@ -20,8 +20,13 @@ export async function getStaticPaths() {
 const { entry, germanEntry } = Astro.props;
 const d = entry.data;
 
+// `notes` must match exactly what translate.mjs's translateDinner fingerprints
+// (dish notes flattened in file order) or the sourceHash can never agree and
+// a translated dinner with notes would always show stale, even when nothing
+// English changed.
+const dishNotes = d.dishes.flatMap((dish) => dish.notes ?? []);
 const { useGerman, banner } = resolveTranslation({
-  english: { title: d.title, summary: d.summary, body: entry.body },
+  english: { title: d.title, summary: d.summary, notes: dishNotes, body: entry.body },
   german: germanEntry
     ? { sourceHash: germanEntry.data.sourceHash, reviewed: germanEntry.data.reviewed }
     : undefined,
@@ -33,8 +38,15 @@ const germanRecipes = await getCollection('recipes-de');
 const germanBySlug = new Map(germanRecipes.map((g) => [g.id.replace(/\.md$/, ''), g]));
 
 // The dish list ALWAYS comes from the English dinner file - single source of truth.
+// Head-cook notes are per-dish but stored as one flat array on the German
+// dinner file (translate.mjs has no German `dishes` key to attach them to);
+// reconstruct which notes belong to which dish, falling back to English
+// notes entirely if the counts don't line up (see alignGermanDishNotes).
+const alignedDishNotes =
+  useGerman && germanEntry ? alignGermanDishNotes(d.dishes, germanEntry.data.notes ?? []) : null;
+
 const dishes: DishView[] = [];
-for (const dish of d.dishes) {
+for (const [i, dish] of d.dishes.entries()) {
   const recipe = await getEntry(dish.recipe);
   const germanRecipe = germanBySlug.get(recipe.id.replace(/\.md$/, ''));
   const r = resolveTranslation({
@@ -56,7 +68,8 @@ for (const dish of d.dishes) {
     ? { ...recipe.data, title: germanRecipe!.data.title, ingredients: alignedIngredients! }
     : recipe.data;
   const body = dishUseGerman ? germanRecipe!.body : recipe.body;
-  dishes.push(buildChecklistDish(source, body, dish.servings, dish.notes ?? [], dish.optional ?? false));
+  const notes = alignedDishNotes ? alignedDishNotes[i] : (dish.notes ?? []);
+  dishes.push(buildChecklistDish(source, body, dish.servings, notes, dish.optional ?? false));
 }
 ---
 <BaseLayout title={chosen.data.title} lang="de">

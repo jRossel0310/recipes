@@ -83,6 +83,39 @@ export interface GermanIngredientText {
  * the `unreviewed` banner exists: a human still has to check quantities
  * against English before flipping `reviewed: true`.
  */
+/**
+ * Reconstructs per-dish German notes from the flat array `translate.mjs`
+ * writes to a German dinner file's `notes` frontmatter field.
+ *
+ * `translateDinner` flattens `(dishes ?? []).flatMap((dish) => dish.notes ?? [])`
+ * - dishes in file order, each dish's notes in order - because the German
+ * dinner schema has no `dishes` key of its own (the dish list and every
+ * serving count live only in the English file). To render them back onto
+ * the right dish, this walks the English `dishes` array in that same order
+ * and slices off as many entries as each dish's English note count expects.
+ *
+ * Like `alignGermanIngredients`, this is a structural guard, not a semantic
+ * one: if the flat German array's length doesn't match the total number of
+ * English dish notes, there is no safe way to know which notes belong to
+ * which dish, so this returns `null` rather than risk attaching a note to
+ * the wrong dish - the caller should fall back to the English notes.
+ */
+export function alignGermanDishNotes(
+  dishes: { notes?: string[] }[],
+  germanNotes: string[],
+): string[][] | null {
+  const totalEnglish = dishes.reduce((sum, dish) => sum + (dish.notes?.length ?? 0), 0);
+  if (totalEnglish !== germanNotes.length) return null;
+  const result: string[][] = [];
+  let index = 0;
+  for (const dish of dishes) {
+    const count = dish.notes?.length ?? 0;
+    result.push(germanNotes.slice(index, index + count));
+    index += count;
+  }
+  return result;
+}
+
 export function alignGermanIngredients(
   english: Ingredient[],
   german: GermanIngredientText[],
