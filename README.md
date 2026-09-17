@@ -93,6 +93,9 @@ Overall shift notes go here (start order, timing, reminders).
 ```
 
 - Each dish needs a `recipe` (existing recipe slug), a `servings` target, and optional `notes`.
+- Keep `notes` to things the page can't work out on its own - pan counts, equipment, prep order.
+  Never restate the scale factor or the scaled amounts ("12x the base recipe", "use 18 lb of corn"):
+  the page already computes and displays those, so repeating them is noise the head cook has to read past.
 - The build fails if a `recipe` slug doesn't exist, so typos are caught before deploy.
 - Quantities scale automatically from the recipe's base servings - no hand math.
 - View at `/dinners/<slug>`; reuse next week by copying the file and adjusting servings/notes.
