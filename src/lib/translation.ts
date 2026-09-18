@@ -145,22 +145,90 @@ export function alignGermanDishNotes(
  * whitelist in `translatableFields` - the model is free to rewrite the
  * surrounding text, and nothing stops it from also rewriting a number
  * ("165°F" -> "156°F", or converting to "74°C"). This extracts the ordered
- * sequence of digit-runs from a string so callers can verify a translation
- * didn't change or drop any of them.
+ * sequence of numeric *values* from a string so callers can verify a
+ * translation didn't change or drop any of them.
  *
- * `,` and `.` are both used as decimal separators in German ("1,5" vs
- * "1.5"), so a lone separator is normalized away before comparing - two
- * numbers that differ only in which separator they use are the same number.
+ * This compares values, not notation: `½`, `1/2`, `0.5`, and `0,5` are all
+ * the same number, and a translator choosing a different notation for the
+ * same quantity is not a number change. The English source recipes use
+ * Unicode vulgar fractions (`½`, `1 ½`) and ASCII fractions (`1/2`) directly
+ * in prose; nothing requires the model to preserve that exact notation, only
+ * the value. Each step below normalizes one notation into plain digits, in
+ * an order chosen so a later step never re-consumes what an earlier one
+ * produced (in particular, a lone fraction character must be folded into
+ * its preceding whole number *before* it is replaced by its decimal value,
+ * or "1½" would turn into the bogus concatenation "10.5" instead of "1.5").
  */
-export function extractNumberTokens(text: string): string[] {
-  const matches = text.match(/\d+(?:[.,]\d+)?/g) ?? [];
-  return matches.map((token) => token.replace(',', '.'));
+const VULGAR_FRACTIONS: Record<string, number> = {
+  '½': 1 / 2,
+  '¼': 1 / 4,
+  '¾': 3 / 4,
+  '⅓': 1 / 3,
+  '⅔': 2 / 3,
+  '⅛': 1 / 8,
+  '⅜': 3 / 8,
+  '⅝': 5 / 8,
+  '⅞': 7 / 8,
+};
+
+const FRACTION_CHARS = Object.keys(VULGAR_FRACTIONS).join('');
+// 1. Mixed Unicode fraction: "1½" / "1 ½" -> "1.5". Must run before (2).
+const MIXED_UNICODE_FRACTION_RE = new RegExp(`(\\d+) ?([${FRACTION_CHARS}])`, 'g');
+// 2. Standalone Unicode fraction -> its decimal value.
+const UNICODE_FRACTION_RE = new RegExp(`[${FRACTION_CHARS}]`, 'g');
+// 3. Mixed ASCII fraction: "1 1/2" -> "1.5". Must run before (4), or the
+// plain-fraction pass would turn "1 1/2" into "1 0.5", leaving the leading
+// "1" as a spurious extra token.
+const MIXED_ASCII_FRACTION_RE = /(\d+) (\d+)\/(\d+)/g;
+// 4. Plain ASCII fraction: "1/2" -> "0.5", "3/4" -> "0.75".
+const PLAIN_ASCII_FRACTION_RE = /(\d+)\/(\d+)/g;
+// 5. Thousands separators: strip the separator only in the unambiguous
+// grouping pattern (1-3 digits, then one or more groups of separator plus
+// exactly 3 digits, not touching another digit on either side) so "1.100"
+// and "1,000" become "1100" and "1000", while a genuine decimal like "1.5"
+// or "0,25" is left untouched.
+const THOUSANDS_SEPARATOR_RE = /(?<!\d)\d{1,3}(?:[.,]\d{3})+(?!\d)/g;
+// 6. Remaining decimal comma -> period ("0,5" -> "0.5"). German uses `,` as
+// its decimal separator; by this point any `,` still adjacent to digits on
+// both sides is a decimal point, not a thousands grouping (those were
+// already stripped in step 5).
+const DECIMAL_COMMA_RE = /(\d),(\d)/g;
+const NUMBER_RE = /\d+(?:\.\d+)?/g;
+
+function round4(value: number): number {
+  return Math.round(value * 10000) / 10000;
+}
+
+export function extractNumberTokens(text: string): number[] {
+  let normalized = text;
+  normalized = normalized.replace(
+    MIXED_UNICODE_FRACTION_RE,
+    (_match, whole: string, frac: string) => String(Number(whole) + VULGAR_FRACTIONS[frac]),
+  );
+  normalized = normalized.replace(UNICODE_FRACTION_RE, (frac) => String(VULGAR_FRACTIONS[frac]));
+  normalized = normalized.replace(
+    MIXED_ASCII_FRACTION_RE,
+    (_match, whole: string, num: string, den: string) =>
+      String(Number(whole) + Number(num) / Number(den)),
+  );
+  normalized = normalized.replace(
+    PLAIN_ASCII_FRACTION_RE,
+    (_match, num: string, den: string) => String(Number(num) / Number(den)),
+  );
+  normalized = normalized.replace(THOUSANDS_SEPARATOR_RE, (match) => match.replace(/[.,]/g, ''));
+  normalized = normalized.replace(DECIMAL_COMMA_RE, '$1.$2');
+
+  const matches = normalized.match(NUMBER_RE) ?? [];
+  return matches.map((token) => round4(parseFloat(token)));
 }
 
 /**
  * True when `translated` contains exactly the same ordered sequence of
- * numbers as `source` (see `extractNumberTokens`). Used to reject a
- * translated field before it is ever written to disk.
+ * numeric values as `source` (see `extractNumberTokens`). Used to reject a
+ * translated field before it is ever written to disk. Values are compared
+ * after rounding to 4 decimal places, so e.g. `⅓` (0.3333...) and `1/3`
+ * (also 0.3333...) compare equal regardless of which side wrote which
+ * notation.
  */
 export function numbersPreserved(source: string, translated: string): boolean {
   const sourceNumbers = extractNumberTokens(source);
