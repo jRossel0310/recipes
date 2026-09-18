@@ -21,6 +21,20 @@ export function extractInstructions(body: string): string[] {
   return steps;
 }
 
+/**
+ * True when the English and German bodies of the same dish yield the same
+ * number of instruction steps. The heading regex above only recognizes
+ * "Instructions" and "Zubereitung" - if a translation instead writes a
+ * variant like "Anleitung" or "Zubereitungsschritte", `extractInstructions`
+ * finds no heading and returns zero steps, silently dropping the entire
+ * method while the ingredient list still renders fine. This is an outcome
+ * check (not an attempt to match every possible heading spelling): callers
+ * should fall back to the English dish when this returns false.
+ */
+export function stepCountMatches(englishBody: string, germanBody: string): boolean {
+  return extractInstructions(englishBody).length === extractInstructions(germanBody).length;
+}
+
 export interface DishIngredient {
   primary: string;
   metric: string;

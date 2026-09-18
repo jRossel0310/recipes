@@ -3,8 +3,14 @@ import { getCollection, getEntry } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import DinnerChecklist from '../../../components/DinnerChecklist';
 import TranslationBanner from '../../../components/TranslationBanner.astro';
-import { buildChecklistDish, type DishView } from '../../../lib/dinner';
-import { resolveTranslation, alignGermanIngredients, alignGermanDishNotes } from '../../../lib/translation';
+import { buildChecklistDish, stepCountMatches, type DishView } from '../../../lib/dinner';
+import {
+  resolveTranslation,
+  alignGermanIngredients,
+  alignGermanDishNotes,
+  worstBanner,
+  type BannerKind,
+} from '../../../lib/translation';
 import { t } from '../../../lib/ui-strings';
 
 export async function getStaticPaths() {
@@ -46,6 +52,10 @@ const alignedDishNotes =
   useGerman && germanEntry ? alignGermanDishNotes(d.dishes, germanEntry.data.notes ?? []) : null;
 
 const dishes: DishView[] = [];
+// Every dish's own banner state feeds into the page-level banner below (see
+// worstBanner) - a dish rendering unreviewed German must not be hidden
+// behind a dinner file that reports "missing" or no banner at all.
+const dishBanners: BannerKind[] = [];
 for (const [i, dish] of d.dishes.entries()) {
   const recipe = await getEntry(dish.recipe);
   const germanRecipe = germanBySlug.get(recipe.id.replace(/\.md$/, ''));
@@ -55,15 +65,28 @@ for (const [i, dish] of d.dishes.entries()) {
       ? { sourceHash: germanRecipe.data.sourceHash, reviewed: germanRecipe.data.reviewed }
       : undefined,
   });
-  // A reordered or shortened German ingredient list still passes the
-  // sourceHash check (the hash only covers the English file), so align by
-  // content before trusting it; fall back to the English dish otherwise.
   let dishUseGerman = r.useGerman;
+  let dishBanner = r.banner;
   let alignedIngredients = null;
   if (dishUseGerman) {
+    // A reordered or shortened German ingredient list still passes the
+    // sourceHash check (the hash only covers the English file), so align by
+    // content before trusting it; fall back to the English dish otherwise.
     alignedIngredients = alignGermanIngredients(recipe.data.ingredients, germanRecipe!.data.ingredients);
-    if (!alignedIngredients) dishUseGerman = false;
+    if (!alignedIngredients) {
+      dishUseGerman = false;
+      dishBanner = 'stale';
+    } else if (!stepCountMatches(recipe.body, germanRecipe!.body)) {
+      // The German body's Instructions heading wasn't recognized (e.g. an
+      // unreviewed translation wrote "Anleitung" instead of "Zubereitung"),
+      // so it would render zero steps. Fall back to English entirely rather
+      // than show an ingredient list with no method.
+      dishUseGerman = false;
+      dishBanner = 'stale';
+      alignedIngredients = null;
+    }
   }
+  dishBanners.push(dishBanner);
   const source = dishUseGerman
     ? { ...recipe.data, title: germanRecipe!.data.title, ingredients: alignedIngredients! }
     : recipe.data;
@@ -71,11 +94,16 @@ for (const [i, dish] of d.dishes.entries()) {
   const notes = alignedDishNotes ? alignedDishNotes[i] : (dish.notes ?? []);
   dishes.push(buildChecklistDish(source, body, dish.servings, notes, dish.optional ?? false));
 }
+
+// Escalate to the worst banner across the dinner file itself and every dish
+// it pulls in, so an unreviewed dish translation is never masked by the
+// dinner page's own (safer) banner state.
+const pageBanner = worstBanner([banner, ...dishBanners]);
 ---
 <BaseLayout title={chosen.data.title} lang="de">
   <a class="back-link" href="/de/cloyne">{t('de', 'backToCloyne')}</a>
   <h1>{chosen.data.title}</h1>
-  <TranslationBanner kind={banner} lang="de" />
+  <TranslationBanner kind={pageBanner} lang="de" />
   {chosen.data.summary && <p class="lede">{chosen.data.summary}</p>}
   <article lang={useGerman ? 'de' : 'en'}><Content /></article>
   <DinnerChecklist client:load slug={`cloyne-de-${entry.slug}`} dishes={dishes} />

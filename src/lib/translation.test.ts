@@ -5,6 +5,9 @@ import {
   resolveTranslation,
   alignGermanIngredients,
   alignGermanDishNotes,
+  worstBanner,
+  extractNumberTokens,
+  numbersPreserved,
 } from './translation';
 
 const english = {
@@ -132,6 +135,89 @@ describe('alignGermanIngredients', () => {
       { item: 'Mais-Text', note: 'a-de' },
     ];
     expect(alignGermanIngredients(bothHaveNotes, swappedSameShape)).not.toBeNull();
+  });
+});
+
+describe('worstBanner', () => {
+  it('returns null for an empty list', () => {
+    expect(worstBanner([])).toBeNull();
+  });
+
+  it('returns null when every banner is null', () => {
+    expect(worstBanner([null, null])).toBeNull();
+  });
+
+  it('prefers unreviewed over stale, missing, and null', () => {
+    expect(worstBanner([null, 'missing', 'stale', 'unreviewed'])).toBe('unreviewed');
+    expect(worstBanner(['stale', 'unreviewed'])).toBe('unreviewed');
+    expect(worstBanner(['missing', 'unreviewed'])).toBe('unreviewed');
+  });
+
+  it('prefers stale over missing and null when no unreviewed is present', () => {
+    expect(worstBanner([null, 'missing', 'stale'])).toBe('stale');
+  });
+
+  it('prefers missing over null when nothing worse is present', () => {
+    expect(worstBanner([null, 'missing'])).toBe('missing');
+  });
+
+  it('is order-independent (worst wins regardless of position)', () => {
+    expect(worstBanner(['unreviewed', 'missing', 'stale'])).toBe('unreviewed');
+    expect(worstBanner(['missing', 'stale', 'unreviewed'])).toBe('unreviewed');
+  });
+
+  it('reflects the bug scenario: a missing dinner banner must not hide an unreviewed dish', () => {
+    // The dinner file itself has no German translation ('missing'), but one
+    // of its dishes is rendering unreviewed machine-translated German. The
+    // page must show the unreviewed warning, not "not translated yet".
+    expect(worstBanner(['missing', null, 'unreviewed', null])).toBe('unreviewed');
+  });
+});
+
+describe('extractNumberTokens', () => {
+  it('extracts an ordered sequence of digit runs', () => {
+    expect(extractNumberTokens('Bake at 425°F for 25 minutes, serves ~96.')).toEqual([
+      '425',
+      '25',
+      '96',
+    ]);
+  });
+
+  it('normalizes comma and period decimal separators to the same token', () => {
+    expect(extractNumberTokens('1,5 cups')).toEqual(['1.5']);
+    expect(extractNumberTokens('1.5 cups')).toEqual(['1.5']);
+  });
+
+  it('returns an empty array when there are no numbers', () => {
+    expect(extractNumberTokens('Heat a large skillet until very hot.')).toEqual([]);
+  });
+});
+
+describe('numbersPreserved', () => {
+  it('passes when the translation has identical numbers', () => {
+    expect(numbersPreserved('Bake at 425°F for 25 minutes.', 'Bei 425°F 25 Minuten backen.')).toBe(
+      true,
+    );
+  });
+
+  it('passes when the only difference is the decimal separator', () => {
+    expect(numbersPreserved('1.5 cups butter', '1,5 Tassen Butter')).toBe(true);
+  });
+
+  it('passes when there are no numbers in either string', () => {
+    expect(numbersPreserved('Heat a large skillet.', 'Eine große Pfanne erhitzen.')).toBe(true);
+  });
+
+  it('fails when a number is changed', () => {
+    expect(numbersPreserved('Cook chicken to 165°F.', 'Hähnchen auf 156°F garen.')).toBe(false);
+  });
+
+  it('fails when a number is dropped', () => {
+    expect(numbersPreserved('Bake at 425°F for 25 minutes.', 'Backen bis fertig.')).toBe(false);
+  });
+
+  it('fails when a number is converted to a different unit/value (e.g. metric)', () => {
+    expect(numbersPreserved('Cook to 165°F.', 'Auf 74°C garen.')).toBe(false);
   });
 });
 

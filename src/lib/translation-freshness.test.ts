@@ -21,8 +21,8 @@ function walk(dir: string): string[] {
 const germanFiles = walk(DE);
 
 describe('German translations are current', () => {
-  it('has something to check or is legitimately empty', () => {
-    expect(Array.isArray(germanFiles)).toBe(true);
+  it('found at least one German file to check (sanity check for this test itself)', () => {
+    expect(germanFiles.length).toBeGreaterThan(0);
   });
 
   for (const file of germanFiles) {

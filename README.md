@@ -77,8 +77,19 @@ disabled (not linked) on pages with no German counterpart - the home page, the s
 builder, and nutrition pages.
 
 German content lives in `src/content/recipes-de/` and `src/content/dinners-de/`, mirroring the
-English paths. **Only text is translated.** Every quantity, unit and serving count is read from
-the English file at render time, so both languages always show identical amounts.
+English paths. **Only text is translated.** Structured quantity fields (`qty`, `unit`, `grams`,
+`ml`, serving counts) are never sent to the translator and are always read from the English file
+at render time, so ingredient amounts and servings always match between languages.
+
+Numbers that appear *inside* translated prose - a dinner summary's "- serves ~96.", a recipe
+body's internal-temperature check ("165°F"), oven temps and times throughout instructions - are
+not structured fields, so that guarantee doesn't cover them by construction. `npm run translate`
+closes that gap with an explicit check: after the model translates a field, it compares the
+ordered sequence of numbers in the English text against the same sequence in the German text
+(`,`/`.` decimal separators are normalized before comparing) and refuses to write the file if they
+don't match exactly, reporting the field and both sequences instead. A file that fails this check
+is left untranslated (falls back to English with a banner) rather than silently shipping a wrong
+number.
 
 After adding or editing a recipe or dinner:
 
@@ -112,6 +123,14 @@ unreviewed on the next translate run.
 
 A missing or stale German file falls back to English with an explanatory banner, so an
 untranslated or out-of-date recipe never breaks the page.
+
+A Cloyne or dinner page pulls in several dish recipes, each with its own translation state. The
+page shows the worst banner across the dinner file itself and every dish it includes (`unreviewed`
+beats `stale` beats `missing` beats no banner), so a dish rendering unreviewed machine-translated
+German is never masked by, say, the dinner file itself having no German version at all. Similarly,
+if a dish's German body doesn't yield the same number of instruction steps as its English source
+(most commonly because it used a heading other than "Zubereitung"), that dish falls back to
+English entirely rather than rendering an ingredient list with no method.
 
 **Known limitations:**
 

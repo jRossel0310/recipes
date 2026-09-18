@@ -6,14 +6,14 @@ import matter from 'gray-matter';
 import Anthropic from '@anthropic-ai/sdk';
 import { z } from 'zod/v4';
 import { zodOutputFormat } from '@anthropic-ai/sdk/helpers/zod';
-import { translatableFields, fingerprint } from '../src/lib/translation.ts';
+import { translatableFields, fingerprint, extractNumberTokens, numbersPreserved } from '../src/lib/translation.ts';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const FORCE = process.argv.includes('--force');
 const client = new Anthropic();
 
 const TranslationSchema = z.object({
-  translations: z.array(z.object({ key: z.string(), text: z.string() })),
+  translations: z.array(z.object({ key: z.string(), text: z.string().min(1) })),
 });
 
 const SYSTEM = [
@@ -41,6 +41,12 @@ async function translateFields(fields) {
   if (response.stop_reason === 'refusal') {
     throw new Error(`Refused: ${response.stop_details?.explanation ?? 'unknown'}`);
   }
+  if (response.stop_reason === 'max_tokens') {
+    // A truncated-but-still-parseable response would otherwise write a
+    // German file with a cut-off body and reviewed: false, indistinguishable
+    // from a good translation until a human happens to read to the end.
+    throw new Error('Response truncated: hit max_tokens before completing translation');
+  }
   const parsed = response.parsed_output;
   if (!parsed) throw new Error('Model returned no parsable output');
   const byKey = new Map(parsed.translations.map((entry) => [entry.key, entry.text]));
@@ -48,6 +54,38 @@ async function translateFields(fields) {
     if (!byKey.has(f.key)) throw new Error(`Missing translation for key ${f.key}`);
   }
   return byKey;
+}
+
+/**
+ * Numeric fields (qty, unit, grams, ...) are already kept out of the
+ * translation request by `translatableFields`, but three whitelisted *text*
+ * fields routinely carry numbers embedded in prose: a dinner's `summary`
+ * ("- serves ~96."), and recipe/dinner `body` text (internal-temp checks
+ * like "165°F", oven temps, times). Nothing else verifies those survive
+ * translation unchanged, so this checks every field before any file is
+ * written and reports (without throwing) every field where the ordered
+ * sequence of numbers in the translation doesn't match the English source.
+ */
+function findNumberMismatches(fields, byKey) {
+  const mismatches = [];
+  for (const field of fields) {
+    const translated = byKey.get(field.key);
+    if (!numbersPreserved(field.text, translated)) {
+      mismatches.push({
+        key: field.key,
+        english: extractNumberTokens(field.text),
+        german: extractNumberTokens(translated),
+      });
+    }
+  }
+  return mismatches;
+}
+
+function reportNumberMismatches(relPath, mismatches) {
+  console.error(`FAILED ${relPath}: translated text changed or dropped a number`);
+  for (const m of mismatches) {
+    console.error(`  field "${m.key}": english=[${m.english.join(', ')}] german=[${m.german.join(', ')}]`);
+  }
 }
 
 function walk(dir) {
@@ -74,7 +112,14 @@ async function translateRecipe(absPath) {
     if (existing.data.sourceHash === hash) return 'skipped';
   }
 
-  const byKey = await translateFields(translatableFields(english));
+  const fields = translatableFields(english);
+  const byKey = await translateFields(fields);
+
+  const mismatches = findNumberMismatches(fields, byKey);
+  if (mismatches.length) {
+    reportNumberMismatches(rel, mismatches);
+    return 'failed';
+  }
 
   const ingredients = parsed.data.ingredients.map((ing, i) => {
     const out = { item: byKey.get(`ingredients.${i}.item`) };
@@ -116,7 +161,14 @@ async function translateDinner(absPath) {
     if (existing.data.sourceHash === hash) return 'skipped';
   }
 
-  const byKey = await translateFields(translatableFields(english));
+  const fields = translatableFields(english);
+  const byKey = await translateFields(fields);
+
+  const mismatches = findNumberMismatches(fields, byKey);
+  if (mismatches.length) {
+    reportNumberMismatches(rel, mismatches);
+    return 'failed';
+  }
 
   const frontmatter = { title: byKey.get('title'), sourceHash: hash, reviewed: false };
   if (parsed.data.summary) frontmatter.summary = byKey.get('summary');
@@ -133,14 +185,21 @@ const targets = [
 ];
 let written = 0;
 let skipped = 0;
+let failed = 0;
 for (const [kind, file] of targets) {
   const result = kind === 'recipe' ? await translateRecipe(file) : await translateDinner(file);
   if (result === 'written') {
     written += 1;
     console.log(`translated ${path.relative(ROOT, file)}`);
+  } else if (result === 'failed') {
+    failed += 1;
   } else {
     skipped += 1;
   }
 }
-console.log(`\n${written} translated, ${skipped} already current.`);
+console.log(`\n${written} translated, ${skipped} already current, ${failed} failed.`);
 console.log('All new files are reviewed: false - set reviewed: true after a German speaker checks them.');
+if (failed > 0) {
+  console.error(`${failed} file(s) failed number-preservation checks and were not written - see FAILED lines above.`);
+  process.exitCode = 1;
+}

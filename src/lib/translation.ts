@@ -49,6 +49,28 @@ export function resolveTranslation(args: {
   return { useGerman: true, banner: german.reviewed ? null : 'unreviewed' };
 }
 
+// Worst-first severity order. `unreviewed` is the only state that means "you
+// are reading machine-translated German right now" - `stale` and `missing`
+// both mean "you are reading English", which is safe even if a translation
+// exists somewhere. A page that composes several translated pieces (a dinner
+// page pulling in several dish recipes, say) must not let a dinner-level
+// banner of `stale`/`missing`/`null` hide that one of its dishes is actually
+// rendering unreviewed machine output.
+const BANNER_SEVERITY: readonly BannerKind[] = ['unreviewed', 'stale', 'missing', null];
+
+export function worstBanner(banners: BannerKind[]): BannerKind {
+  let worst: BannerKind = null;
+  let worstRank = BANNER_SEVERITY.indexOf(null);
+  for (const banner of banners) {
+    const rank = BANNER_SEVERITY.indexOf(banner);
+    if (rank < worstRank) {
+      worstRank = rank;
+      worst = banner;
+    }
+  }
+  return worst;
+}
+
 export interface GermanIngredientText {
   item: string;
   note?: string;
@@ -114,6 +136,37 @@ export function alignGermanDishNotes(
     index += count;
   }
   return result;
+}
+
+/**
+ * Numbers embedded in translated prose (a dinner summary's "- serves ~96.",
+ * a recipe body's "165°F" internal-temp check, oven temps and times
+ * throughout instructions) are not covered by the ingredient-field
+ * whitelist in `translatableFields` - the model is free to rewrite the
+ * surrounding text, and nothing stops it from also rewriting a number
+ * ("165°F" -> "156°F", or converting to "74°C"). This extracts the ordered
+ * sequence of digit-runs from a string so callers can verify a translation
+ * didn't change or drop any of them.
+ *
+ * `,` and `.` are both used as decimal separators in German ("1,5" vs
+ * "1.5"), so a lone separator is normalized away before comparing - two
+ * numbers that differ only in which separator they use are the same number.
+ */
+export function extractNumberTokens(text: string): string[] {
+  const matches = text.match(/\d+(?:[.,]\d+)?/g) ?? [];
+  return matches.map((token) => token.replace(',', '.'));
+}
+
+/**
+ * True when `translated` contains exactly the same ordered sequence of
+ * numbers as `source` (see `extractNumberTokens`). Used to reject a
+ * translated field before it is ever written to disk.
+ */
+export function numbersPreserved(source: string, translated: string): boolean {
+  const sourceNumbers = extractNumberTokens(source);
+  const translatedNumbers = extractNumberTokens(translated);
+  if (sourceNumbers.length !== translatedNumbers.length) return false;
+  return sourceNumbers.every((n, i) => n === translatedNumbers[i]);
 }
 
 export function alignGermanIngredients(
