@@ -1,0 +1,110 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import DinnerChecklist from '../../../components/DinnerChecklist';
+import TranslationBanner from '../../../components/TranslationBanner.astro';
+import { buildChecklistDish, stepCountMatches, type DishView } from '../../../lib/dinner';
+import {
+  resolveTranslation,
+  alignGermanIngredients,
+  alignGermanDishNotes,
+  worstBanner,
+  type BannerKind,
+} from '../../../lib/translation';
+import { t } from '../../../lib/ui-strings';
+
+export async function getStaticPaths() {
+  const dinners = await getCollection('dinners', ({ data }) => data.kind === 'cloyne');
+  const german = await getCollection('dinners-de');
+  const bySlug = new Map(german.map((g) => [g.slug, g]));
+  return dinners.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry, germanEntry: bySlug.get(entry.slug) },
+  }));
+}
+
+const { entry, germanEntry } = Astro.props;
+const d = entry.data;
+
+// `notes` must match exactly what translate.mjs's translateDinner fingerprints
+// (dish notes flattened in file order) or the sourceHash can never agree and
+// a translated dinner with notes would always show stale, even when nothing
+// English changed.
+const dishNotes = d.dishes.flatMap((dish) => dish.notes ?? []);
+const { useGerman, banner } = resolveTranslation({
+  english: { title: d.title, summary: d.summary, notes: dishNotes, body: entry.body },
+  german: germanEntry
+    ? { sourceHash: germanEntry.data.sourceHash, reviewed: germanEntry.data.reviewed }
+    : undefined,
+});
+const chosen = useGerman ? germanEntry! : entry;
+const { Content } = await chosen.render();
+
+const germanRecipes = await getCollection('recipes-de');
+const germanBySlug = new Map(germanRecipes.map((g) => [g.id.replace(/\.md$/, ''), g]));
+
+// The dish list ALWAYS comes from the English dinner file - single source of truth.
+// Head-cook notes are per-dish but stored as one flat array on the German
+// dinner file (translate.mjs has no German `dishes` key to attach them to);
+// reconstruct which notes belong to which dish, falling back to English
+// notes entirely if the counts don't line up (see alignGermanDishNotes).
+const alignedDishNotes =
+  useGerman && germanEntry ? alignGermanDishNotes(d.dishes, germanEntry.data.notes ?? []) : null;
+
+const dishes: DishView[] = [];
+// Every dish's own banner state feeds into the page-level banner below (see
+// worstBanner) - a dish rendering unreviewed German must not be hidden
+// behind a dinner file that reports "missing" or no banner at all.
+const dishBanners: BannerKind[] = [];
+for (const [i, dish] of d.dishes.entries()) {
+  const recipe = await getEntry(dish.recipe);
+  const germanRecipe = germanBySlug.get(recipe.id.replace(/\.md$/, ''));
+  const r = resolveTranslation({
+    english: { title: recipe.data.title, ingredients: recipe.data.ingredients, body: recipe.body },
+    german: germanRecipe
+      ? { sourceHash: germanRecipe.data.sourceHash, reviewed: germanRecipe.data.reviewed }
+      : undefined,
+  });
+  let dishUseGerman = r.useGerman;
+  let dishBanner = r.banner;
+  let alignedIngredients = null;
+  if (dishUseGerman) {
+    // A reordered or shortened German ingredient list still passes the
+    // sourceHash check (the hash only covers the English file), so align by
+    // content before trusting it; fall back to the English dish otherwise.
+    alignedIngredients = alignGermanIngredients(recipe.data.ingredients, germanRecipe!.data.ingredients);
+    if (!alignedIngredients) {
+      dishUseGerman = false;
+      dishBanner = 'stale';
+    } else if (!stepCountMatches(recipe.body, germanRecipe!.body)) {
+      // The German body's Instructions heading wasn't recognized (e.g. an
+      // unreviewed translation wrote "Anleitung" instead of "Zubereitung"),
+      // so it would render zero steps. Fall back to English entirely rather
+      // than show an ingredient list with no method.
+      dishUseGerman = false;
+      dishBanner = 'stale';
+      alignedIngredients = null;
+    }
+  }
+  dishBanners.push(dishBanner);
+  const source = dishUseGerman
+    ? { ...recipe.data, title: germanRecipe!.data.title, ingredients: alignedIngredients! }
+    : recipe.data;
+  const body = dishUseGerman ? germanRecipe!.body : recipe.body;
+  const notes = alignedDishNotes ? alignedDishNotes[i] : (dish.notes ?? []);
+  dishes.push(buildChecklistDish(source, body, dish.servings, notes, dish.optional ?? false));
+}
+
+// Escalate to the worst banner across the dinner file itself and every dish
+// it pulls in, so an unreviewed dish translation is never masked by the
+// dinner page's own (safer) banner state.
+const pageBanner = worstBanner([banner, ...dishBanners]);
+---
+<BaseLayout title={chosen.data.title} lang="de">
+  <a class="back-link" href="/de/cloyne">{t('de', 'backToCloyne')}</a>
+  <h1>{chosen.data.title}</h1>
+  <TranslationBanner kind={pageBanner} lang="de" />
+  {chosen.data.summary && <p class="lede">{chosen.data.summary}</p>}
+  <article lang={useGerman ? 'de' : 'en'}><Content /></article>
+  <DinnerChecklist client:load slug={`cloyne-de-${entry.slug}`} dishes={dishes} />
+</BaseLayout>

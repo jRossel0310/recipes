@@ -1,0 +1,50 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import RecipeScaler from '../../../components/RecipeScaler';
+import TranslationBanner from '../../../components/TranslationBanner.astro';
+import { resolveTranslation, alignGermanIngredients } from '../../../lib/translation';
+
+export async function getStaticPaths() {
+  const recipes = await getCollection('recipes');
+  const german = await getCollection('recipes-de');
+  const byId = new Map(german.map((g) => [g.id.replace(/\.md$/, ''), g]));
+  return recipes.map((entry) => {
+    const slug = entry.id.replace(/\.md$/, '');
+    return { params: { slug }, props: { entry, germanEntry: byId.get(slug) } };
+  });
+}
+
+const { entry, germanEntry } = Astro.props;
+const english = { title: entry.data.title, ingredients: entry.data.ingredients, body: entry.body };
+let { useGerman, banner } = resolveTranslation({
+  english,
+  german: germanEntry
+    ? { sourceHash: germanEntry.data.sourceHash, reviewed: germanEntry.data.reviewed }
+    : undefined,
+});
+
+// Quantities ALWAYS come from the English entry; German supplies text only.
+// The sourceHash fingerprint only covers the English file, so a reordered or
+// shortened German ingredient list would still pass the hash check - align
+// by content, not just by index count, and fall back to English if it fails.
+let ingredients = entry.data.ingredients;
+if (useGerman) {
+  const aligned = alignGermanIngredients(entry.data.ingredients, germanEntry!.data.ingredients);
+  if (aligned) {
+    ingredients = aligned;
+  } else {
+    useGerman = false;
+    banner = 'stale';
+  }
+}
+
+const chosen = useGerman ? germanEntry! : entry;
+const { Content } = await chosen.render();
+---
+<BaseLayout title={chosen.data.title} lang="de">
+  <h1>{chosen.data.title}</h1>
+  <TranslationBanner kind={banner} lang="de" />
+  <RecipeScaler client:load baseServings={entry.data.servings} ingredients={ingredients} />
+  <article lang={useGerman ? 'de' : 'en'}><Content /></article>
+</BaseLayout>

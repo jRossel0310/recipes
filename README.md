@@ -69,6 +69,83 @@ Here is the recipe to convert:
 
 [PASTE RECIPE TEXT OR LINK HERE]
 
+## German translations
+
+German versions of recipe, dinner and Cloyne pages live under `/de/...`, reachable from the
+toggle in the footer. The toggle is server-rendered and works without JavaScript; it renders
+disabled (not linked) on pages with no German counterpart - the home page, the shopping-list
+builder, and nutrition pages.
+
+German content lives in `src/content/recipes-de/` and `src/content/dinners-de/`, mirroring the
+English paths. **Only text is translated.** Structured quantity fields (`qty`, `unit`, `grams`,
+`ml`, serving counts) are never sent to the translator and are always read from the English file
+at render time, so ingredient amounts and servings always match between languages.
+
+Numbers that appear *inside* translated prose - a dinner summary's "- serves ~96.", a recipe
+body's internal-temperature check ("165°F"), oven temps and times throughout instructions - are
+not structured fields, so that guarantee doesn't cover them by construction. `npm run translate`
+closes that gap with an explicit check: after the model translates a field, it compares the
+ordered sequence of numbers in the English text against the same sequence in the German text
+(`,`/`.` decimal separators are normalized before comparing) and refuses to write the file if they
+don't match exactly, reporting the field and both sequences instead. A file that fails this check
+is left untranslated (falls back to English with a banner) rather than silently shipping a wrong
+number.
+
+After adding or editing a recipe or dinner:
+
+```bash
+export ANTHROPIC_API_KEY=...   # needed to run the translator, never to build
+npm run translate               # translates recipes and dinners that are missing or out of date
+npm test                        # fails if a German file is stale or misaligned
+```
+
+`npm run translate` walks both `src/content/recipes/` and `src/content/dinners/` and skips any
+file whose German counterpart already has a matching `sourceHash` - so a normal run only pays for
+what actually changed. Pass `--force` to re-translate everything regardless of hash.
+
+The stored hash covers only the translatable text (title, ingredient names/notes/groups, body -
+plus summary and dish notes for dinners). Rescaling a recipe, changing its serving count, or
+updating its nutrition does **not** invalidate an existing translation, since none of that is
+translated text; editing a title, an ingredient name or note, or the body does.
+
+Freshness is enforced by two test files, both part of the normal `npm test` run:
+
+- `src/lib/translation-freshness.test.ts` fails if a German file's `sourceHash` no longer matches
+  its English source's current hash.
+- `src/lib/translation-alignment.test.ts` fails if a German file's ingredient count diverges from
+  its English source's.
+
+New translations are written with `reviewed: false` and render with a banner reading
+*"Maschinell übersetzt — Mengen auf Englisch prüfen"*. **Set `reviewed: true` by hand only after
+someone who reads German has checked the recipe**, paying particular attention to ingredient
+vocabulary. Editing the English source changes its hash, which resets the German file to
+unreviewed on the next translate run.
+
+A missing or stale German file falls back to English with an explanatory banner, so an
+untranslated or out-of-date recipe never breaks the page.
+
+A Cloyne or dinner page pulls in several dish recipes, each with its own translation state. The
+page shows the worst banner across the dinner file itself and every dish it includes (`unreviewed`
+beats `stale` beats `missing` beats no banner), so a dish rendering unreviewed machine-translated
+German is never masked by, say, the dinner file itself having no German version at all. Similarly,
+if a dish's German body doesn't yield the same number of instruction steps as its English source
+(most commonly because it used a heading other than "Zubereitung"), that dish falls back to
+English entirely rather than rendering an ingredient list with no method.
+
+**Known limitations:**
+
+- The alignment check catches a dropped/added ingredient line and a note or group appearing at
+  the wrong position, but it cannot catch two German ingredients of the same shape (both with a
+  note, say) swapped with each other - nothing links a German ingredient back to its specific
+  English source line. The `unreviewed` banner is the backstop for this: a human check before
+  flipping `reviewed: true` is what catches it.
+- `npm run translate` needs `ANTHROPIC_API_KEY` exported locally; it is never invoked during the
+  Vercel build, which only builds already-committed files. A translation-provider outage can
+  never break a deploy.
+
+As of this writing, only the hand-written seed translation (`sides/chili-lime-corn`) exists under
+`src/content/recipes-de/`; everything else awaits a `npm run translate` run.
+
 ## Dinner nights (head-cook pages)
 
 A **dinner** assembles existing recipes into one cook-along page, each dish scaled to a co-op

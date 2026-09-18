@@ -1,0 +1,8 @@
+---
+import { t, type Locale } from '../lib/ui-strings';
+import type { BannerKind } from '../lib/translation';
+interface Props { kind: BannerKind; lang: Locale }
+const { kind, lang } = Astro.props;
+const key = kind === 'unreviewed' ? 'bannerUnreviewed' : kind === 'stale' ? 'bannerStale' : 'bannerMissing';
+---
+{kind && <p class="translation-banner" role="note">{t(lang, key)}</p>}

@@ -1,0 +1,36 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const dinners = await getCollection('dinners');
+dinners.sort((a, b) => {
+  if (a.data.kind !== b.data.kind) return a.data.kind === 'everyday' ? -1 : 1;
+  const order = (a.data.sortOrder ?? 999) - (b.data.sortOrder ?? 999);
+  if (order !== 0) return order;
+  const da = a.data.date ? a.data.date.getTime() : 0;
+  const db = b.data.date ? b.data.date.getTime() : 0;
+  if (da !== db) return db - da; // newest first
+  return a.data.title.localeCompare(b.data.title);
+});
+---
+<BaseLayout title="Dinners" lang="de">
+  <p class="eyebrow">Cook without tab hopping</p>
+  <h1>Dinners</h1>
+  <p class="lede">Every recipe for the meal on one page, so you can cook straight down the list.</p>
+  {(['everyday', 'event'] as const).map((kind) => (
+    <section class="page-section">
+      <div class="section-heading">
+        <div><p class="eyebrow">{kind === 'everyday' ? 'Regular rotation' : 'Large-format cooking'}</p><h2>{kind === 'everyday' ? 'Everyday dinners' : 'Event dinners'}</h2></div>
+      </div>
+      <div class="dinner-grid">
+        {dinners.filter((d) => d.data.kind === kind).map((d) => (
+          <a class="dinner-card" href={`/de/dinners/${d.slug}`}>
+            <span class="card-kicker">{d.data.dishes.length} {d.data.dishes.length === 1 ? 'recipe' : 'recipes'}</span>
+            <strong>{d.data.title}</strong>
+            {d.data.summary && <span>{d.data.summary}</span>}
+          </a>
+        ))}
+      </div>
+    </section>
+  ))}
+</BaseLayout>

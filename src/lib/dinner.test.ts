@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { extractInstructions, buildChecklistDish } from './dinner';
+import { extractInstructions, buildChecklistDish, stepCountMatches } from './dinner';
 import type { RecipeData } from './types';
 
 const BODY = `## Instructions
@@ -33,6 +33,36 @@ describe('extractInstructions', () => {
   it('ignores numbered prose that does not start a line', () => {
     const body = `## Instructions\n\n1. Real step.\n\nSee reference 1. Not a step.\n`;
     expect(extractInstructions(body)).toEqual(['Real step.']);
+  });
+
+  it('extracts steps from a German "Zubereitung" section', () => {
+    // German bodies use "## Zubereitung" (t('de', 'instructions')) instead of
+    // "## Instructions" - a translated dish must not lose its method.
+    const body = `## Zubereitung\n\n1. Schritt eins.\n2. Schritt zwei.\n\n## Hinweise\n\n* Note.\n`;
+    expect(extractInstructions(body)).toEqual(['Schritt eins.', 'Schritt zwei.']);
+  });
+});
+
+describe('stepCountMatches', () => {
+  it('is true when the German body has a recognized heading with the same step count', () => {
+    const german = `## Zubereitung\n\n1. Schritt eins.\n2. Schritt zwei.\n3. Schritt drei.\n`;
+    expect(stepCountMatches(BODY, german)).toBe(true);
+  });
+
+  it('is false when the German body uses an unrecognized heading variant and yields zero steps', () => {
+    // "Anleitung" is not matched by INSTRUCTIONS_HEADING, so an otherwise
+    // fine translation would silently drop the entire method.
+    const german = `## Anleitung\n\n1. Schritt eins.\n2. Schritt zwei.\n3. Schritt drei.\n`;
+    expect(stepCountMatches(BODY, german)).toBe(false);
+  });
+
+  it('is false when the German body has a different number of steps', () => {
+    const german = `## Zubereitung\n\n1. Schritt eins.\n2. Schritt zwei.\n`;
+    expect(stepCountMatches(BODY, german)).toBe(false);
+  });
+
+  it('is true when neither body has any steps', () => {
+    expect(stepCountMatches('## Notes\n\n* a note', '## Hinweise\n\n* eine Notiz')).toBe(true);
   });
 });
 

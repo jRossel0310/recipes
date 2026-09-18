@@ -1,0 +1,20 @@
+---
+import { counterpartPath, localeOf } from '../lib/locale-paths';
+import { t } from '../lib/ui-strings';
+
+const path = Astro.url.pathname;
+const lang = localeOf(path);
+const target = counterpartPath(path);
+const isGerman = lang === 'de';
+---
+{target ? (
+  <a class={`lang-toggle${isGerman ? ' is-on' : ''}`} href={target} aria-label={t(lang, 'switchLanguageAria')}>
+    <span class="lang-toggle-track" aria-hidden="true"><span class="lang-toggle-thumb" /></span>
+    <span>{t(lang, 'switchLanguage')}</span>
+  </a>
+) : (
+  <span class="lang-toggle is-disabled" aria-disabled="true" aria-label={t(lang, 'noGermanVersion')}>
+    <span class="lang-toggle-track" aria-hidden="true"><span class="lang-toggle-thumb" /></span>
+    <span>{t(lang, 'switchLanguage')}</span>
+  </span>
+)}
