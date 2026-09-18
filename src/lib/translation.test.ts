@@ -175,21 +175,57 @@ describe('worstBanner', () => {
 });
 
 describe('extractNumberTokens', () => {
-  it('extracts an ordered sequence of digit runs', () => {
+  it('extracts an ordered sequence of numeric values', () => {
     expect(extractNumberTokens('Bake at 425°F for 25 minutes, serves ~96.')).toEqual([
-      '425',
-      '25',
-      '96',
+      425, 25, 96,
     ]);
   });
 
-  it('normalizes comma and period decimal separators to the same token', () => {
-    expect(extractNumberTokens('1,5 cups')).toEqual(['1.5']);
-    expect(extractNumberTokens('1.5 cups')).toEqual(['1.5']);
+  it('normalizes comma and period decimal separators to the same value', () => {
+    expect(extractNumberTokens('1,5 cups')).toEqual([1.5]);
+    expect(extractNumberTokens('1.5 cups')).toEqual([1.5]);
   });
 
   it('returns an empty array when there are no numbers', () => {
     expect(extractNumberTokens('Heat a large skillet until very hot.')).toEqual([]);
+  });
+
+  it('resolves a mixed Unicode fraction to its decimal value', () => {
+    expect(extractNumberTokens('1½ lb of chicken')).toEqual([1.5]);
+    expect(extractNumberTokens('1 ½ lb of chicken')).toEqual([1.5]);
+  });
+
+  it('resolves a standalone Unicode fraction to its decimal value', () => {
+    expect(extractNumberTokens('(½ cup)')).toEqual([0.5]);
+    expect(extractNumberTokens('¼-inch thick')).toEqual([0.25]);
+  });
+
+  it('resolves a mixed ASCII fraction to its decimal value', () => {
+    expect(extractNumberTokens('1 1/2 lb')).toEqual([1.5]);
+  });
+
+  it('resolves a plain ASCII fraction to its decimal value', () => {
+    expect(extractNumberTokens('1/2 cup')).toEqual([0.5]);
+    expect(extractNumberTokens('3/4 cup')).toEqual([0.75]);
+  });
+
+  it('strips an unambiguous thousands separator but leaves a decimal alone', () => {
+    expect(extractNumberTokens('900-1.100 g')).toEqual([900, 1100]);
+    expect(extractNumberTokens('1,000 ml')).toEqual([1000]);
+    expect(extractNumberTokens('1.5 cups')).toEqual([1.5]);
+    expect(extractNumberTokens('0,25 Zoll')).toEqual([0.25]);
+  });
+
+  it('rounds repeating-decimal fractions to 4 places so notations agree', () => {
+    expect(extractNumberTokens('⅓ cup')).toEqual([0.3333]);
+    expect(extractNumberTokens('1/3 cup')).toEqual([0.3333]);
+  });
+
+  it('does not mistake an eighth-family fraction for a thousands-grouped integer', () => {
+    expect(extractNumberTokens('⅛ tsp')).toEqual([0.125]);
+    expect(extractNumberTokens('⅜ cup')).toEqual([0.375]);
+    expect(extractNumberTokens('0.125 g')).toEqual([0.125]);
+    expect(extractNumberTokens('0,125 g')).toEqual([0.125]);
   });
 });
 
@@ -216,8 +252,84 @@ describe('numbersPreserved', () => {
     expect(numbersPreserved('Bake at 425°F for 25 minutes.', 'Backen bis fertig.')).toBe(false);
   });
 
+  it('fails when a number is added', () => {
+    expect(numbersPreserved('Bake until done.', 'Bei 350°F backen, bis fertig.')).toBe(false);
+  });
+
   it('fails when a number is converted to a different unit/value (e.g. metric)', () => {
     expect(numbersPreserved('Cook to 165°F.', 'Auf 74°C garen.')).toBe(false);
+  });
+
+  it('fails when a serving count is changed', () => {
+    expect(numbersPreserved('Dinner serves ~150.', 'Das Abendessen ergibt ca. 15 Portionen.')).toBe(
+      false,
+    );
+  });
+
+  it('fails when a fraction is genuinely changed', () => {
+    expect(numbersPreserved('½ cup', '¼ cup')).toBe(false);
+  });
+
+  // These are the false positives the value-based comparison exists to fix:
+  // a Unicode fraction in the English source, rewritten in a different but
+  // equal-value notation on the German side, must not trip the guard.
+  it('passes when a standalone Unicode fraction is translated as an ASCII fraction', () => {
+    expect(numbersPreserved('½ cup', '1/2 Tasse')).toBe(true);
+  });
+
+  it('passes when a standalone Unicode fraction is translated as a decimal comma', () => {
+    expect(numbersPreserved('½ cup', '0,5 Tasse')).toBe(true);
+  });
+
+  it('passes when a mixed Unicode fraction is translated as a mixed ASCII fraction', () => {
+    expect(numbersPreserved('1 to 1½ lb', '1 bis 1 1/2 lb')).toBe(true);
+  });
+
+  it('passes when a standalone Unicode fraction is translated as a German decimal', () => {
+    expect(numbersPreserved('¼-inch thick', '0,25 Zoll dick')).toBe(true);
+  });
+
+  it('passes when a repeating-decimal fraction is translated as an ASCII fraction', () => {
+    expect(numbersPreserved('⅓ cup', '1/3 Tasse')).toBe(true);
+  });
+
+  it('passes when a thousands separator differs in style', () => {
+    expect(numbersPreserved('900-1100 g', '900-1.100 g')).toBe(true);
+  });
+
+  it('passes when a thousands separator is dropped entirely', () => {
+    expect(numbersPreserved('1,000 ml', '1000 ml')).toBe(true);
+  });
+
+  // Regression coverage for a blind spot in the thousands-separator step:
+  // an eighth-family fraction (⅛/⅜/⅝/⅞) normalizes to a decimal with
+  // exactly three fractional digits ("0.125", "0.375", ...), which a naive
+  // \d{1,3}([.,]\d{3})+ thousands pattern also matches - stripping the
+  // separator turns "0.125" into "125" and would silently let a real
+  // thousand-fold value change through undetected.
+  it('fails when a fraction-shaped decimal is changed to the corresponding bare integer', () => {
+    expect(numbersPreserved('0.125 g', '125 g')).toBe(false);
+    expect(numbersPreserved('⅛ tsp', '125 tsp Salz')).toBe(false);
+    expect(numbersPreserved('⅜ cup', '375 Tassen')).toBe(false);
+  });
+
+  it('passes when an eighth-family fraction is translated as an ASCII fraction', () => {
+    expect(numbersPreserved('⅛ tsp', '1/8 TL')).toBe(true);
+    expect(numbersPreserved('⅜ cup', '3/8 Tasse')).toBe(true);
+  });
+
+  it('passes when an eighth-family fraction is translated as a German decimal', () => {
+    expect(numbersPreserved('⅛ tsp', '0,125 TL')).toBe(true);
+  });
+
+  it('passes on a realistic instruction sentence with reordered surrounding text', () => {
+    expect(
+      numbersPreserved('Bake 40-45 minutes at 350°F', '40-45 Minuten bei 350°F backen'),
+    ).toBe(true);
+  });
+
+  it('passes on a pan-size reference that stays unchanged', () => {
+    expect(numbersPreserved('a 9x13 pan', 'eine 9x13-Pfanne')).toBe(true);
   });
 });
 

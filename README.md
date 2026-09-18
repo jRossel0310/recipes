@@ -85,11 +85,13 @@ Numbers that appear *inside* translated prose - a dinner summary's "- serves ~96
 body's internal-temperature check ("165°F"), oven temps and times throughout instructions - are
 not structured fields, so that guarantee doesn't cover them by construction. `npm run translate`
 closes that gap with an explicit check: after the model translates a field, it compares the
-ordered sequence of numbers in the English text against the same sequence in the German text
-(`,`/`.` decimal separators are normalized before comparing) and refuses to write the file if they
-don't match exactly, reporting the field and both sequences instead. A file that fails this check
-is left untranslated (falls back to English with a banner) rather than silently shipping a wrong
-number.
+ordered sequence of numeric *values* in the English text against the same sequence in the German
+text and refuses to write the file if they don't match exactly, reporting the field and both
+sequences instead. The comparison is value-based, not notational: `½`, `1/2`, `0.5`, and `0,5` all
+compare equal, since a translator choosing different notation for the same quantity (a Unicode
+fraction rewritten as an ASCII fraction or a German decimal comma, "1.100" vs "1,000" as
+thousands-separator style) is not a number change. A file that fails this check is left
+untranslated (falls back to English with a banner) rather than silently shipping a wrong number.
 
 After adding or editing a recipe or dinner:
 

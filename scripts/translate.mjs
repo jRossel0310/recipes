@@ -84,7 +84,9 @@ function findNumberMismatches(fields, byKey) {
 function reportNumberMismatches(relPath, mismatches) {
   console.error(`FAILED ${relPath}: translated text changed or dropped a number`);
   for (const m of mismatches) {
-    console.error(`  field "${m.key}": english=[${m.english.join(', ')}] german=[${m.german.join(', ')}]`);
+    const english = m.english.map(String).join(', ');
+    const german = m.german.map(String).join(', ');
+    console.error(`  field "${m.key}": english=[${english}] german=[${german}]`);
   }
 }
 
