@@ -187,7 +187,21 @@ const PLAIN_ASCII_FRACTION_RE = /(\d+)\/(\d+)/g;
 // exactly 3 digits, not touching another digit on either side) so "1.100"
 // and "1,000" become "1100" and "1000", while a genuine decimal like "1.5"
 // or "0,25" is left untouched.
-const THOUSANDS_SEPARATOR_RE = /(?<!\d)\d{1,3}(?:[.,]\d{3})+(?!\d)/g;
+//
+// The leading digit group must be non-zero ([1-9], not \d): nobody writes a
+// thousands-grouped number with a leading zero group ("0,125" never means
+// "the number 0125"), so a leading zero unambiguously marks this as a
+// decimal instead. This matters because steps 1-4 can themselves produce a
+// decimal with exactly three fractional digits - an eighth-family fraction
+// (⅛/⅜/⅝/⅞ -> "0.125"/"0.375"/"0.625"/"0.875") looks exactly like thousands
+// notation to a naive \d{1,3}([.,]\d{3})+ pattern, and would otherwise get
+// its separator stripped ("0.125" -> "0125" -> 125), silently creating a
+// blind spot where a genuine value change (e.g. a translation reading "125"
+// for what should still be "0.125") would compare equal instead of being
+// caught. The [1-9] restriction closes that gap without a special case for
+// fractions specifically, since it is really the same underlying rule:
+// thousands grouping never has a leading zero.
+const THOUSANDS_SEPARATOR_RE = /(?<!\d)[1-9]\d{0,2}(?:[.,]\d{3})+(?!\d)/g;
 // 6. Remaining decimal comma -> period ("0,5" -> "0.5"). German uses `,` as
 // its decimal separator; by this point any `,` still adjacent to digits on
 // both sides is a decimal point, not a thousands grouping (those were

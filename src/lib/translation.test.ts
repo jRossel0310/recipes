@@ -220,6 +220,13 @@ describe('extractNumberTokens', () => {
     expect(extractNumberTokens('⅓ cup')).toEqual([0.3333]);
     expect(extractNumberTokens('1/3 cup')).toEqual([0.3333]);
   });
+
+  it('does not mistake an eighth-family fraction for a thousands-grouped integer', () => {
+    expect(extractNumberTokens('⅛ tsp')).toEqual([0.125]);
+    expect(extractNumberTokens('⅜ cup')).toEqual([0.375]);
+    expect(extractNumberTokens('0.125 g')).toEqual([0.125]);
+    expect(extractNumberTokens('0,125 g')).toEqual([0.125]);
+  });
 });
 
 describe('numbersPreserved', () => {
@@ -292,6 +299,27 @@ describe('numbersPreserved', () => {
 
   it('passes when a thousands separator is dropped entirely', () => {
     expect(numbersPreserved('1,000 ml', '1000 ml')).toBe(true);
+  });
+
+  // Regression coverage for a blind spot in the thousands-separator step:
+  // an eighth-family fraction (⅛/⅜/⅝/⅞) normalizes to a decimal with
+  // exactly three fractional digits ("0.125", "0.375", ...), which a naive
+  // \d{1,3}([.,]\d{3})+ thousands pattern also matches - stripping the
+  // separator turns "0.125" into "125" and would silently let a real
+  // thousand-fold value change through undetected.
+  it('fails when a fraction-shaped decimal is changed to the corresponding bare integer', () => {
+    expect(numbersPreserved('0.125 g', '125 g')).toBe(false);
+    expect(numbersPreserved('⅛ tsp', '125 tsp Salz')).toBe(false);
+    expect(numbersPreserved('⅜ cup', '375 Tassen')).toBe(false);
+  });
+
+  it('passes when an eighth-family fraction is translated as an ASCII fraction', () => {
+    expect(numbersPreserved('⅛ tsp', '1/8 TL')).toBe(true);
+    expect(numbersPreserved('⅜ cup', '3/8 Tasse')).toBe(true);
+  });
+
+  it('passes when an eighth-family fraction is translated as a German decimal', () => {
+    expect(numbersPreserved('⅛ tsp', '0,125 TL')).toBe(true);
   });
 
   it('passes on a realistic instruction sentence with reordered surrounding text', () => {
