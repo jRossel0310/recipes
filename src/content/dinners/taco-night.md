@@ -8,17 +8,17 @@ dishes:
     menuName: Chicken Tacos
     menuTags: [gf]
   - recipe: proteins/taco-crumbles
-    servings: 70
+    servings: 124
     menuName: Tofu Taco Filling
   - recipe: sides/spanish-rice
-    servings: 130
+    servings: 75
     menuName: Spanish-Style Red Rice
     menuTags: [vg, gf]   # made with vegetable broth, not the chicken broth in the recipe
   - recipe: sides/pinto-beans-dry
     servings: 88
     menuName: Mexican Pinto Beans
-  - recipe: sides/mexican-street-corn
-    servings: 140
+  - recipe: sides/mexican-street-corn-10can
+    servings: 84
     menuName: Mexican Street Corn
   - recipe: sides/mexican-chopped-salad
     servings: 170
