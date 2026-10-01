@@ -71,6 +71,11 @@ button, input { font: inherit; }
   .category-nav { position: sticky; top: var(--header-h); z-index: 5; background: var(--bg); }
   .recipe-category { scroll-margin-top: calc(var(--header-h) + var(--cat-nav-h) + 0.75rem); }
 }
+@media (max-width: 400px) {
+  .nav-shell { gap: 0.5rem; }
+  .site nav { gap: 0; }
+  .site nav a { padding-inline: 0.3rem; font-size: 0.8rem; }
+}
 .translation-banner { border: 1px solid #c8a45a; background: #fdf6e6; padding: 0.6rem 0.9rem; border-radius: 6px; font-size: 0.9rem; }
 .footer-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
 .lang-toggle { display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; color: inherit; font-size: 0.9rem; }

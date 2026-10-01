@@ -1,4 +1,4 @@
-.dinner { display: grid; gap: 1.25rem; margin-top: 1.5rem; --jump-h: 61px; }
+.dinner { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.25rem; margin-top: 1.5rem; --jump-h: 61px; }
 .dinner .jump { position: sticky; top: var(--header-h); z-index: 10; display: flex; gap: 0.45rem; align-items: center; margin-inline: calc(50% - 50vw); padding: 0.7rem max(1rem, calc((100vw - 1040px) / 2)); border-block: 1px solid var(--border); background: rgba(245, 246, 242, 0.95); backdrop-filter: blur(12px); }
 .dinner .jump-pills { flex: 1 1 auto; min-width: 0; display: flex; flex-wrap: nowrap; gap: 0.45rem; overflow-x: auto; mask-image: linear-gradient(to right, black calc(100% - 24px), transparent); -webkit-mask-image: linear-gradient(to right, black calc(100% - 24px), transparent); }
 .dinner .jump a { flex: none; color: var(--fg); font-size: 0.88rem; font-weight: 650; text-decoration: none; padding: 0.4rem 0.7rem; border: 1px solid var(--border); border-radius: 999px; background: var(--surface); }
