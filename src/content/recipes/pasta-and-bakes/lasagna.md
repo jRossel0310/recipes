@@ -1,143 +1,45 @@
 ---
-title: Hotel-Pan Lasagna (Ragu + Bechamel)
+title: Hotel-Pan Beef Lasagna (Assembly and Bake)
 source: co-op reference (refrences/Lasagna.pdf)
-servings: 80
-prepTime: 60 minutes
+servings: 20
+prepTime: 40 minutes
 cookTime: 80 minutes
 nutrition:
-  calories: 400
-  protein: 18
-  carbs: 38
-  fat: 18
-  servingGrams: 300  # estimate, verify/adjust
-tags: [lasagna, pasta, vegetarian, italian, large-batch, meal-prep]
+  calories: 315
+  protein: 20
+  carbs: 30
+  fat: 14
+tags: [lasagna, pasta, beef, italian, large-batch]
 ingredients:
-  - group: Ragu
-    qty: 3
-    qtyMax: 4
-    unit: tbsp
-    item: olive oil
-  - group: Ragu
-    qty: 3
-    qtyMax: 4
-    item: large onions
-    note: finely chopped
-  - group: Ragu
-    qty: 14
-    unit: clove
-    item: garlic
-    note: minced
-  - group: Ragu
-    qty: 1.4
-    unit: kg
-    item: vegan mince
-    grams: 1400
-    note: about 3 lb; original uses 400 g for 6 servings
-  - group: Ragu
-    qty: 2
-    item: carrots
-    note: medium, finely diced
-  - group: Ragu
-    qty: 3
-    item: celery stalks
-    note: diced
-  - group: Ragu
-    qty: 3
-    item: marinara or crushed tomatoes
-    note: large jars, 72-84 oz total
-  - group: Ragu
-    qty: 2
-    unit: cup
-    item: vegetable stock
-    ml: 480
-    note: approximate
-  - group: Ragu
-    qty: 3
-    qtyMax: 4
-    unit: tbsp
-    item: tomato paste
-  - group: Ragu
-    item: Salt and pepper
-    note: to taste
-  - group: Ragu
-    item: Italian herbs
-    note: to taste
-  - group: Bechamel
-    qty: 2.5
-    unit: cup
-    item: butter
-    grams: 567
-  - group: Bechamel
-    qty: 2.5
-    unit: cup
-    item: flour
-    grams: 300
-  - group: Bechamel
-    qty: 5
-    unit: qt
-    item: whole milk
-    ml: 4730
-    note: about 1.25 gallons
-  - group: Bechamel
-    qty: 5
-    unit: tsp
-    item: salt
-  - group: Bechamel
-    qty: 2
-    unit: tsp
-    item: nutmeg
-    note: optional but recommended
-    optional: true
-  - group: Pasta
-    qty: 18
+  - qty: 18
     qtyMax: 24
     item: lasagna sheets
-    note: about 3-4 layers per hotel pan; par-boil if not no-boil
-  - group: Assembly and cheese
-    item: Mozzarella
+    note: 3-4 layers per hotel pan; par-boil if not no-boil
+  - qty: 3
+    unit: lb
+    item: mozzarella
+    grams: 1361
     note: shredded, for the layers and a heavy top
-  - group: Assembly and cheese
-    item: Parmesan
-    note: grated, for the top
+  - qty: 1
+    unit: cup
+    item: grated parmesan
+    grams: 100
+    note: for the top
 ---
 
 ## Instructions
 
-**Ragu**
-
-1. Saute the chopped onion in the olive oil until soft.
-2. Add the garlic and cook until fragrant.
-3. Add the vegan mince and brown well.
-4. Stir in the diced carrot and celery.
-5. Add the crushed tomatoes, tomato paste, and vegetable stock; season with salt, pepper, and Italian herbs.
-6. Simmer 20-30 minutes until thick.
-
-**Bechamel**
-
-7. Melt the butter in a large pot over medium heat.
-8. Whisk in the flour and cook 5-7 minutes until pale golden, not browned.
-9. Slowly whisk in the warm milk.
-10. Simmer, whisking, until it coats a spoon but stays pourable. Season with salt and nutmeg and keep warm.
-
-**Pasta**
-
-11. Par-boil the lasagna sheets 4-5 minutes (skip if using no-boil). Lay them flat and keep lightly oiled so they don't stick.
-
-**Assembly (per hotel pan)**
-
-12. Spread a thin layer of ragu across the bottom of the pan.
-13. Repeat this cycle about 3 times: noodles (full coverage), a bechamel drizzle ladled evenly, a ragu layer, then a sprinkle of mozzarella.
-14. Finish the top with noodles, a thick bechamel layer (no ragu), then a heavy layer of mozzarella and parmesan. The pan should sit about 1/2 to 3/4 inch below the rim.
-
-**Bake**
-
-15. Cover tightly with foil and bake at 375°F (190°C) for 50-60 minutes; more trays in the oven need more time.
-16. Uncover and bake another 15-25 minutes until the cheese is browned and the edges are bubbling.
-17. Rest 15-20 minutes before cutting.
+1. Par-boil the lasagna sheets 4-5 minutes, until flexible but still firm. Skip this if using no-boil sheets. Lay them flat and keep them lightly oiled so they do not stick.
+2. Spread a thin layer of beef ragu across the bottom of the pan.
+3. Repeat this cycle three times: noodles in full coverage, a bechamel drizzle ladled evenly, a beef ragu layer, then a sprinkle of mozzarella.
+4. Finish the top with noodles, a thick bechamel layer with no ragu, then a heavy layer of mozzarella and parmesan.
+5. The filled pan should sit about 1/2 to 3/4 inch below the rim.
+6. Cover tightly with foil and bake at 375°F for 50-60 minutes. More trays in the oven need more time.
+7. Uncover and bake another 15-25 minutes, until the cheese is browned and the edges are bubbling.
+8. Rest 15-20 minutes before cutting, or it will come out sloppy.
 
 ## Notes
 
-* No ricotta on purpose; the bechamel carries the creaminess.
-* The ragu quantities are the source's ~20-serving batch, but the bechamel is sized for 4 hotel pans. Scale the ragu to however many pans you're filling.
-* Vegetarian as written. For fully vegan, use plant butter, plant milk, and vegan cheese.
-* Nutrition is a rough estimate; adjust `servingGrams` to correct the per-100g figure.
+* Uses the Lasagna Beef Ragu and Lasagna Bechamel cards. One batch of each fills one pan.
+* 20 servings is one hotel pan.
+* No ricotta. The bechamel carries the creaminess.
