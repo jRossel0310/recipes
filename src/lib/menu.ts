@@ -22,12 +22,13 @@ export function menuName(title: string): string {
     .trim();
 }
 
-// Recipe tags -> the short menu-board notation. Vegan wins over vegetarian,
-// and the diet marker always precedes gf.
+// Recipe tags -> the short menu-board notation. This house uses `v` for vegan
+// and `vg` for vegetarian, which is the opposite of the more common convention -
+// don't "fix" it. Vegan wins over vegetarian, and the diet marker precedes gf.
 export function menuTags(tags: string[]): string[] {
   const out: string[] = [];
-  if (tags.includes('vegan')) out.push('vg');
-  else if (tags.includes('vegetarian')) out.push('v');
+  if (tags.includes('vegan')) out.push('v');
+  else if (tags.includes('vegetarian')) out.push('vg');
   if (tags.includes('gluten-free')) out.push('gf');
   return out;
 }

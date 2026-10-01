@@ -17,17 +17,17 @@ describe('menuName', () => {
 });
 
 describe('menuTags', () => {
-  it('maps the vegan tag to vg', () => {
-    expect(menuTags(['mexican', 'vegan', 'side-dish'])).toEqual(['vg']);
+  it('maps the vegan tag to v', () => {
+    expect(menuTags(['mexican', 'vegan', 'side-dish'])).toEqual(['v']);
   });
-  it('maps the vegetarian tag to v', () => {
-    expect(menuTags(['side-dish', 'vegetarian'])).toEqual(['v']);
+  it('maps the vegetarian tag to vg', () => {
+    expect(menuTags(['side-dish', 'vegetarian'])).toEqual(['vg']);
   });
-  it('prefers vg when a recipe is tagged both vegetarian and vegan', () => {
-    expect(menuTags(['vegetarian', 'vegan', 'tex-mex'])).toEqual(['vg']);
+  it('prefers the vegan marker when a recipe is tagged both vegetarian and vegan', () => {
+    expect(menuTags(['vegetarian', 'vegan', 'tex-mex'])).toEqual(['v']);
   });
   it('puts the diet tag before gf', () => {
-    expect(menuTags(['gluten-free', 'vegan'])).toEqual(['vg', 'gf']);
+    expect(menuTags(['gluten-free', 'vegan'])).toEqual(['v', 'gf']);
   });
   it('returns nothing for a recipe with no dietary tags', () => {
     expect(menuTags(['mexican', 'chicken', 'co-op'])).toEqual([]);
@@ -43,7 +43,7 @@ const dish = (title: string, tags: string[], over: Partial<MenuDish> = {}): Menu
 describe('buildMenuText', () => {
   it('formats a dish with its derived tags in parentheses', () => {
     const text = buildMenuText({ dishes: [dish('Mexican Pinto Beans - Dry Bean Version', ['vegan', 'gluten-free'])] });
-    expect(text).toContain('Mexican Pinto Beans (vg, gf)');
+    expect(text).toContain('Mexican Pinto Beans (v, gf)');
   });
   it('omits the parentheses entirely when a dish has no tags', () => {
     const text = buildMenuText({ dishes: [dish('Chicken Enchiladas (Co-op Batch)', ['chicken'])] });
@@ -51,9 +51,9 @@ describe('buildMenuText', () => {
   });
   it('lets menuTags override the derived tags', () => {
     const text = buildMenuText({
-      dishes: [dish('Spanish-Style Rice', ['gluten-free'], { menuTags: ['vg', 'gf'] })],
+      dishes: [dish('Spanish-Style Rice', ['gluten-free'], { menuTags: ['v', 'gf'] })],
     });
-    expect(text).toContain('Spanish-Style Rice (vg, gf)');
+    expect(text).toContain('Spanish-Style Rice (v, gf)');
   });
   it('lets menuName override the stripped title', () => {
     const text = buildMenuText({ dishes: [dish('Spanish-Style Rice', [], { menuName: 'Spanish Rice' })] });
@@ -82,7 +82,7 @@ describe('buildMenuText', () => {
     const text = buildMenuText({
       date: new Date('2026-09-02'),
       dishes: [
-        dish('Spanish-Style Rice', ['rice', 'gluten-free'], { menuName: 'Spanish Rice', menuTags: ['vg', 'gf'] }),
+        dish('Spanish-Style Rice', ['rice', 'gluten-free'], { menuName: 'Spanish Rice', menuTags: ['v', 'gf'] }),
         dish('Chicken Enchiladas (Co-op Batch)', ['mexican', 'chicken']),
         dish('Cheese Enchiladas (Co-op Batch)', ['mexican', 'vegetarian']),
         dish('Vegan Enchiladas (Co-op Batch)', ['mexican', 'vegan', 'gluten-free']),
@@ -95,13 +95,13 @@ describe('buildMenuText', () => {
       [
         'Dinner Menu 9/2',
         '',
-        'Spanish Rice (vg, gf)',
+        'Spanish Rice (v, gf)',
         'Chicken Enchiladas',
-        'Cheese Enchiladas (v)',
-        'Vegan Enchiladas (vg, gf)',
-        'Mexican Pinto Beans (vg, gf)',
-        'Chipotle Fajita Veggies (vg, gf)',
-        'Mexican Street Corn (v, gf)',
+        'Cheese Enchiladas (vg)',
+        'Vegan Enchiladas (v, gf)',
+        'Mexican Pinto Beans (v, gf)',
+        'Chipotle Fajita Veggies (v, gf)',
+        'Mexican Street Corn (vg, gf)',
         '',
         'Planning on serving 7:00 pm',
         '',

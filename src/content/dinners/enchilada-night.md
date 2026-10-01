@@ -14,7 +14,7 @@ dishes:
   - recipe: sides/spanish-rice
     servings: 135
     menuName: Spanish Rice
-    menuTags: [vg, gf]   # made with veggie broth, not the chicken broth in the recipe
+    menuTags: [v, gf]   # made with veggie broth, not the chicken broth in the recipe
   - recipe: sides/mexican-street-corn
     servings: 140
   - recipe: proteins/fajitas

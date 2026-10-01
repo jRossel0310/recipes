@@ -13,7 +13,7 @@ dishes:
   - recipe: sides/spanish-rice
     servings: 75
     menuName: Spanish-Style Red Rice
-    menuTags: [vg, gf]   # made with vegetable broth, not the chicken broth in the recipe
+    menuTags: [v, gf]   # made with vegetable broth, not the chicken broth in the recipe
   - recipe: sides/pinto-beans-dry
     servings: 88
     menuName: Mexican Pinto Beans
