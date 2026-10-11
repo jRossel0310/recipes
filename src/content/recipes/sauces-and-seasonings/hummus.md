@@ -1,5 +1,5 @@
 ---
-title: Hummus
+title: Hummus (Co-op Batch)
 source: personal recipe
 servings: 170
 prepTime: 60 minutes (plus overnight soaking)

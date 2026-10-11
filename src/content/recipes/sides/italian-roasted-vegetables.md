@@ -1,5 +1,5 @@
 ---
-title: Italian Roasted Vegetable Tray
+title: Italian Roasted Vegetable Tray (Co-op Batch)
 source: co-op reference (refrences/Lasagna.pdf)
 servings: 150
 prepTime: 60 minutes

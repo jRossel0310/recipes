@@ -1,5 +1,5 @@
 ---
-title: Tzatziki
+title: Tzatziki (Co-op Batch)
 source: personal recipe
 servings: 170
 prepTime: 30 minutes

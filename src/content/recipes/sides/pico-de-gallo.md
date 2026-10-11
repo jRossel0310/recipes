@@ -1,5 +1,5 @@
 ---
-title: Pico de Gallo
+title: Pico de Gallo (Co-op Batch)
 source: personal recipe
 servings: 170
 prepTime: 45 minutes

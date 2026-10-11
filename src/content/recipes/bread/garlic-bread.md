@@ -1,5 +1,5 @@
 ---
-title: Garlic Bread
+title: Garlic Bread (Co-op Batch)
 source: co-op reference (refrences/Lasagna.pdf)
 servings: 150
 prepTime: 40 minutes

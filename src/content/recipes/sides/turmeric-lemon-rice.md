@@ -1,5 +1,5 @@
 ---
-title: Turmeric Lemon Rice
+title: Turmeric Lemon Rice (Co-op Batch)
 source: personal recipe
 servings: 170
 prepTime: 30 minutes

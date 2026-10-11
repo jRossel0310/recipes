@@ -1,5 +1,5 @@
 ---
-title: Italian Chopped Salad
+title: Italian Chopped Salad (Co-op Batch)
 source: co-op reference (refrences/Lasagna.pdf)
 servings: 150
 prepTime: 60 minutes

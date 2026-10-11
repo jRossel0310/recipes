@@ -1,6 +1,6 @@
 ---
-title: Hummus
-sourceHash: 6c79a0f02c6a99c0298053ea4b49d13875f9ba931be305aa6fa6e269015393ff
+title: Hummus (Co-op-Charge)
+sourceHash: 2f577922ad6b5361421e4436f0b77c26bebd7c0965d60d1eadefc4a89a416a6d
 reviewed: false
 ingredients:
   - item: getrocknete Kichererbsen

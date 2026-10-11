@@ -1,6 +1,6 @@
 ---
-title: Veganer Chili
-sourceHash: 72fb2f1e740816a84ef880040813b0fe2b64b265ab62d162360a764dbbf59bf9
+title: Veganer Chili (Co-op-Charge)
+sourceHash: ac6dd6d6e8d3e20abaff0cffdbb6d7df19c8502d7907ee5d7e99185758917269
 reviewed: false
 ingredients:
   - item: schwarze Bohnen aus der Dose

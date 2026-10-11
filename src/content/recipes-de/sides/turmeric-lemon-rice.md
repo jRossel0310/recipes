@@ -1,6 +1,6 @@
 ---
-title: Kurkuma-Zitronen-Reis
-sourceHash: 55b6964c78c0aefbd25c0c77588160b0d67ed657d10b9ca4ad3356d3ce2d1043
+title: Kurkuma-Zitronen-Reis (Co-op-Charge)
+sourceHash: dfc99d6e18f035c473d3431acfa83e9a77ff4d51979d22d1e54f9809e5695fb6
 reviewed: false
 ingredients:
   - item: 'Basmatireis, trocken'

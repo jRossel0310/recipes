@@ -1,5 +1,5 @@
 ---
-title: Balsamic Roasted Mushrooms
+title: Balsamic Roasted Mushrooms (Co-op Batch)
 source: co-op reference (refrences/Lasagna.pdf)
 servings: 150
 prepTime: 45 minutes

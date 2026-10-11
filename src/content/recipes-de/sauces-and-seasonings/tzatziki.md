@@ -1,6 +1,6 @@
 ---
-title: Tzatziki
-sourceHash: 294ec28fc156d230b9623ba842ca968ab7be06b3d94d06f4e62d8fe1fbb73234
+title: Tzatziki (Co-op-Charge)
+sourceHash: 9f10661a0d86327638a653dda196709f0325d91bdcd217df8cb6ef6541f5aeb0
 reviewed: false
 ingredients:
   - item: griechischer Vollmilchjoghurt

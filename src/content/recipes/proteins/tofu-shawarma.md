@@ -1,5 +1,5 @@
 ---
-title: Tofu Shawarma
+title: Tofu Shawarma (Co-op Batch)
 source: personal recipe
 servings: 50
 prepTime: 45 minutes

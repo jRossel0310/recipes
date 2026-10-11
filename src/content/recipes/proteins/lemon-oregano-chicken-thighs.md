@@ -1,5 +1,5 @@
 ---
-title: Lemon-Oregano Chicken Thighs
+title: Lemon-Oregano Chicken Thighs (Co-op Batch)
 source: personal recipe
 servings: 120
 prepTime: 30 minutes (plus marinating)

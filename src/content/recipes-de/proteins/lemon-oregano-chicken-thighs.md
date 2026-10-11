@@ -1,6 +1,6 @@
 ---
-title: Hähnchenschenkel mit Zitrone und Oregano
-sourceHash: f43845bfcae5f2e33e19c0c1d112201513409346d96ec93e52555eb967d8db67
+title: Hähnchenschenkel mit Zitrone und Oregano (Co-op-Charge)
+sourceHash: 25343c69b66605a4018680415c16f03f08c24f0e2e5a0d79471f4c7a1c3240f4
 reviewed: false
 ingredients:
   - item: Hähnchenschenkel ohne Knochen und Haut

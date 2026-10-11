@@ -1,5 +1,5 @@
 ---
-title: Vegan Chili
+title: Vegan Chili (Co-op Batch)
 source: Berkeley Student Cooperative reference doc
 servings: 100
 prepTime: 45 minutes (plus overnight bean soak)

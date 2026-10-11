@@ -1,6 +1,6 @@
 ---
-title: Gerösteter Blumenkohl mit Karotten
-sourceHash: 0f987afdd55374f57bb4f000144e4fb14effc2ba8220d900a68c788b399f0cbb
+title: Gerösteter Blumenkohl mit Karotten (Co-op-Charge)
+sourceHash: 767d304563e7cc67a372030fb60d2bec71d3dc10b89f0bd7fd72b5ac096196e8
 reviewed: false
 ingredients:
   - item: Blumenkohl

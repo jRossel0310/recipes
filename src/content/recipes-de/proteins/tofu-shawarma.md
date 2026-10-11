@@ -1,6 +1,6 @@
 ---
-title: Tofu-Shawarma
-sourceHash: b8193326aef794de2eedbb533f2550c0ab8f5268fffd5b0d3017f7115618123b
+title: Tofu-Shawarma (Co-op-Charge)
+sourceHash: 69fd9c2ea415509f9489fe09d6281da5362d21f41e47b4c4b232325e71c6f744
 reviewed: false
 ingredients:
   - item: extrafester Tofu

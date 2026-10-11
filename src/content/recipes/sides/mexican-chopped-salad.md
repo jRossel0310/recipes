@@ -1,5 +1,5 @@
 ---
-title: Mexican Chopped Salad
+title: Mexican Chopped Salad (Co-op Batch)
 source: personal recipe
 servings: 170
 prepTime: 60 minutes
