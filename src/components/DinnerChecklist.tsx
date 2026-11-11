@@ -14,7 +14,7 @@ interface DishView {
   servings: number;
   optional: boolean;
   ingredients: DishIngredient[];
-  steps: string[];
+  steps: { text: string; section?: string }[];
   notes: string[];
 }
 interface Props {
@@ -22,12 +22,24 @@ interface Props {
   dishes: DishView[];
 }
 
+// Batch labels like "(Co-op Batch)" just crowd the dish menu.
+function shortName(name: string): string {
+  return name.replace(/\s*\([^()]*\)\s*$/, '');
+}
+
+function countDone(checked: Record<string, boolean>, di: number, dish: DishView): number {
+  let n = 0;
+  dish.ingredients.forEach((_, ii) => { if (checked[`d${di}-i${ii}`]) n++; });
+  dish.steps.forEach((_, si) => { if (checked[`d${di}-s${si}`]) n++; });
+  return n;
+}
+
 export default function DinnerChecklist({ slug, dishes }: Props) {
   const storageKey = `dinner-checklist:${slug}`;
   const [checked, setChecked] = useState<Record<string, boolean>>({});
   const [activeDish, setActiveDish] = useState(0);
   const sectionRefs = useRef<(HTMLElement | null)[]>([]);
-  const linkRefs = useRef<(HTMLAnchorElement | null)[]>([]);
+  const menuRef = useRef<HTMLDetailsElement | null>(null);
 
   // Load persisted state after mount (keeps SSR markup and first client render identical).
   useEffect(() => {
@@ -59,14 +71,31 @@ export default function DinnerChecklist({ slug, dishes }: Props) {
     return () => observer.disconnect();
   }, [dishes.length]);
 
-  const didMountRef = useRef(false);
+  // The dish menu is a native <details>, so it opens before hydration too; once
+  // hydrated, close it on an outside tap or Escape like any other dropdown.
   useEffect(() => {
-    if (!didMountRef.current) {
-      didMountRef.current = true;
-      return;
+    function onPointerDown(e: PointerEvent) {
+      const menu = menuRef.current;
+      if (menu?.open && !menu.contains(e.target as Node)) menu.open = false;
     }
-    linkRefs.current[activeDish]?.scrollIntoView({ inline: 'nearest', block: 'nearest' });
-  }, [activeDish]);
+    function onKeyDown(e: KeyboardEvent) {
+      const menu = menuRef.current;
+      if (e.key === 'Escape' && menu?.open) {
+        menu.open = false;
+        menu.querySelector('summary')?.focus();
+      }
+    }
+    document.addEventListener('pointerdown', onPointerDown);
+    document.addEventListener('keydown', onKeyDown);
+    return () => {
+      document.removeEventListener('pointerdown', onPointerDown);
+      document.removeEventListener('keydown', onKeyDown);
+    };
+  }, []);
+
+  function closeMenu() {
+    if (menuRef.current) menuRef.current.open = false;
+  }
 
   function toggle(key: string) {
     setChecked((prev) => {
@@ -92,18 +121,39 @@ export default function DinnerChecklist({ slug, dishes }: Props) {
   return (
     <div className="dinner">
       <nav className="jump" aria-label="Jump to dish">
-        <div className="jump-pills">
-          {dishes.map((dish, di) => (
-            <a
-              key={di}
-              ref={(el) => { linkRefs.current[di] = el; }}
-              href={`#dish-${di}`}
-              className={[dish.optional ? 'optional' : '', di === activeDish ? 'active' : ''].filter(Boolean).join(' ') || undefined}
-            >
-              {dish.name}{dish.optional && ' · optional'}
-            </a>
-          ))}
-        </div>
+        <details className="jump-menu" ref={menuRef}>
+          <summary>
+            <span className="jump-count">{activeDish + 1}/{dishes.length}</span>
+            <span className="jump-current">{shortName(dishes[activeDish]?.name ?? '')}</span>
+            <span className="jump-chevron" aria-hidden="true" />
+          </summary>
+          <ol className="jump-list">
+            {dishes.map((dish, di) => {
+              const total = dish.ingredients.length + dish.steps.length;
+              const done = countDone(checked, di, dish);
+              return (
+                <li key={di}>
+                  <a
+                    href={`#dish-${di}`}
+                    onClick={closeMenu}
+                    aria-current={di === activeDish ? 'location' : undefined}
+                    className={[dish.optional ? 'optional' : '', di === activeDish ? 'active' : ''].filter(Boolean).join(' ') || undefined}
+                  >
+                    <span className="jump-name">
+                      {shortName(dish.name)}
+                      {dish.optional && <span className="jump-optional"> · optional</span>}
+                    </span>
+                    {done > 0 && (
+                      <span className={`jump-progress${done === total ? ' complete' : ''}`}>
+                        {done === total ? '✓' : `${done}/${total}`}
+                      </span>
+                    )}
+                  </a>
+                </li>
+              );
+            })}
+          </ol>
+        </details>
         <button className="reset" onClick={reset}>
           Reset checklist
         </button>
@@ -162,11 +212,13 @@ export default function DinnerChecklist({ slug, dishes }: Props) {
                 <ol className="checklist steps">
                   {dish.steps.map((step, si) => {
                     const key = `d${di}-s${si}`;
+                    const showSection = step.section && step.section !== dish.steps[si - 1]?.section;
                     return (
                       <li key={si}>
+                        {showSection && <h4 className="group">{step.section}</h4>}
                         <label className={checked[key] ? 'done' : undefined}>
                           <input type="checkbox" checked={!!checked[key]} onChange={() => toggle(key)} />
-                          <span>{step}</span>
+                          <span>{step.text}</span>
                         </label>
                       </li>
                     );

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { extractInstructions, buildChecklistDish, stepCountMatches } from './dinner';
+import { extractInstructions, extractInstructionSteps, buildChecklistDish, stepCountMatches } from './dinner';
 import type { RecipeData } from './types';
 
 const BODY = `## Instructions
@@ -63,6 +63,48 @@ describe('stepCountMatches', () => {
 
   it('is true when neither body has any steps', () => {
     expect(stepCountMatches('## Notes\n\n* a note', '## Hinweise\n\n* eine Notiz')).toBe(true);
+  });
+});
+
+describe('extractInstructionSteps', () => {
+  it('tags steps with the bold sub-section label above them', () => {
+    const body = `## Instructions
+
+**Prepare the green beans:**
+
+1. Trim the beans.
+2. Blanch them.
+
+**Assemble and bake:**
+
+3. Combine everything.
+
+## Notes
+
+* ignored
+`;
+    expect(extractInstructionSteps(body)).toEqual([
+      { text: 'Trim the beans.', section: 'Prepare the green beans' },
+      { text: 'Blanch them.', section: 'Prepare the green beans' },
+      { text: 'Combine everything.', section: 'Assemble and bake' },
+    ]);
+  });
+
+  it('treats ### sub-headings as sections', () => {
+    const body = '## Instructions\n\n### Stovetop\n\n1. Simmer.\n\n### Slow Cooker\n\n1. Cook on low.\n';
+    expect(extractInstructionSteps(body)).toEqual([
+      { text: 'Simmer.', section: 'Stovetop' },
+      { text: 'Cook on low.', section: 'Slow Cooker' },
+    ]);
+  });
+
+  it('leaves section off steps in recipes without sub-sections', () => {
+    expect(extractInstructionSteps(BODY)[0]).toEqual({ text: 'Preheat the oven to 425°F.' });
+  });
+
+  it('keeps extractInstructions returning plain step text', () => {
+    const body = '## Instructions\n\n**Part one:**\n\n1. A.\n2. B.\n';
+    expect(extractInstructions(body)).toEqual(['A.', 'B.']);
   });
 });
 

@@ -7,18 +7,38 @@ import { formatScaledQuantity, formatScaledMetric } from './units';
 // translated dish keeps its cooking steps.
 const INSTRUCTIONS_HEADING = /^##\s+(?:Instructions|Zubereitung)\s*$/m;
 
-export function extractInstructions(body: string): string[] {
+export interface InstructionStep {
+  text: string;
+  /** Sub-section label the step sits under ("Prepare the green beans"), if the recipe has one. */
+  section?: string;
+}
+
+// A sub-section label inside the instructions: a "### Heading" line or a line that is
+// entirely bold ("**Prepare the green beans:**"), with any trailing colon dropped.
+const SECTION_LINE = /^\s*(?:#{3,6}\s+(.+?)|\*\*(.+?)\*\*)\s*$/;
+
+export function extractInstructionSteps(body: string): InstructionStep[] {
   const start = body.search(INSTRUCTIONS_HEADING);
   if (start === -1) return [];
   let rest = body.slice(start).replace(INSTRUCTIONS_HEADING, '');
   const next = rest.search(/^##\s/m);
   if (next !== -1) rest = rest.slice(0, next);
-  const steps: string[] = [];
+  const steps: InstructionStep[] = [];
+  let section: string | undefined;
   for (const line of rest.split('\n')) {
+    const heading = line.match(SECTION_LINE);
+    if (heading) {
+      section = (heading[1] ?? heading[2]).replace(/\s*:\s*$/, '').trim() || undefined;
+      continue;
+    }
     const m = line.match(/^\s*\d+\.\s+(.*\S)\s*$/);
-    if (m) steps.push(m[1]);
+    if (m) steps.push(section ? { text: m[1], section } : { text: m[1] });
   }
   return steps;
+}
+
+export function extractInstructions(body: string): string[] {
+  return extractInstructionSteps(body).map((s) => s.text);
 }
 
 /**
@@ -49,7 +69,7 @@ export interface DishView {
   servings: number;
   optional: boolean;
   ingredients: DishIngredient[];
-  steps: string[];
+  steps: InstructionStep[];
   notes: string[];
 }
 
@@ -72,5 +92,5 @@ export function buildChecklistDish(
       optional: s.optional,
     };
   });
-  return { name: recipe.title, servings: targetServings, optional, ingredients, steps: extractInstructions(body), notes };
+  return { name: recipe.title, servings: targetServings, optional, ingredients, steps: extractInstructionSteps(body), notes };
 }
