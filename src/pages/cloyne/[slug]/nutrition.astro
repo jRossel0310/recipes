@@ -1,6 +1,7 @@
 ---
 import { getCollection, getEntry } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { dishDisplayName } from '../../../lib/dinner';
 
 export async function getStaticPaths() {
   const dinners = await getCollection('dinners', ({ data }) => data.kind === 'cloyne');
@@ -13,7 +14,7 @@ const d = entry.data;
 const dishes = [];
 for (const dish of d.dishes) {
   const recipe = await getEntry(dish.recipe);
-  dishes.push({ name: recipe.data.title, servings: dish.servings, optional: dish.optional ?? false, nutrition: recipe.data.nutrition });
+  dishes.push({ name: dishDisplayName(recipe.data.title), servings: dish.servings, optional: dish.optional ?? false, nutrition: recipe.data.nutrition });
 }
 ---
 <BaseLayout title={`${d.title} - Nutrition`}>

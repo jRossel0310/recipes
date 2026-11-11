@@ -22,11 +22,6 @@ interface Props {
   dishes: DishView[];
 }
 
-// Batch labels like "(Co-op Batch)" just crowd the dish menu.
-function shortName(name: string): string {
-  return name.replace(/\s*\([^()]*\)\s*$/, '');
-}
-
 function countDone(checked: Record<string, boolean>, di: number, dish: DishView): number {
   let n = 0;
   dish.ingredients.forEach((_, ii) => { if (checked[`d${di}-i${ii}`]) n++; });
@@ -124,7 +119,7 @@ export default function DinnerChecklist({ slug, dishes }: Props) {
         <details className="jump-menu" ref={menuRef}>
           <summary>
             <span className="jump-count">{activeDish + 1}/{dishes.length}</span>
-            <span className="jump-current">{shortName(dishes[activeDish]?.name ?? '')}</span>
+            <span className="jump-current">{dishes[activeDish]?.name}</span>
             <span className="jump-chevron" aria-hidden="true" />
           </summary>
           <ol className="jump-list">
@@ -140,7 +135,7 @@ export default function DinnerChecklist({ slug, dishes }: Props) {
                     className={[dish.optional ? 'optional' : '', di === activeDish ? 'active' : ''].filter(Boolean).join(' ') || undefined}
                   >
                     <span className="jump-name">
-                      {shortName(dish.name)}
+                      {dish.name}
                       {dish.optional && <span className="jump-optional"> · optional</span>}
                     </span>
                     {done > 0 && (

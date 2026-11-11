@@ -73,6 +73,15 @@ export interface DishView {
   notes: string[];
 }
 
+// Every dish on a dinner page is a big batch, so the "(Co-op Batch)" suffix that tells the
+// co-op card apart from its home-size version in the recipe list is just noise there.
+// Only that label is dropped: other parentheticals ("Lasagna Bechamel (Vegan)") carry meaning.
+const BATCH_LABEL = /\s*\((?:Co-op Batch|Co-op-Charge)\)\s*$/i;
+
+export function dishDisplayName(title: string): string {
+  return title.replace(BATCH_LABEL, '');
+}
+
 export function buildChecklistDish(
   recipe: RecipeData,
   body: string,
@@ -92,5 +101,5 @@ export function buildChecklistDish(
       optional: s.optional,
     };
   });
-  return { name: recipe.title, servings: targetServings, optional, ingredients, steps: extractInstructionSteps(body), notes };
+  return { name: dishDisplayName(recipe.title), servings: targetServings, optional, ingredients, steps: extractInstructionSteps(body), notes };
 }

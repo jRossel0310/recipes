@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { extractInstructions, extractInstructionSteps, buildChecklistDish, stepCountMatches } from './dinner';
+import { extractInstructions, extractInstructionSteps, buildChecklistDish, dishDisplayName, stepCountMatches } from './dinner';
 import type { RecipeData } from './types';
 
 const BODY = `## Instructions
@@ -140,5 +140,17 @@ describe('buildChecklistDish', () => {
 
   it('marks optional dinner dishes', () => {
     expect(buildChecklistDish(recipe, BODY, 6, [], true).optional).toBe(true);
+  });
+});
+
+describe('dishDisplayName', () => {
+  it('drops the co-op batch label in English and German', () => {
+    expect(dishDisplayName('Chicken Enchiladas (Co-op Batch)')).toBe('Chicken Enchiladas');
+    expect(dishDisplayName('Tofu-Shawarma (Co-op-Charge)')).toBe('Tofu-Shawarma');
+  });
+
+  it('keeps parentheticals that carry meaning', () => {
+    expect(dishDisplayName('Lasagna Bechamel (Vegan)')).toBe('Lasagna Bechamel (Vegan)');
+    expect(dishDisplayName('Mexican Street Corn (Esquites)')).toBe('Mexican Street Corn (Esquites)');
   });
 });
