@@ -10,8 +10,8 @@ dishes:
     servings: 70
   - recipe: pasta-and-bakes/vegan-enchiladas
     servings: 70
-  - recipe: sides/pinto-beans-dry
-    servings: 88
+  - recipe: sides/refried-beans
+    servings: 66
   - recipe: sides/mexican-rice
     servings: 90
   - recipe: sides/mexican-street-corn
