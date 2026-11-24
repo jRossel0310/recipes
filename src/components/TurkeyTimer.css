@@ -1,0 +1,5 @@
+.turkey-timer h2 { margin: 0 0 0.75rem; font-size: 1.1rem; }
+.turkey-timer dl { display: grid; grid-template-columns: auto 1fr; gap: 0.35rem 1rem; margin: 1rem 0 0.5rem; }
+.turkey-timer dt { color: var(--muted); }
+.turkey-timer dd { margin: 0; font-weight: 600; }
+.turkey-timer .hint { color: var(--muted); font-size: 0.9rem; margin: 0.5rem 0 0; }

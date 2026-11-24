@@ -45,6 +45,12 @@ const { Content } = await chosen.render();
 <BaseLayout title={chosen.data.title} lang="de">
   <h1>{chosen.data.title}</h1>
   <TranslationBanner kind={banner} lang="de" />
-  <RecipeScaler client:load baseServings={entry.data.servings} ingredients={ingredients} />
+  <RecipeScaler
+    client:load
+    baseServings={entry.data.servings}
+    ingredients={ingredients}
+    unitLabel={entry.data.servingsUnit}
+    turkeyTimer={entry.data.turkeyTimer}
+  />
   <article lang={useGerman ? 'de' : 'en'}><Content /></article>
 </BaseLayout>

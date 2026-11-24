@@ -2,16 +2,21 @@ import { useState } from 'react';
 import type { Ingredient } from '../lib/types';
 import { scaleFactor, scaleIngredient } from '../lib/scale';
 import { formatScaledQuantity, formatScaledMetric } from '../lib/units';
+import TurkeyTimer from './TurkeyTimer';
 import './RecipeScaler.css';
 
 interface Props {
   baseServings: number;
   ingredients: Ingredient[];
+  /** Shown instead of "servings", e.g. "lb turkey". */
+  unitLabel?: string;
+  /** Show the turkey cook-time estimate, reading the scaler's count as pounds. */
+  turkeyTimer?: boolean;
 }
 
 const MAX_SERVINGS = 9999;
 
-export default function RecipeScaler({ baseServings, ingredients }: Props) {
+export default function RecipeScaler({ baseServings, ingredients, unitLabel, turkeyTimer }: Props) {
   const [servings, setServings] = useState(baseServings);
   // Holds raw keystrokes while the field is mid-edit so a cleared or half-typed
   // value can sit on screen without the ingredient list following it.
@@ -49,28 +54,31 @@ export default function RecipeScaler({ baseServings, ingredients }: Props) {
   });
 
   return (
+    <>
     <div className="scaler">
       <div className="stepper">
-        <button aria-label="Fewer servings" onClick={() => step(servings - 1)}>−</button>
+        <button aria-label={`Fewer ${unitLabel ?? 'servings'}`} onClick={() => step(servings - 1)}>−</button>
         <input
           className="count"
           type="number"
           min={1}
           max={MAX_SERVINGS}
           inputMode="numeric"
-          aria-label="Servings"
+          aria-label={unitLabel ?? 'Servings'}
           value={draft ?? String(servings)}
           onChange={(e) => commit(e.target.value)}
           onFocus={(e) => e.target.select()}
           onBlur={() => setDraft(null)}
         />
-        <button aria-label="More servings" onClick={() => step(servings + 1)}>+</button>
-        <span>servings</span>
+        <button aria-label={`More ${unitLabel ?? 'servings'}`} onClick={() => step(servings + 1)}>+</button>
+        <span>{unitLabel ?? 'servings'}</span>
         {servings !== baseServings && (
           <button className="reset" onClick={() => step(baseServings)}>reset</button>
         )}
       </div>
       <ul className="ingredients">{rows}</ul>
     </div>
+    {turkeyTimer && <TurkeyTimer lbs={servings} />}
+    </>
   );
 }

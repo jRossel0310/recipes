@@ -31,6 +31,9 @@ const recipes = defineCollection({
       .optional(),
     tags: z.array(z.string()).optional(),
     hidden: z.boolean().optional(),
+    // What the scaler counts instead of "servings", e.g. "lb turkey".
+    servingsUnit: z.string().optional(),
+    turkeyTimer: z.boolean().optional(),
     ingredients: z.array(ingredient).min(1),
   }),
 });

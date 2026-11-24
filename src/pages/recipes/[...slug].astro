@@ -34,7 +34,13 @@ const d = entry.data;
     </p>
   )}
 
-  <RecipeScaler client:load baseServings={d.servings} ingredients={d.ingredients} />
+  <RecipeScaler
+    client:load
+    baseServings={d.servings}
+    ingredients={d.ingredients}
+    unitLabel={d.servingsUnit}
+    turkeyTimer={d.turkeyTimer}
+  />
 
   <article>
     <Content />
